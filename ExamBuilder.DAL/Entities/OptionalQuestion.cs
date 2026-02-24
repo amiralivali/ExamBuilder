@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExamBuilder.Shared;
 
 namespace ExamBuilder.DAL.Entities
 {
-    public class OptionalQuestion : Question
+    public class OptionalQuestion : BaseQuestion
     {
         [Required]
         [MaxLength(30)]
@@ -21,5 +22,7 @@ namespace ExamBuilder.DAL.Entities
         [Required]
         [MaxLength(30)]
         public string Option4 { get; set; }
+        public virtual Lesson Lesson { get; set; }
+        public virtual DifficultyLevel DifficultyLevel { get; set; }
     }
 }

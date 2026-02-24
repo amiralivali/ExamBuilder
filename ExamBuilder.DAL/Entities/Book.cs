@@ -14,6 +14,7 @@ namespace ExamBuilder.DAL.Entities
         [Required]
         [MaxLength(20)]
         public string Title { get; set; }
-        public virtual ICollection<Lessons> Lessonses { get; set; } = new List<Lessons>();
+        public int Grade { get; set; }
+        public virtual ICollection<Lesson> Lessons { get; set; }
     }
 }

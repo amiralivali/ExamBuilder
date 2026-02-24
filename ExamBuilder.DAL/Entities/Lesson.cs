@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExamBuilder.DAL.Entities
 {
-    public class Lessons
+    public class Lesson
     {
         [Key]
         public int ID { get; set; }
@@ -17,6 +17,10 @@ namespace ExamBuilder.DAL.Entities
         public int LessonCount { get; set; }
         public int BookID { get; set; }
         public virtual Book Book { get; set; }
-        public virtual ICollection<Question> Questions { get; set; }=new List<Question>();
+        public virtual ICollection<DescriptiveQuestion> DescriptiveQuestions { get; set; }
+        public virtual ICollection<MatchingQuestion> MatchingQuestions { get; set; }
+        public virtual ICollection<OptionalQuestion> OptionalQuestions { get; set; }
+        public virtual ICollection<ShortQuestion> ShortQuestions { get; set; }
+        public virtual ICollection<TrueFalseQuestion> TrueFalseQuestions { get; set; }
     }
 }

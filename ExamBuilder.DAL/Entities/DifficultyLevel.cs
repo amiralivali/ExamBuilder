@@ -14,6 +14,10 @@ namespace ExamBuilder.DAL.Entities
         [Required]
         [MaxLength(10)]
         public string Title { get; set; }
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<DescriptiveQuestion> DescriptiveQuestions { get; set; }
+        public virtual ICollection<MatchingQuestion> MatchingQuestions { get; set; }
+        public virtual ICollection<OptionalQuestion> OptionalQuestions { get; set; }
+        public virtual ICollection<ShortQuestion> ShortQuestions { get; set; }
+        public virtual ICollection<TrueFalseQuestion> TrueFalseQuestions { get; set; }
     }
 }
