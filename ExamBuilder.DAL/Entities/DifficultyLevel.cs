@@ -19,5 +19,6 @@ namespace ExamBuilder.DAL.Entities
         public virtual ICollection<OptionalQuestion> OptionalQuestions { get; set; }
         public virtual ICollection<ShortQuestion> ShortQuestions { get; set; }
         public virtual ICollection<TrueFalseQuestion> TrueFalseQuestions { get; set; }
+        public virtual ICollection<FillInBlankQuestion> FillInBlankQuestions { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace ExamBuilder.DAL.Entities
         [Key]
         public int ID { get; set; }
         [Required]
-        [MaxLength(20)]
+        [MaxLength(30)]
         public string Title { get; set; }
         public int LessonCount { get; set; }
         public int BookID { get; set; }
@@ -22,5 +22,6 @@ namespace ExamBuilder.DAL.Entities
         public virtual ICollection<OptionalQuestion> OptionalQuestions { get; set; }
         public virtual ICollection<ShortQuestion> ShortQuestions { get; set; }
         public virtual ICollection<TrueFalseQuestion> TrueFalseQuestions { get; set; }
+        public virtual ICollection<FillInBlankQuestion> FillInBlankQuestions { get; set; }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ExamBuilder.DAL.Entities
 {
@@ -18,6 +13,6 @@ namespace ExamBuilder.DAL.Entities
         [Required]
         [MaxLength(30)]
         public string RightText { get; set; }
-        public virtual MatchingQuestion matchingQuestion { get; set; }
+        public virtual MatchingQuestion MatchingQuestion { get; set; }
     }
 }

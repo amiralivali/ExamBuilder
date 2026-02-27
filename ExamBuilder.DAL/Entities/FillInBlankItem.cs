@@ -2,14 +2,14 @@
 
 namespace ExamBuilder.DAL.Entities
 {
-    public class TrueFalseItem
+    public class FillInBlankItem
     {
         [Key]
         public int ID { get; set; }
-        public int TrueFalseQuestionID { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Text { get; set; }
-        public virtual TrueFalseQuestion TrueFalseQuestion { get; set; }
+        public int FillInBlankQuestionID { get; set; }
+        public virtual FillInBlankQuestion FillInBlankQuestion { get; set; }
     }
 }
