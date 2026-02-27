@@ -28,30 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddBook));
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             label3 = new Label();
             pictureBox3 = new PictureBox();
             panel1 = new Panel();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            flpLessons = new FlowLayoutPanel();
             guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             label6 = new Label();
             guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            textBox1 = new TextBox();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2NumericUpDown1 = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            txtBookName = new Bunifu.UI.WinForms.BunifuTextBox();
+            btnCreatLesson = new Guna.UI2.WinForms.Guna2Button();
+            numberPick = new Guna.UI2.WinForms.Guna2NumericUpDown();
             label5 = new Label();
             cbGrade = new Guna.UI2.WinForms.Guna2ComboBox();
             label4 = new Label();
@@ -63,14 +67,14 @@
             panel1.SuspendLayout();
             guna2ShadowPanel2.SuspendLayout();
             guna2ShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2NumericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numberPick).BeginInit();
             SuspendLayout();
             // 
             // guna2CustomGradientPanel1
             // 
             guna2CustomGradientPanel1.Controls.Add(label3);
             guna2CustomGradientPanel1.Controls.Add(pictureBox3);
-            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges1;
+            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges11;
             guna2CustomGradientPanel1.Dock = DockStyle.Top;
             guna2CustomGradientPanel1.FillColor = Color.FromArgb(249, 115, 22);
             guna2CustomGradientPanel1.FillColor2 = Color.FromArgb(249, 115, 22);
@@ -78,8 +82,8 @@
             guna2CustomGradientPanel1.FillColor4 = Color.FromArgb(242, 88, 12);
             guna2CustomGradientPanel1.Location = new Point(0, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2CustomGradientPanel1.Size = new Size(728, 81);
+            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2CustomGradientPanel1.Size = new Size(761, 81);
             guna2CustomGradientPanel1.TabIndex = 1;
             // 
             // label3
@@ -88,7 +92,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(480, 31);
+            label3.Location = new Point(517, 29);
             label3.Name = "label3";
             label3.Size = new Size(158, 20);
             label3.TabIndex = 19;
@@ -98,7 +102,7 @@
             // 
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = Properties.Resources.orange_book_5000_512;
-            pictureBox3.Location = new Point(644, 6);
+            pictureBox3.Location = new Point(681, 4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(67, 70);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -112,9 +116,9 @@
             panel1.Controls.Add(guna2ShadowPanel2);
             panel1.Controls.Add(guna2ShadowPanel1);
             panel1.Controls.Add(guna2CustomGradientPanel1);
-            panel1.Location = new Point(45, 12);
+            panel1.Location = new Point(20, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(728, 468);
+            panel1.Size = new Size(761, 468);
             panel1.TabIndex = 2;
             // 
             // guna2Button2
@@ -123,7 +127,7 @@
             guna2Button2.AnimatedGIF = true;
             guna2Button2.AutoRoundedCorners = true;
             guna2Button2.BackColor = Color.Transparent;
-            guna2Button2.CustomizableEdges = customizableEdges3;
+            guna2Button2.CustomizableEdges = customizableEdges13;
             guna2Button2.DisabledState.BorderColor = Color.DarkGray;
             guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button2.DisabledState.FillColor = Color.FromArgb(253, 186, 116);
@@ -132,17 +136,18 @@
             guna2Button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             guna2Button2.ForeColor = Color.White;
             guna2Button2.HoverState.FillColor = Color.FromArgb(234, 88, 12);
-            guna2Button2.Location = new Point(403, 417);
+            guna2Button2.Location = new Point(440, 417);
             guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Button2.Size = new Size(235, 40);
             guna2Button2.TabIndex = 29;
             guna2Button2.Text = "ثبت نهایی کتاب";
+            guna2Button2.Click += guna2Button2_Click;
             // 
             // guna2ShadowPanel2
             // 
             guna2ShadowPanel2.BackColor = Color.Transparent;
-            guna2ShadowPanel2.Controls.Add(flowLayoutPanel1);
+            guna2ShadowPanel2.Controls.Add(flpLessons);
             guna2ShadowPanel2.Controls.Add(guna2Separator2);
             guna2ShadowPanel2.Controls.Add(label6);
             guna2ShadowPanel2.FillColor = Color.White;
@@ -151,22 +156,22 @@
             guna2ShadowPanel2.Radius = 5;
             guna2ShadowPanel2.ShadowColor = Color.Black;
             guna2ShadowPanel2.ShadowDepth = 20;
-            guna2ShadowPanel2.Size = new Size(287, 370);
+            guna2ShadowPanel2.Size = new Size(330, 370);
             guna2ShadowPanel2.TabIndex = 4;
             // 
-            // flowLayoutPanel1
+            // flpLessons
             // 
-            flowLayoutPanel1.Location = new Point(11, 64);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(263, 293);
-            flowLayoutPanel1.TabIndex = 31;
+            flpLessons.Location = new Point(11, 64);
+            flpLessons.Name = "flpLessons";
+            flpLessons.Size = new Size(305, 293);
+            flpLessons.TabIndex = 31;
             // 
             // guna2Separator2
             // 
             guna2Separator2.FillColor = Color.Silver;
             guna2Separator2.Location = new Point(11, 45);
             guna2Separator2.Name = "guna2Separator2";
-            guna2Separator2.Size = new Size(263, 19);
+            guna2Separator2.Size = new Size(305, 19);
             guna2Separator2.TabIndex = 30;
             // 
             // label6
@@ -175,7 +180,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(148, 22);
+            label6.Location = new Point(190, 22);
             label6.Name = "label6";
             label6.Size = new Size(126, 20);
             label6.TabIndex = 29;
@@ -184,9 +189,9 @@
             // guna2ShadowPanel1
             // 
             guna2ShadowPanel1.BackColor = Color.Transparent;
-            guna2ShadowPanel1.Controls.Add(textBox1);
-            guna2ShadowPanel1.Controls.Add(guna2Button1);
-            guna2ShadowPanel1.Controls.Add(guna2NumericUpDown1);
+            guna2ShadowPanel1.Controls.Add(txtBookName);
+            guna2ShadowPanel1.Controls.Add(btnCreatLesson);
+            guna2ShadowPanel1.Controls.Add(numberPick);
             guna2ShadowPanel1.Controls.Add(label5);
             guna2ShadowPanel1.Controls.Add(cbGrade);
             guna2ShadowPanel1.Controls.Add(label4);
@@ -194,7 +199,7 @@
             guna2ShadowPanel1.Controls.Add(guna2Separator1);
             guna2ShadowPanel1.Controls.Add(label1);
             guna2ShadowPanel1.FillColor = Color.White;
-            guna2ShadowPanel1.Location = new Point(311, 87);
+            guna2ShadowPanel1.Location = new Point(348, 87);
             guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             guna2ShadowPanel1.Radius = 5;
             guna2ShadowPanel1.ShadowColor = Color.Black;
@@ -202,47 +207,117 @@
             guna2ShadowPanel1.Size = new Size(400, 324);
             guna2ShadowPanel1.TabIndex = 3;
             // 
-            // textBox1
+            // txtBookName
             // 
-            textBox1.Location = new Point(32, 94);
-            textBox1.Name = "textBox1";
-            textBox1.RightToLeft = RightToLeft.Yes;
-            textBox1.Size = new Size(332, 23);
-            textBox1.TabIndex = 0;
+            txtBookName.AcceptsReturn = false;
+            txtBookName.AcceptsTab = false;
+            txtBookName.AnimationSpeed = 200;
+            txtBookName.AutoCompleteMode = AutoCompleteMode.None;
+            txtBookName.AutoCompleteSource = AutoCompleteSource.None;
+            txtBookName.AutoSizeHeight = true;
+            txtBookName.BackColor = Color.Transparent;
+            txtBookName.BackgroundImage = (Image)resources.GetObject("txtBookName.BackgroundImage");
+            txtBookName.BorderColorActive = Color.DodgerBlue;
+            txtBookName.BorderColorDisabled = Color.FromArgb(204, 204, 204);
+            txtBookName.BorderColorHover = Color.FromArgb(105, 181, 255);
+            txtBookName.BorderColorIdle = Color.Silver;
+            txtBookName.BorderRadius = 1;
+            txtBookName.BorderThickness = 1;
+            txtBookName.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
+            txtBookName.CharacterCasing = CharacterCasing.Normal;
+            txtBookName.DefaultFont = new Font("Segoe UI", 9.25F);
+            txtBookName.DefaultText = "";
+            txtBookName.FillColor = Color.White;
+            txtBookName.HideSelection = true;
+            txtBookName.IconLeft = null;
+            txtBookName.IconLeftCursor = Cursors.IBeam;
+            txtBookName.IconPadding = 10;
+            txtBookName.IconRight = null;
+            txtBookName.IconRightCursor = Cursors.IBeam;
+            txtBookName.Location = new Point(32, 92);
+            txtBookName.MaxLength = 32767;
+            txtBookName.MinimumSize = new Size(1, 1);
+            txtBookName.Modified = false;
+            txtBookName.Multiline = false;
+            txtBookName.Name = "txtBookName";
+            stateProperties5.BorderColor = Color.DodgerBlue;
+            stateProperties5.FillColor = Color.Empty;
+            stateProperties5.ForeColor = Color.Empty;
+            stateProperties5.PlaceholderForeColor = Color.Empty;
+            txtBookName.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = Color.FromArgb(204, 204, 204);
+            stateProperties6.FillColor = Color.FromArgb(240, 240, 240);
+            stateProperties6.ForeColor = Color.FromArgb(109, 109, 109);
+            stateProperties6.PlaceholderForeColor = Color.DarkGray;
+            txtBookName.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = Color.FromArgb(105, 181, 255);
+            stateProperties7.FillColor = Color.Empty;
+            stateProperties7.ForeColor = Color.Empty;
+            stateProperties7.PlaceholderForeColor = Color.Empty;
+            txtBookName.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = Color.Silver;
+            stateProperties8.FillColor = Color.White;
+            stateProperties8.ForeColor = Color.Empty;
+            stateProperties8.PlaceholderForeColor = Color.Empty;
+            txtBookName.OnIdleState = stateProperties8;
+            txtBookName.Padding = new Padding(3);
+            txtBookName.PasswordChar = '\0';
+            txtBookName.PlaceholderForeColor = Color.Silver;
+            txtBookName.PlaceholderText = "نام کتاب را وارد کنید";
+            txtBookName.ReadOnly = false;
+            txtBookName.RightToLeft = RightToLeft.Yes;
+            txtBookName.ScrollBars = ScrollBars.None;
+            txtBookName.SelectedText = "";
+            txtBookName.SelectionLength = 0;
+            txtBookName.SelectionStart = 0;
+            txtBookName.ShortcutsEnabled = true;
+            txtBookName.Size = new Size(341, 35);
+            txtBookName.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            txtBookName.TabIndex = 27;
+            txtBookName.TextAlign = HorizontalAlignment.Left;
+            txtBookName.TextMarginBottom = 0;
+            txtBookName.TextMarginLeft = 3;
+            txtBookName.TextMarginTop = 1;
+            txtBookName.TextPlaceholder = "نام کتاب را وارد کنید";
+            txtBookName.UseSystemPasswordChar = false;
+            txtBookName.WordWrap = true;
             // 
-            // guna2Button1
+            // btnCreatLesson
             // 
-            guna2Button1.Animated = true;
-            guna2Button1.AnimatedGIF = true;
-            guna2Button1.AutoRoundedCorners = true;
-            guna2Button1.BackColor = Color.Transparent;
-            guna2Button1.CustomizableEdges = customizableEdges5;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(253, 186, 116);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.FromArgb(249, 115, 22);
-            guna2Button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.HoverState.FillColor = Color.FromArgb(234, 88, 12);
-            guna2Button1.Location = new Point(142, 262);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Button1.Size = new Size(145, 40);
-            guna2Button1.TabIndex = 3;
-            guna2Button1.Text = "ایجاد دروس";
+            btnCreatLesson.Animated = true;
+            btnCreatLesson.AnimatedGIF = true;
+            btnCreatLesson.AutoRoundedCorners = true;
+            btnCreatLesson.BackColor = Color.Transparent;
+            btnCreatLesson.CustomizableEdges = customizableEdges15;
+            btnCreatLesson.DisabledState.BorderColor = Color.DarkGray;
+            btnCreatLesson.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnCreatLesson.DisabledState.FillColor = Color.FromArgb(253, 186, 116);
+            btnCreatLesson.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCreatLesson.Enabled = false;
+            btnCreatLesson.FillColor = Color.FromArgb(249, 115, 22);
+            btnCreatLesson.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCreatLesson.ForeColor = Color.White;
+            btnCreatLesson.HoverState.FillColor = Color.FromArgb(234, 88, 12);
+            btnCreatLesson.Location = new Point(142, 262);
+            btnCreatLesson.Name = "btnCreatLesson";
+            btnCreatLesson.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnCreatLesson.Size = new Size(145, 40);
+            btnCreatLesson.TabIndex = 3;
+            btnCreatLesson.Text = "ایجاد دروس";
+            btnCreatLesson.Click += guna2Button1_Click;
             // 
-            // guna2NumericUpDown1
+            // numberPick
             // 
-            guna2NumericUpDown1.BackColor = Color.Transparent;
-            guna2NumericUpDown1.CustomizableEdges = customizableEdges7;
-            guna2NumericUpDown1.Font = new Font("Segoe UI", 9F);
-            guna2NumericUpDown1.Location = new Point(216, 212);
-            guna2NumericUpDown1.Name = "guna2NumericUpDown1";
-            guna2NumericUpDown1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2NumericUpDown1.Size = new Size(71, 32);
-            guna2NumericUpDown1.TabIndex = 2;
-            guna2NumericUpDown1.UpDownButtonFillColor = Color.FromArgb(249, 115, 22);
+            numberPick.BackColor = Color.Transparent;
+            numberPick.CustomizableEdges = customizableEdges17;
+            numberPick.Font = new Font("Segoe UI", 9F);
+            numberPick.Location = new Point(216, 212);
+            numberPick.Name = "numberPick";
+            numberPick.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            numberPick.Size = new Size(71, 32);
+            numberPick.TabIndex = 2;
+            numberPick.UpDownButtonFillColor = Color.FromArgb(249, 115, 22);
+            numberPick.ValueChanged += guna2NumericUpDown1_ValueChanged;
             // 
             // label5
             // 
@@ -259,7 +334,7 @@
             // cbGrade
             // 
             cbGrade.BackColor = Color.Transparent;
-            cbGrade.CustomizableEdges = customizableEdges9;
+            cbGrade.CustomizableEdges = customizableEdges19;
             cbGrade.DrawMode = DrawMode.OwnerDrawFixed;
             cbGrade.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGrade.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -267,9 +342,10 @@
             cbGrade.Font = new Font("Segoe UI", 10F);
             cbGrade.ForeColor = Color.FromArgb(68, 88, 112);
             cbGrade.ItemHeight = 30;
-            cbGrade.Location = new Point(243, 157);
+            cbGrade.Items.AddRange(new object[] { "اول", "دوم", "سوم", "چهارم", "پنجم", "ششم", "هفتم", "هشتم", "نهم", "دهم", "یازدهم", "دوازدهم", "دانشگاه", "...سایر" });
+            cbGrade.Location = new Point(252, 157);
             cbGrade.Name = "cbGrade";
-            cbGrade.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            cbGrade.ShadowDecoration.CustomizableEdges = customizableEdges20;
             cbGrade.Size = new Size(121, 36);
             cbGrade.TabIndex = 1;
             // 
@@ -327,6 +403,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmAddBook";
             Text = "آزمون یار";
+            Load += frmAddBook_Load;
             guna2CustomGradientPanel1.ResumeLayout(false);
             guna2CustomGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -335,7 +412,7 @@
             guna2ShadowPanel2.PerformLayout();
             guna2ShadowPanel1.ResumeLayout(false);
             guna2ShadowPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2NumericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numberPick).EndInit();
             ResumeLayout(false);
         }
 
@@ -349,16 +426,16 @@
         private Label label2;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Label label1;
-        private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
+        private Guna.UI2.WinForms.Guna2NumericUpDown numberPick;
         private Label label5;
         private Guna.UI2.WinForms.Guna2ComboBox cbGrade;
         private Label label4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnCreatLesson;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flpLessons;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
         private Label label6;
-        private TextBox textBox1;
+        private Bunifu.UI.WinForms.BunifuTextBox txtBookName;
     }
 }

@@ -6,9 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+	<GenerateResourceWarnOnBinaryFormatterUse>false</GenerateResourceWarnOnBinaryFormatterUse>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bunifu.UI.WinForms" Version="9.1.0" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.7" />
   </ItemGroup>
 

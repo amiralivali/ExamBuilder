@@ -16,5 +16,14 @@ namespace ExamBuilder.UI
         {
             InitializeComponent();
         }
+
+        private void cbBook_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBook.SelectedIndex == 0)
+                cbBook.ForeColor = Color.Gray;
+            else
+                cbBook.ForeColor = Color.Black;
+            //
+        } 
     }
 }

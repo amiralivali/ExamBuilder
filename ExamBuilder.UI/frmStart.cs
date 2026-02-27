@@ -9,12 +9,10 @@ namespace ExamBuilder.UI
 
         private void guna2ShadowPanel1_MouseEnter(object sender, EventArgs e)
         {
-            guna2Panel1.FillColor = Color.FromArgb(245, 245, 245);
         }
 
         private void guna2ShadowPanel1_MouseLeave(object sender, EventArgs e)
         {
-            guna2Panel1.FillColor = Color.White;
         }
 
         private void Form1_Load(object sender, EventArgs e)

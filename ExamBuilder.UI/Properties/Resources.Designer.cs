@@ -129,5 +129,15 @@ namespace ExamBuilder.UI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap to_do_list_13181_512__1_ {
+            get {
+                object obj = ResourceManager.GetObject("to-do-list-13181_512 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

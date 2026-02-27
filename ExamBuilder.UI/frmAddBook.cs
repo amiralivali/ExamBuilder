@@ -16,5 +16,28 @@ namespace ExamBuilder.UI
         {
             InitializeComponent();
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if (((int)numberPick.Value) > 0 && !string.IsNullOrEmpty(txtBookName.Text) && cbGrade.SelectedIndex != -1)
+            {
+                btnCreatLesson.Enabled = true;
+            }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmAddBook_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
