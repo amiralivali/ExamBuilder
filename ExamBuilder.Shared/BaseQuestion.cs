@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ExamBuilder.Shared
 {
@@ -13,7 +8,7 @@ namespace ExamBuilder.Shared
         public int ID { get; set; }
         public int LessonID { get; set; }
         [Required]
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string QuestionText { get; set; }
         public string Picture { get; set; }
         public int DifficultyLevelID { get; set; }
