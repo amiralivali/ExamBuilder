@@ -93,25 +93,28 @@
             panel1.Controls.Add(btnMatching);
             panel1.Controls.Add(guna2ShadowPanel1);
             panel1.Controls.Add(guna2CustomGradientPanel1);
-            panel1.Location = new Point(38, 12);
+            panel1.Location = new Point(43, 16);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(809, 468);
+            panel1.Size = new Size(925, 624);
             panel1.TabIndex = 3;
             // 
             // guna2Separator4
             // 
             guna2Separator4.FillThickness = 2;
-            guna2Separator4.Location = new Point(763, 425);
+            guna2Separator4.Location = new Point(872, 567);
+            guna2Separator4.Margin = new Padding(3, 4, 3, 4);
             guna2Separator4.Name = "guna2Separator4";
-            guna2Separator4.Size = new Size(27, 8);
+            guna2Separator4.Size = new Size(31, 11);
             guna2Separator4.TabIndex = 29;
             // 
             // guna2Separator3
             // 
             guna2Separator3.FillThickness = 2;
-            guna2Separator3.Location = new Point(28, 425);
+            guna2Separator3.Location = new Point(32, 567);
+            guna2Separator3.Margin = new Padding(3, 4, 3, 4);
             guna2Separator3.Name = "guna2Separator3";
-            guna2Separator3.Size = new Size(27, 8);
+            guna2Separator3.Size = new Size(31, 11);
             guna2Separator3.TabIndex = 28;
             // 
             // btnDescritive
@@ -133,11 +136,12 @@
             btnDescritive.FillColor = Color.FromArgb(230, 235, 245);
             btnDescritive.Font = new Font("Segoe UI", 9F);
             btnDescritive.ForeColor = Color.Black;
-            btnDescritive.Location = new Point(55, 411);
+            btnDescritive.Location = new Point(63, 548);
+            btnDescritive.Margin = new Padding(3, 4, 3, 4);
             btnDescritive.Name = "btnDescritive";
             btnDescritive.PressedDepth = 4;
             btnDescritive.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnDescritive.Size = new Size(111, 34);
+            btnDescritive.Size = new Size(127, 45);
             btnDescritive.TabIndex = 28;
             btnDescritive.Text = "تشریحی";
             // 
@@ -160,11 +164,12 @@
             btnShort.FillColor = Color.FromArgb(230, 235, 245);
             btnShort.Font = new Font("Segoe UI", 9F);
             btnShort.ForeColor = Color.Black;
-            btnShort.Location = new Point(174, 411);
+            btnShort.Location = new Point(199, 548);
+            btnShort.Margin = new Padding(3, 4, 3, 4);
             btnShort.Name = "btnShort";
             btnShort.PressedDepth = 4;
             btnShort.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnShort.Size = new Size(111, 34);
+            btnShort.Size = new Size(127, 45);
             btnShort.TabIndex = 27;
             btnShort.Text = "کوتاه پاسخ";
             // 
@@ -187,11 +192,12 @@
             btnOptional.FillColor = Color.FromArgb(230, 235, 245);
             btnOptional.Font = new Font("Segoe UI", 9F);
             btnOptional.ForeColor = Color.Black;
-            btnOptional.Location = new Point(295, 411);
+            btnOptional.Location = new Point(337, 548);
+            btnOptional.Margin = new Padding(3, 4, 3, 4);
             btnOptional.Name = "btnOptional";
             btnOptional.PressedDepth = 4;
             btnOptional.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnOptional.Size = new Size(111, 34);
+            btnOptional.Size = new Size(127, 45);
             btnOptional.TabIndex = 26;
             btnOptional.Text = "تستی";
             // 
@@ -214,11 +220,12 @@
             btnTrueFalse.FillColor = Color.FromArgb(230, 235, 245);
             btnTrueFalse.Font = new Font("Segoe UI", 9F);
             btnTrueFalse.ForeColor = Color.Black;
-            btnTrueFalse.Location = new Point(415, 411);
+            btnTrueFalse.Location = new Point(474, 548);
+            btnTrueFalse.Margin = new Padding(3, 4, 3, 4);
             btnTrueFalse.Name = "btnTrueFalse";
             btnTrueFalse.PressedDepth = 4;
             btnTrueFalse.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnTrueFalse.Size = new Size(111, 34);
+            btnTrueFalse.Size = new Size(127, 45);
             btnTrueFalse.TabIndex = 25;
             btnTrueFalse.Text = "درست / نادرست";
             // 
@@ -241,11 +248,12 @@
             btnBlank.FillColor = Color.FromArgb(230, 235, 245);
             btnBlank.Font = new Font("Segoe UI", 9F);
             btnBlank.ForeColor = Color.Black;
-            btnBlank.Location = new Point(534, 411);
+            btnBlank.Location = new Point(610, 548);
+            btnBlank.Margin = new Padding(3, 4, 3, 4);
             btnBlank.Name = "btnBlank";
             btnBlank.PressedDepth = 4;
             btnBlank.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnBlank.Size = new Size(111, 34);
+            btnBlank.Size = new Size(127, 45);
             btnBlank.TabIndex = 24;
             btnBlank.Text = "جاخالی";
             // 
@@ -268,11 +276,12 @@
             btnMatching.FillColor = Color.FromArgb(230, 235, 245);
             btnMatching.Font = new Font("Segoe UI", 9F);
             btnMatching.ForeColor = Color.Black;
-            btnMatching.Location = new Point(652, 411);
+            btnMatching.Location = new Point(745, 548);
+            btnMatching.Margin = new Padding(3, 4, 3, 4);
             btnMatching.Name = "btnMatching";
             btnMatching.PressedDepth = 4;
             btnMatching.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnMatching.Size = new Size(111, 34);
+            btnMatching.Size = new Size(127, 45);
             btnMatching.TabIndex = 23;
             btnMatching.Text = "وصل کردنی";
             // 
@@ -288,12 +297,13 @@
             guna2ShadowPanel1.Controls.Add(guna2Separator1);
             guna2ShadowPanel1.Controls.Add(label1);
             guna2ShadowPanel1.FillColor = Color.White;
-            guna2ShadowPanel1.Location = new Point(29, 87);
+            guna2ShadowPanel1.Location = new Point(33, 116);
+            guna2ShadowPanel1.Margin = new Padding(3, 4, 3, 4);
             guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             guna2ShadowPanel1.Radius = 10;
             guna2ShadowPanel1.ShadowColor = Color.Black;
             guna2ShadowPanel1.ShadowDepth = 20;
-            guna2ShadowPanel1.Size = new Size(764, 318);
+            guna2ShadowPanel1.Size = new Size(873, 424);
             guna2ShadowPanel1.TabIndex = 22;
             // 
             // btnPicture
@@ -311,11 +321,12 @@
             btnPicture.FillColor = Color.FromArgb(248, 250, 252);
             btnPicture.Font = new Font("Segoe UI", 9F);
             btnPicture.ForeColor = Color.Gray;
-            btnPicture.Location = new Point(50, 259);
+            btnPicture.Location = new Point(57, 345);
+            btnPicture.Margin = new Padding(3, 4, 3, 4);
             btnPicture.Name = "btnPicture";
             btnPicture.PressedDepth = 4;
             btnPicture.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnPicture.Size = new Size(133, 35);
+            btnPicture.Size = new Size(152, 47);
             btnPicture.TabIndex = 27;
             btnPicture.Text = "انتخاب تصویر";
             // 
@@ -335,11 +346,12 @@
             guna2ComboBox1.HoverState.BorderColor = Color.FromArgb(59, 130, 246);
             guna2ComboBox1.ItemHeight = 30;
             guna2ComboBox1.Items.AddRange(new object[] { "سطح دشواری" });
-            guna2ComboBox1.Location = new Point(520, 259);
+            guna2ComboBox1.Location = new Point(594, 345);
+            guna2ComboBox1.Margin = new Padding(3, 4, 3, 4);
             guna2ComboBox1.Name = "guna2ComboBox1";
             guna2ComboBox1.RightToLeft = RightToLeft.Yes;
             guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2ComboBox1.Size = new Size(191, 36);
+            guna2ComboBox1.Size = new Size(218, 36);
             guna2ComboBox1.StartIndex = 0;
             guna2ComboBox1.TabIndex = 26;
             guna2ComboBox1.TextAlign = HorizontalAlignment.Right;
@@ -358,7 +370,8 @@
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.ForeColor = Color.Black;
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(37, 99, 235);
-            guna2TextBox1.Location = new Point(50, 102);
+            guna2TextBox1.Location = new Point(57, 130);
+            guna2TextBox1.Margin = new Padding(3, 5, 3, 5);
             guna2TextBox1.Multiline = true;
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PlaceholderForeColor = Color.Gray;
@@ -366,7 +379,7 @@
             guna2TextBox1.RightToLeft = RightToLeft.Yes;
             guna2TextBox1.SelectedText = "";
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2TextBox1.Size = new Size(661, 150);
+            guna2TextBox1.Size = new Size(755, 200);
             guna2TextBox1.TabIndex = 25;
             // 
             // cbLesson
@@ -385,11 +398,12 @@
             cbLesson.HoverState.BorderColor = Color.FromArgb(59, 130, 246);
             cbLesson.ItemHeight = 30;
             cbLesson.Items.AddRange(new object[] { "درس را انتخاب کنید" });
-            cbLesson.Location = new Point(50, 58);
+            cbLesson.Location = new Point(57, 77);
+            cbLesson.Margin = new Padding(3, 4, 3, 4);
             cbLesson.Name = "cbLesson";
             cbLesson.RightToLeft = RightToLeft.Yes;
             cbLesson.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            cbLesson.Size = new Size(332, 36);
+            cbLesson.Size = new Size(379, 36);
             cbLesson.StartIndex = 0;
             cbLesson.TabIndex = 24;
             cbLesson.TextAlign = HorizontalAlignment.Right;
@@ -410,11 +424,12 @@
             cbBook.HoverState.BorderColor = Color.FromArgb(59, 130, 246);
             cbBook.ItemHeight = 30;
             cbBook.Items.AddRange(new object[] { "کتاب را انتخاب کنید" });
-            cbBook.Location = new Point(388, 58);
+            cbBook.Location = new Point(443, 77);
+            cbBook.Margin = new Padding(3, 4, 3, 4);
             cbBook.Name = "cbBook";
             cbBook.RightToLeft = RightToLeft.Yes;
             cbBook.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            cbBook.Size = new Size(323, 36);
+            cbBook.Size = new Size(369, 36);
             cbBook.StartIndex = 0;
             cbBook.TabIndex = 0;
             cbBook.TextAlign = HorizontalAlignment.Right;
@@ -422,16 +437,18 @@
             // 
             // guna2Separator2
             // 
-            guna2Separator2.Location = new Point(3, 44);
+            guna2Separator2.Location = new Point(3, 59);
+            guna2Separator2.Margin = new Padding(3, 4, 3, 4);
             guna2Separator2.Name = "guna2Separator2";
-            guna2Separator2.Size = new Size(758, 8);
+            guna2Separator2.Size = new Size(866, 11);
             guna2Separator2.TabIndex = 23;
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(26, 25);
+            guna2Separator1.Location = new Point(30, 33);
+            guna2Separator1.Margin = new Padding(3, 4, 3, 4);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(575, 8);
+            guna2Separator1.Size = new Size(657, 11);
             guna2Separator1.TabIndex = 22;
             // 
             // label1
@@ -440,9 +457,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(608, 17);
+            label1.Location = new Point(695, 23);
             label1.Name = "label1";
-            label1.Size = new Size(131, 20);
+            label1.Size = new Size(163, 25);
             label1.TabIndex = 21;
             label1.Text = "اطلاعات کلی سوال";
             // 
@@ -458,9 +475,10 @@
             guna2CustomGradientPanel1.FillColor3 = Color.FromArgb(59, 130, 246);
             guna2CustomGradientPanel1.FillColor4 = Color.FromArgb(37, 99, 235);
             guna2CustomGradientPanel1.Location = new Point(0, 0);
+            guna2CustomGradientPanel1.Margin = new Padding(3, 4, 3, 4);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2CustomGradientPanel1.Size = new Size(809, 81);
+            guna2CustomGradientPanel1.Size = new Size(925, 108);
             guna2CustomGradientPanel1.TabIndex = 0;
             // 
             // label3
@@ -469,9 +487,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(332, 31);
+            label3.Location = new Point(379, 41);
             label3.Name = "label3";
-            label3.Size = new Size(129, 21);
+            label3.Size = new Size(162, 28);
             label3.TabIndex = 19;
             label3.Text = "افزودن سوال جدید";
             // 
@@ -479,21 +497,23 @@
             // 
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = Properties.Resources.to_do_list_13181_512__1_;
-            pictureBox3.Location = new Point(735, 6);
+            pictureBox3.Location = new Point(835, 8);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(67, 70);
+            pictureBox3.Size = new Size(82, 93);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 18;
             pictureBox3.TabStop = false;
             // 
             // frmAddQuestions
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(888, 503);
+            ClientSize = new Size(1015, 671);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmAddQuestions";
             Text = "آزمون یار";
             panel1.ResumeLayout(false);

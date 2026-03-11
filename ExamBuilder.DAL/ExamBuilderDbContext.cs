@@ -12,6 +12,7 @@ namespace ExamBuilder.DAL
     public class ExamBuilderDbContext : DbContext
     {
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<OptionalQuestion> OptionalQuestions { get; set; }
         public virtual DbSet<DescriptiveQuestion> DescriptiveQuestions { get; set; }
         public virtual DbSet<DifficultyLevel> DifficultyLevels { get; set; }
         public virtual DbSet<Lesson> Lessons { get; set; }
@@ -20,7 +21,8 @@ namespace ExamBuilder.DAL
         public virtual DbSet<ShortQuestion> ShortQuestions { get; set; }
         public virtual DbSet<TrueFalseItem> TrueFalseItems { get; set; }
         public virtual DbSet<TrueFalseQuestion> TrueFalseQuestions { get; set; }
-
+        public virtual DbSet<FillInBlankItem> FillInBlankItems { get; set; }
+        public virtual DbSet<FillInBlankQuestion> FillInBlankQuestions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -82,6 +84,30 @@ namespace ExamBuilder.DAL
                 .HasOne(q => q.Lesson)
                 .WithMany(l => l.OptionalQuestions)
                 .HasForeignKey(q => q.LessonID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<FillInBlankQuestion>()
+                .HasOne(x => x.Lesson)
+                .WithMany(x => x.FillInBlankQuestions)
+                .HasForeignKey(x => x.LessonID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<TrueFalseItem>()
+                .HasOne(x => x.TrueFalseQuestion)
+                .WithMany(x => x.Items)
+                .HasForeignKey(x => x.TrueFalseQuestionID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<MatchingItem>()
+                .HasOne(x => x.MatchingQuestion)
+                .WithMany(x => x.Items)
+                .HasForeignKey(x => x.MatchingQuestionID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<FillInBlankItem>()
+                .HasOne(x => x.FillInBlankQuestion)
+                .WithMany(x => x.Items)
+                .HasForeignKey(x => x.FillInBlankQuestionID)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

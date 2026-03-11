@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ExamBuilder.Shared;
+using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.DAL.Entities
 {
-    public class OptionalQuestion : BaseQuestion
+    public class OptionalQuestion : QuestionInfo
     {
         [Required]
         [MaxLength(50)]

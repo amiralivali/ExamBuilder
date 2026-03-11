@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ExamBuilder.DAL\ExamBuilder.DAL.csproj" />
+    <ProjectReference Include="..\ExamBuilder.Shared\ExamBuilder.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

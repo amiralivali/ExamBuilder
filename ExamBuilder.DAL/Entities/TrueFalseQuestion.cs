@@ -1,8 +1,8 @@
-﻿using ExamBuilder.Shared;
+﻿using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.DAL.Entities
 {
-    public class TrueFalseQuestion : BaseQuestion
+    public class TrueFalseQuestion : QuestionInfo
     {
         public virtual ICollection<TrueFalseItem> Items { get; set; }
         public virtual Lesson Lesson { get; set; }
