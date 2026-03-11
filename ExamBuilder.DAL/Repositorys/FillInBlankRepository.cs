@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ExamBuilder.BLL;
 using ExamBuilder.DAL.Entities;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
@@ -43,7 +42,7 @@ namespace ExamBuilder.DAL.Repositorys
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 return null;
             }
         }
@@ -64,7 +63,7 @@ namespace ExamBuilder.DAL.Repositorys
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 return false;
             }
         }
@@ -79,7 +78,7 @@ namespace ExamBuilder.DAL.Repositorys
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 return false;
             }
         }
@@ -94,7 +93,7 @@ namespace ExamBuilder.DAL.Repositorys
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 return false;
             }
         }
@@ -124,7 +123,7 @@ namespace ExamBuilder.DAL.Repositorys
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 return false;
             }
         }

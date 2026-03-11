@@ -23,6 +23,7 @@ namespace ExamBuilder.DAL
         public virtual DbSet<TrueFalseQuestion> TrueFalseQuestions { get; set; }
         public virtual DbSet<FillInBlankItem> FillInBlankItems { get; set; }
         public virtual DbSet<FillInBlankQuestion> FillInBlankQuestions { get; set; }
+        public virtual DbSet<ExceptionLog> ExceptionLogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
