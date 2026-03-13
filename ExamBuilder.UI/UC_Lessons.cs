@@ -12,11 +12,11 @@ namespace ExamBuilder.UI
 {
     public partial class UC_Lessons : UserControl
     {
-        public UC_Lessons()
+        public UC_Lessons(int _count)
         {
             InitializeComponent();
+            lblCount.Text = _count.ToString();
         }
-        private int _count;
         private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -24,7 +24,7 @@ namespace ExamBuilder.UI
 
         private void UC_Lessons_Load(object sender, EventArgs e)
         {
-            lblCount.Text = _count.ToString();
+            
         }
     }
 }

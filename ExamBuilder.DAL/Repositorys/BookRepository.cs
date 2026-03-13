@@ -36,18 +36,19 @@ namespace ExamBuilder.DAL.Repositorys
                 return null;
             }
         }
-        public async Task<bool> InsertAsync(Book book)
+        public async Task<int> InsertAsync(Book book)
         {
             try
             {
                 await db.Books.AddAsync(book);
                 await db.SaveChangesAsync();
-                return true;
+                int id = db.FillInBlankQuestions.Last().ID;
+                return id;
             }
             catch (Exception ex)
             {
                 await ex.AddLogAsync();
-                return false;
+                return -1;
             }
         }
         public async Task<bool> DeleteAsync(int id)

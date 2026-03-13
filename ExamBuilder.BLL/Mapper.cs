@@ -19,11 +19,26 @@ namespace ExamBuilder.BLL
                 Grade = info.Grade,
             };
         }
+        public static List<Lesson> MapToLesson(this List<LessonInfo> lessons)
+        {
+            var list = new List<Lesson>();
+            foreach (var lesson in lessons)
+            {
+                list.Add(new Lesson()
+                {
+                    ID = lesson.ID,
+                    Title = lesson.Title,
+                    LessonCount = lesson.LessonCount,
+                    BookID = lesson.BookID,
+                });
+            }
+            return list;
+        }
         public static Lesson MapToLesson(this LessonInfo info)
         {
-            return new Lesson
+            return new Lesson() 
             {
-                ID= info.ID,
+                ID = info.ID,
                 Title = info.Title,
                 LessonCount = info.LessonCount,
                 BookID = info.BookID,

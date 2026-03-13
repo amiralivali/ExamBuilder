@@ -35,11 +35,14 @@ namespace ExamBuilder.DAL.Repositorys
                 return null;
             }
         }
-        public async Task<bool> InsertAsync(Lesson lesson)
+        public async Task<bool> InsertAsync(List<Lesson> lessons)
         {
             try
             {
-                await db.Lessons.AddAsync(lesson);
+                foreach (var lesson in lessons)
+                {
+                    await db.Lessons.AddAsync(lesson);
+                }
                 await db.SaveChangesAsync();
                 return true;
             }

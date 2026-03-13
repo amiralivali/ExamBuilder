@@ -29,7 +29,7 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<LessonInfo>>.RunTimeError();
             }
         }
-        public async Task<OprationResult> InsertAsync(LessonInfo info)
+        public async Task<OprationResult> InsertAsync(List<LessonInfo> info)
         {
             //////////////////////////////////////////////////////
             var entity = info.MapToLesson();

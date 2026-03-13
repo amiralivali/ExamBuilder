@@ -10,6 +10,7 @@ namespace ExamBuilder.Shared.InformationClases
     {
         public int ID { get; set; }
         public string Title { get; set; }
-        public int Grade { get; set; }
+        public string Grade { get; set; }
+        public string GradeInfo {  get; set; }
     }
 }

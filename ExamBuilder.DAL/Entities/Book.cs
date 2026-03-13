@@ -14,7 +14,11 @@ namespace ExamBuilder.DAL.Entities
         [Required]
         [MaxLength(30)]
         public string Title { get; set; }
-        public int Grade { get; set; }
+        [Required]
+        [MaxLength(20)]
+        public string Grade { get; set; }
+        [MaxLength(40)]
+        public string GradeInfo {  get; set; }
         public virtual ICollection<Lesson> Lessons { get; set; }
     }
 }

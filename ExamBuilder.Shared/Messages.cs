@@ -16,5 +16,13 @@ namespace ExamBuilder.Shared
         public const string Duplicate = "{0} وارد شده قبلا ذخیره شده است";
         public const string FalseValidation = "{0} وارد شده اشتباه است";
         public const string Required = "وارد کردن {0} ضروری است";
+        public const string Elementary = "ابتدایی";
+        public const string MiddleSchool = "متوسطه اول";
+        public const string HighSchool = "متوسطه دوم";
+        public const string University = "دانشگاه";
+        public const string More = "سایر";
+        public static List<string> ElementaryGrades =["اول", "دوم", "سوم", "چهارم", "پنجم", "ششم"];
+        public static List<string> MiddleSchoolGrades = ["هفتم", "هشتم", "نهم"];
+        public static List<string> HighSchoolGrades = ["دهم", "یازدهم", "دوازدهم"];
     }
 }

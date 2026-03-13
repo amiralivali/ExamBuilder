@@ -28,18 +28,18 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<BookInfo>>.RunTimeError();
             }
         }
-        public async Task<OprationResult> InsertAsync(BookInfo info)
+        public async Task<OprationResult<int>> InsertAsync(BookInfo info)
         {
             //////////////////////////////////////////////////////
             var entity = info.MapToBook();
             var check = await repository.InsertAsync(entity);
-            if (check)
+            if (check!=-1)
             {
-                return OprationResult.Success(Messages.Insert);
+                return OprationResult<int>.Success(check);
             }
             else
             { 
-            return OprationResult.RunTimeError();
+                return OprationResult<int>.RunTimeError();
             }
         }
         public async Task<OprationResult> UpdateAsync(BookInfo info)
