@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExamBuilder.Shared.InformationClases
+namespace ExamBuilder.DAL.Entities
 {
-    public class BookInfo
+    public class Grade
     {
         public int ID { get; set; }
+        [Required]
+        [MaxLength(20)]
         public string Title { get; set; }
-        public int GradeID { get; set; }
-        public string GradeInfo {  get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

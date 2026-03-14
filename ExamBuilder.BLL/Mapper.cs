@@ -16,7 +16,8 @@ namespace ExamBuilder.BLL
             {
                 ID = info.ID,
                 Title = info.Title,
-                Grade = info.Grade,
+                GradeID = info.GradeID,
+                GradeInfo = info.GradeInfo,
             };
         }
         public static List<Lesson> MapToLesson(this List<LessonInfo> lessons)

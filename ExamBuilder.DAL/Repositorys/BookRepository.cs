@@ -25,7 +25,7 @@ namespace ExamBuilder.DAL.Repositorys
                 var books = await db.Books.Select(x => new BookInfo
                 {
                     ID = x.ID,
-                    Grade = x.Grade,
+                    GradeID = x.GradeID,
                     Title = x.Title,
                 }).ToListAsync();
                 return books;
@@ -36,19 +36,18 @@ namespace ExamBuilder.DAL.Repositorys
                 return null;
             }
         }
-        public async Task<int> InsertAsync(Book book)
+        public async Task<bool> InsertAsync(Book book)
         {
             try
             {
                 await db.Books.AddAsync(book);
                 await db.SaveChangesAsync();
-                int id = db.FillInBlankQuestions.Last().ID;
-                return id;
+                return true;
             }
             catch (Exception ex)
             {
                 await ex.AddLogAsync();
-                return -1;
+                return false;
             }
         }
         public async Task<bool> DeleteAsync(int id)
@@ -81,6 +80,24 @@ namespace ExamBuilder.DAL.Repositorys
                 await ex.AddLogAsync();
                 return false;
             }
+        }
+        public async Task<int> GetLastIDAsync(string name,int gradeID,string gradeInfo)
+        {
+            try
+            {
+                var id = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo==gradeInfo).Select(x=>x.ID).SingleAsync();
+                return id;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return -1;
+            }
+        }
+        public async Task<bool> CheckDuplicate(string name, int gradeID, string gradeInfo)
+        {
+            bool duplicate = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo == gradeInfo).AnyAsync();
+            return duplicate;
         }
     }
 }

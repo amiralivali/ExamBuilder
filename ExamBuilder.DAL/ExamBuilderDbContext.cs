@@ -12,6 +12,7 @@ namespace ExamBuilder.DAL
     public class ExamBuilderDbContext : DbContext
     {
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Grade> Grades { get; set; }
         public virtual DbSet<OptionalQuestion> OptionalQuestions { get; set; }
         public virtual DbSet<DescriptiveQuestion> DescriptiveQuestions { get; set; }
         public virtual DbSet<DifficultyLevel> DifficultyLevels { get; set; }
@@ -33,6 +34,75 @@ namespace ExamBuilder.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Grade>()
+                .HasData(new Grade()
+                {
+                    ID = 1,
+                    Title = "ابتدایی-اول"
+                },
+                new Grade()
+                {
+                    ID = 2,
+                    Title = "ابتدایی-دوم"
+                },
+                new Grade()
+                {
+                    ID = 3,
+                    Title = "ابتدایی-سوم"
+                },
+                new Grade()
+                {
+                    ID = 4,
+                    Title = "ابتدایی-چهارم"
+                }, new Grade()
+                {
+                    ID = 5,
+                    Title = "ابتدایی-پنجم"
+                }, new Grade()
+                {
+                    ID = 6,
+                    Title = "ابتدایی-ششم"
+                }, new Grade()
+                {
+                    ID = 7,
+                    Title = "متوسطه اول-هفتم"
+                },
+                new Grade()
+                {
+                    ID = 8,
+                    Title = "متوسطه اول-هشتم"
+                },
+                new Grade()
+                {
+                    ID = 9,
+                    Title = "متوسطه اول-نهم"
+                },
+                new Grade()
+                {
+                    ID = 10,
+                    Title = "متوسطه دوم-دهم"
+                },
+                new Grade()
+                {
+                    ID = 11,
+                    Title = "متوسطه دوم-یازدهم"
+                },
+                new Grade()
+                {
+                    ID = 12,
+                    Title = "متوسطه دوم-دوازدهم"
+                },
+                new Grade()
+                { 
+                ID=13,
+                Title="دانشگاه"
+                },
+                new Grade()
+                { 
+                ID=14,
+                Title="سایر"
+                }
+                );
             modelBuilder.Entity<DifficultyLevel>()
                 .HasData(
                 new DifficultyLevel()

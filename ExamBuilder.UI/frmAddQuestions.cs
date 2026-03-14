@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ExamBuilder.UI
 {
-    public partial class frmAddQuestions : Form
+    public partial class frmAddQuestions : frmStyle
     {
         public frmAddQuestions()
         {
@@ -24,6 +24,11 @@ namespace ExamBuilder.UI
             else
                 cbBook.ForeColor = Color.Black;
             //
-        } 
+        }
+
+        private void frmAddQuestions_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

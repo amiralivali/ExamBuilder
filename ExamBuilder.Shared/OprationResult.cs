@@ -36,6 +36,15 @@ namespace ExamBuilder.Shared
                 Message = Messages.RunTimeError
             };
         }
+        public static OprationResult Duplicate(string message)
+        {
+            message = string.Format(Messages.Duplicate, message);
+            return new OprationResult()
+            {
+                IsSuccess = false,
+                Message = message
+            };
+        }
     }
     public class OprationResult<T> : OprationResult
     {

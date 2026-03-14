@@ -28,18 +28,25 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<BookInfo>>.RunTimeError();
             }
         }
-        public async Task<OprationResult<int>> InsertAsync(BookInfo info)
+        public async Task<OprationResult> InsertAsync(BookInfo info)
         {
-            //////////////////////////////////////////////////////
-            var entity = info.MapToBook();
-            var check = await repository.InsertAsync(entity);
-            if (check!=-1)
+            bool duplicate = await repository.CheckDuplicate(info.Title, info.GradeID, info.GradeInfo);
+            if (!duplicate)
             {
-                return OprationResult<int>.Success(check);
+                var entity = info.MapToBook();
+                var check = await repository.InsertAsync(entity);
+                if (check)
+                {
+                    return OprationResult.Success();
+                }
+                else
+                {
+                    return OprationResult.RunTimeError();
+                }
             }
             else
             { 
-                return OprationResult<int>.RunTimeError();
+                return OprationResult.Duplicate(Messages.Book);
             }
         }
         public async Task<OprationResult> UpdateAsync(BookInfo info)
@@ -65,6 +72,18 @@ namespace ExamBuilder.BLL
             else
             {
                 return OprationResult.RunTimeError();
+            }
+        }
+        public async Task<OprationResult<int>> GetLastIDAsync(string name,int gradeID,string gradeInfo)
+        {
+            int id=await repository.GetLastIDAsync(name,gradeID,gradeInfo);
+            if (id != -1)
+            {
+                return OprationResult<int>.Success(id);
+            }
+            else
+            {
+                return OprationResult<int>.RunTimeError();
             }
         }
     }

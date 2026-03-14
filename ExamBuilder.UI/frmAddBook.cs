@@ -7,7 +7,7 @@ using Guna.UI2.WinForms.Enums;
 
 namespace ExamBuilder.UI
 {
-    public partial class frmAddBook : Form
+    public partial class frmAddBook : frmStyle
     {
         BookService bookService;
         LessonService lessonService;
@@ -23,26 +23,17 @@ namespace ExamBuilder.UI
             var check = CheckValidationLesson();
             if (!check)
             {
-                MessageBox.Show("لطفا نام تمامی دروس را وارد کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowError("لطفا نام تمامی دروس را وارد کنید");
                 return;
             }
             var bookInfo = new BookInfo()
             {
-                Title = txtBookName.Text,
+                Title = txtBookName.Text.Trim(),
+                GradeID=cbGrade.SelectedIndex+1,
                 GradeInfo = txtGradeInfo.Text,
             };
-            if (rbElementary.Checked)
-                bookInfo.Grade = Messages.Elementary + "-" + cbGrade.SelectedItem.ToString();
-            else if (rbM1.Checked)
-                bookInfo.Grade = Messages.MiddleSchoolGrades + "-" + cbGrade.SelectedItem.ToString();
-            else if (rbM2.Checked)
-                bookInfo.Grade = Messages.HighSchoolGrades + "-" + cbGrade.SelectedItem.ToString();
-            else if (rbUni.Checked)
-                bookInfo.Grade = Messages.University;
-            else
-                bookInfo.Grade = Messages.More;
             var bookOpration = await bookService.InsertAsync(bookInfo);
-            int bookID = bookOpration.Data;
+            var bookId=await bookService.GetLastIDAsync(bookInfo.Title,bookInfo.GradeID,bookInfo.GradeInfo);
             if (bookOpration.IsSuccess)
             {
                 var lessonsInfo = new List<LessonInfo>();
@@ -61,7 +52,7 @@ namespace ExamBuilder.UI
                                 var txt = childItem as BunifuTextBox;
                                 lessonInfo.Title = txt.Text;
                                 lessonInfo.LessonCount = count;
-                                lessonInfo.BookID = bookID;
+                                lessonInfo.BookID = bookId.Data;
                                 count++;
                             }
                         }
@@ -71,16 +62,16 @@ namespace ExamBuilder.UI
                 var lessonOpration = await lessonService.InsertAsync(lessonsInfo);
                 if (lessonOpration.IsSuccess)
                 {
-                    MessageBox.Show(lessonOpration.Message);
+                    ShowSuccess(lessonOpration.Message);
                 }
                 else
                 {
-                    MessageBox.Show(lessonOpration.Message);
+                    ShowError(lessonOpration.Message);
                 }
             }
             else
             {
-                MessageBox.Show(bookOpration.Message);
+                ShowError(bookOpration.Message);
             }
         }
 
@@ -91,7 +82,7 @@ namespace ExamBuilder.UI
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("آیا از اطلاعات وارد شده اطمینان دارید؟", "اخطار", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = ShowWarningQuestion("آیا از اطلاعات وارد شده اطمینان دارید؟");
             if (result == DialogResult.Yes)
             {
                 btnEnterBook.Enabled = true;
@@ -117,8 +108,7 @@ namespace ExamBuilder.UI
         {
             if (((int)numberPick.Value) > 0 &&
                 !string.IsNullOrEmpty(txtBookName.Text) &&
-                ((cbGrade.Visible == true && cbGrade.SelectedIndex != -1) || cbGrade.Visible == false) &&
-                (rbM1.Checked || rbM2.Checked || rbMore.Checked || rbUni.Checked))
+                cbGrade.SelectedIndex!=-1)
             {
                 return true;
             }
@@ -153,12 +143,11 @@ namespace ExamBuilder.UI
         private void txtBookName_TextChanged(object sender, EventArgs e)
         {
             btnCreatLesson.Enabled = CheckValidationBookInfo();
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("آیا از حذف اطلاعات وارد شده اطمینان دارید؟", "اخطار", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = ShowWarningQuestion("آیا از حذف اطلاعات وارد شده اطمینان دارید؟");
             if (result == DialogResult.Yes)
             {
                 panelbook.Enabled = true;
@@ -168,52 +157,6 @@ namespace ExamBuilder.UI
                 flpLessons.Controls.Clear();
                 btnDelete.Visible = false;
             }
-        }
-
-        private void bunifuRadioButton5_CheckedChanged2(object sender, BunifuRadioButton.CheckedChangedEventArgs e)
-        {
-            
-        }
-
-        private void rbM2_CheckedChanged2(object sender, Bunifu.UI.WinForms.BunifuRadioButton.CheckedChangedEventArgs e)
-        {
-            if (rbM2.Checked)
-            {
-                cbGrade.Visible = true;
-                cbGrade.DataSource = Messages.HighSchoolGrades;
-            }
-        }
-
-        private void rbMore_CheckedChanged2(object sender, Bunifu.UI.WinForms.BunifuRadioButton.CheckedChangedEventArgs e)
-        {
-            if (rbElementary.Checked)
-            {
-                cbGrade.Visible = true;
-                cbGrade.DataSource = Messages.ElementaryGrades;
-            }
-            else
-            {
-                cbGrade.Visible = false;
-            }
-        }
-
-        private void rbM1_CheckedChanged2(object sender, Bunifu.UI.WinForms.BunifuRadioButton.CheckedChangedEventArgs e)
-        {
-            if (rbM1.Checked)
-            {
-                cbGrade.Visible = true;
-                cbGrade.DataSource = Messages.MiddleSchoolGrades;
-            }
-        }
-
-        private void rbUni_CheckedChanged2(object sender, Bunifu.UI.WinForms.BunifuRadioButton.CheckedChangedEventArgs e)
-        {
-
-        }
-
-        private void rbebtedaie_ChangeUICues(object sender, UICuesEventArgs e)
-        {
-            
         }
     }
 }

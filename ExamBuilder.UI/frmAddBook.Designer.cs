@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddBook));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             label3 = new Label();
             pictureBox3 = new PictureBox();
@@ -62,11 +62,6 @@
             panelbook = new Guna.UI2.WinForms.Guna2ShadowPanel();
             cbGrade = new Guna.UI2.WinForms.Guna2ComboBox();
             txtGradeInfo = new Bunifu.UI.WinForms.BunifuTextBox();
-            rbElementary = new Bunifu.UI.WinForms.BunifuRadioButton();
-            rbMore = new Bunifu.UI.WinForms.BunifuRadioButton();
-            rbUni = new Bunifu.UI.WinForms.BunifuRadioButton();
-            rbM2 = new Bunifu.UI.WinForms.BunifuRadioButton();
-            rbM1 = new Bunifu.UI.WinForms.BunifuRadioButton();
             txtBookName = new Bunifu.UI.WinForms.BunifuTextBox();
             btnCreatLesson = new Guna.UI2.WinForms.Guna2Button();
             numberPick = new Guna.UI2.WinForms.Guna2NumericUpDown();
@@ -75,11 +70,6 @@
             label2 = new Label();
             guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             label1 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
             guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel1.SuspendLayout();
@@ -92,7 +82,7 @@
             // 
             guna2CustomGradientPanel1.Controls.Add(label3);
             guna2CustomGradientPanel1.Controls.Add(pictureBox3);
-            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges13;
+            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges1;
             guna2CustomGradientPanel1.Dock = DockStyle.Top;
             guna2CustomGradientPanel1.FillColor = Color.FromArgb(249, 115, 22);
             guna2CustomGradientPanel1.FillColor2 = Color.FromArgb(249, 115, 22);
@@ -100,7 +90,7 @@
             guna2CustomGradientPanel1.FillColor4 = Color.FromArgb(242, 88, 12);
             guna2CustomGradientPanel1.Location = new Point(0, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2CustomGradientPanel1.Size = new Size(790, 81);
             guna2CustomGradientPanel1.TabIndex = 1;
             // 
@@ -145,7 +135,7 @@
             btnEnterBook.AnimatedGIF = true;
             btnEnterBook.AutoRoundedCorners = true;
             btnEnterBook.BackColor = Color.Transparent;
-            btnEnterBook.CustomizableEdges = customizableEdges15;
+            btnEnterBook.CustomizableEdges = customizableEdges3;
             btnEnterBook.DisabledState.BorderColor = Color.DarkGray;
             btnEnterBook.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEnterBook.DisabledState.FillColor = Color.FromArgb(253, 186, 116);
@@ -155,9 +145,9 @@
             btnEnterBook.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEnterBook.ForeColor = Color.White;
             btnEnterBook.HoverState.FillColor = Color.FromArgb(234, 88, 12);
-            btnEnterBook.Location = new Point(459, 495);
+            btnEnterBook.Location = new Point(459, 493);
             btnEnterBook.Name = "btnEnterBook";
-            btnEnterBook.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnEnterBook.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnEnterBook.Size = new Size(235, 40);
             btnEnterBook.TabIndex = 0;
             btnEnterBook.Text = "ثبت نهایی کتاب";
@@ -185,7 +175,7 @@
             btnDelete.AnimatedGIF = true;
             btnDelete.AutoRoundedCorners = true;
             btnDelete.BackColor = Color.Transparent;
-            btnDelete.CustomizableEdges = customizableEdges17;
+            btnDelete.CustomizableEdges = customizableEdges5;
             btnDelete.DisabledState.BorderColor = Color.DarkGray;
             btnDelete.DisabledState.CustomBorderColor = Color.DarkGray;
             btnDelete.DisabledState.FillColor = Color.FromArgb(253, 186, 116);
@@ -196,7 +186,7 @@
             btnDelete.HoverState.FillColor = Color.FromArgb(234, 88, 12);
             btnDelete.Location = new Point(11, 10);
             btnDelete.Name = "btnDelete";
-            btnDelete.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnDelete.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnDelete.Size = new Size(173, 37);
             btnDelete.TabIndex = 5;
             btnDelete.Text = "حذف اطلاعات وارد شده";
@@ -206,7 +196,7 @@
             // flpLessons
             // 
             flpLessons.AutoScroll = true;
-            flpLessons.Location = new Point(9, 64);
+            flpLessons.Location = new Point(12, 64);
             flpLessons.Name = "flpLessons";
             flpLessons.Size = new Size(323, 371);
             flpLessons.TabIndex = 0;
@@ -214,9 +204,9 @@
             // guna2Separator2
             // 
             guna2Separator2.FillColor = Color.Silver;
-            guna2Separator2.Location = new Point(11, 45);
+            guna2Separator2.Location = new Point(17, 45);
             guna2Separator2.Name = "guna2Separator2";
-            guna2Separator2.Size = new Size(321, 19);
+            guna2Separator2.Size = new Size(312, 19);
             guna2Separator2.TabIndex = 30;
             // 
             // label6
@@ -225,7 +215,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(190, 22);
+            label6.Location = new Point(200, 22);
             label6.Name = "label6";
             label6.Size = new Size(126, 20);
             label6.TabIndex = 29;
@@ -236,11 +226,6 @@
             panelbook.BackColor = Color.Transparent;
             panelbook.Controls.Add(cbGrade);
             panelbook.Controls.Add(txtGradeInfo);
-            panelbook.Controls.Add(rbElementary);
-            panelbook.Controls.Add(rbMore);
-            panelbook.Controls.Add(rbUni);
-            panelbook.Controls.Add(rbM2);
-            panelbook.Controls.Add(rbM1);
             panelbook.Controls.Add(txtBookName);
             panelbook.Controls.Add(btnCreatLesson);
             panelbook.Controls.Add(numberPick);
@@ -249,24 +234,19 @@
             panelbook.Controls.Add(label2);
             panelbook.Controls.Add(guna2Separator1);
             panelbook.Controls.Add(label1);
-            panelbook.Controls.Add(label11);
-            panelbook.Controls.Add(label10);
-            panelbook.Controls.Add(label9);
-            panelbook.Controls.Add(label8);
-            panelbook.Controls.Add(label7);
             panelbook.FillColor = Color.White;
             panelbook.Location = new Point(346, 87);
             panelbook.Name = "panelbook";
             panelbook.Radius = 5;
             panelbook.ShadowColor = Color.Black;
             panelbook.ShadowDepth = 20;
-            panelbook.Size = new Size(439, 404);
+            panelbook.Size = new Size(439, 402);
             panelbook.TabIndex = 3;
             // 
             // cbGrade
             // 
             cbGrade.BackColor = Color.Transparent;
-            cbGrade.CustomizableEdges = customizableEdges19;
+            cbGrade.CustomizableEdges = customizableEdges7;
             cbGrade.DrawMode = DrawMode.OwnerDrawFixed;
             cbGrade.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGrade.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -274,12 +254,13 @@
             cbGrade.Font = new Font("Segoe UI", 10F);
             cbGrade.ForeColor = Color.FromArgb(68, 88, 112);
             cbGrade.ItemHeight = 30;
-            cbGrade.Location = new Point(29, 208);
+            cbGrade.Items.AddRange(new object[] { "ابتدایی-اول", "ابتدایی-دوم", "ابتدایی-سوم", "ابتدایی-چهارم", "ابتدایی-پنجم", "ابتدایی-ششم", "متوسطه اول-هفتم", "متوسطه اول-هشتم", "متوسطه اول-نهم", "متوسطه دوم-دهم", "متوسطه دوم-یازدهم", "متوسطه دوم-دوازدهم", "دانشگاه", "سایر" });
+            cbGrade.Location = new Point(138, 172);
             cbGrade.Name = "cbGrade";
-            cbGrade.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            cbGrade.Size = new Size(105, 36);
+            cbGrade.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            cbGrade.Size = new Size(281, 36);
             cbGrade.TabIndex = 39;
-            cbGrade.Visible = false;
+            cbGrade.TextAlign = HorizontalAlignment.Right;
             // 
             // txtGradeInfo
             // 
@@ -308,36 +289,36 @@
             txtGradeInfo.IconPadding = 10;
             txtGradeInfo.IconRight = null;
             txtGradeInfo.IconRightCursor = Cursors.IBeam;
-            txtGradeInfo.Location = new Point(29, 259);
+            txtGradeInfo.Location = new Point(31, 227);
             txtGradeInfo.MaxLength = 32767;
             txtGradeInfo.MinimumSize = new Size(1, 1);
             txtGradeInfo.Modified = false;
             txtGradeInfo.Multiline = false;
             txtGradeInfo.Name = "txtGradeInfo";
-            stateProperties9.BorderColor = Color.DodgerBlue;
-            stateProperties9.FillColor = Color.Empty;
-            stateProperties9.ForeColor = Color.Empty;
-            stateProperties9.PlaceholderForeColor = Color.Empty;
-            txtGradeInfo.OnActiveState = stateProperties9;
-            stateProperties10.BorderColor = Color.FromArgb(204, 204, 204);
-            stateProperties10.FillColor = Color.FromArgb(240, 240, 240);
-            stateProperties10.ForeColor = Color.FromArgb(109, 109, 109);
-            stateProperties10.PlaceholderForeColor = Color.DarkGray;
-            txtGradeInfo.OnDisabledState = stateProperties10;
-            stateProperties11.BorderColor = Color.FromArgb(105, 181, 255);
-            stateProperties11.FillColor = Color.Empty;
-            stateProperties11.ForeColor = Color.Empty;
-            stateProperties11.PlaceholderForeColor = Color.Empty;
-            txtGradeInfo.OnHoverState = stateProperties11;
-            stateProperties12.BorderColor = Color.Silver;
-            stateProperties12.FillColor = Color.White;
-            stateProperties12.ForeColor = Color.Empty;
-            stateProperties12.PlaceholderForeColor = Color.Empty;
-            txtGradeInfo.OnIdleState = stateProperties12;
+            stateProperties1.BorderColor = Color.DodgerBlue;
+            stateProperties1.FillColor = Color.Empty;
+            stateProperties1.ForeColor = Color.Empty;
+            stateProperties1.PlaceholderForeColor = Color.Empty;
+            txtGradeInfo.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = Color.FromArgb(204, 204, 204);
+            stateProperties2.FillColor = Color.FromArgb(240, 240, 240);
+            stateProperties2.ForeColor = Color.FromArgb(109, 109, 109);
+            stateProperties2.PlaceholderForeColor = Color.DarkGray;
+            txtGradeInfo.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = Color.FromArgb(105, 181, 255);
+            stateProperties3.FillColor = Color.Empty;
+            stateProperties3.ForeColor = Color.Empty;
+            stateProperties3.PlaceholderForeColor = Color.Empty;
+            txtGradeInfo.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = Color.Silver;
+            stateProperties4.FillColor = Color.White;
+            stateProperties4.ForeColor = Color.Empty;
+            stateProperties4.PlaceholderForeColor = Color.Empty;
+            txtGradeInfo.OnIdleState = stateProperties4;
             txtGradeInfo.Padding = new Padding(3);
             txtGradeInfo.PasswordChar = '\0';
             txtGradeInfo.PlaceholderForeColor = Color.Silver;
-            txtGradeInfo.PlaceholderText = "اطلاعات راجب پایه مانند رشته ، مدرسه و ....";
+            txtGradeInfo.PlaceholderText = "اطلاعات راجب پایه مانند رشته ، مدرسه و .... (اختیاری)";
             txtGradeInfo.ReadOnly = false;
             txtGradeInfo.RightToLeft = RightToLeft.Yes;
             txtGradeInfo.ScrollBars = ScrollBars.None;
@@ -352,105 +333,9 @@
             txtGradeInfo.TextMarginBottom = 0;
             txtGradeInfo.TextMarginLeft = 3;
             txtGradeInfo.TextMarginTop = 1;
-            txtGradeInfo.TextPlaceholder = "اطلاعات راجب پایه مانند رشته ، مدرسه و ....";
+            txtGradeInfo.TextPlaceholder = "اطلاعات راجب پایه مانند رشته ، مدرسه و .... (اختیاری)";
             txtGradeInfo.UseSystemPasswordChar = false;
             txtGradeInfo.WordWrap = true;
-            // 
-            // rbElementary
-            // 
-            rbElementary.AllowBindingControlLocation = false;
-            rbElementary.BackColor = Color.Transparent;
-            rbElementary.BindingControlPosition = Bunifu.UI.WinForms.BunifuRadioButton.BindingControlPositions.Right;
-            rbElementary.BorderThickness = 1;
-            rbElementary.Checked = false;
-            rbElementary.Location = new Point(385, 163);
-            rbElementary.Name = "rbElementary";
-            rbElementary.OutlineColor = Color.FromArgb(249, 115, 22);
-            rbElementary.OutlineColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbElementary.OutlineColorUnchecked = Color.FromArgb(253, 186, 116);
-            rbElementary.RadioColor = Color.FromArgb(249, 115, 22);
-            rbElementary.RadioColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbElementary.Size = new Size(36, 36);
-            rbElementary.TabIndex = 36;
-            rbElementary.Text = null;
-            rbElementary.CheckedChanged2 += bunifuRadioButton5_CheckedChanged2;
-            rbElementary.ChangeUICues += rbebtedaie_ChangeUICues;
-            // 
-            // rbMore
-            // 
-            rbMore.AllowBindingControlLocation = false;
-            rbMore.BackColor = Color.Transparent;
-            rbMore.BindingControlPosition = Bunifu.UI.WinForms.BunifuRadioButton.BindingControlPositions.Right;
-            rbMore.BorderThickness = 1;
-            rbMore.Checked = false;
-            rbMore.Location = new Point(384, 208);
-            rbMore.Name = "rbMore";
-            rbMore.OutlineColor = Color.FromArgb(249, 115, 22);
-            rbMore.OutlineColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbMore.OutlineColorUnchecked = Color.FromArgb(253, 186, 116);
-            rbMore.RadioColor = Color.FromArgb(249, 115, 22);
-            rbMore.RadioColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbMore.Size = new Size(36, 36);
-            rbMore.TabIndex = 34;
-            rbMore.Text = null;
-            rbMore.CheckedChanged2 += rbMore_CheckedChanged2;
-            // 
-            // rbUni
-            // 
-            rbUni.AllowBindingControlLocation = false;
-            rbUni.BackColor = Color.Transparent;
-            rbUni.BindingControlPosition = Bunifu.UI.WinForms.BunifuRadioButton.BindingControlPositions.Right;
-            rbUni.BorderThickness = 1;
-            rbUni.Checked = false;
-            rbUni.Location = new Point(98, 163);
-            rbUni.Name = "rbUni";
-            rbUni.OutlineColor = Color.FromArgb(249, 115, 22);
-            rbUni.OutlineColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbUni.OutlineColorUnchecked = Color.FromArgb(253, 186, 116);
-            rbUni.RadioColor = Color.FromArgb(249, 115, 22);
-            rbUni.RadioColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbUni.Size = new Size(36, 36);
-            rbUni.TabIndex = 32;
-            rbUni.Text = null;
-            rbUni.CheckedChanged2 += rbUni_CheckedChanged2;
-            // 
-            // rbM2
-            // 
-            rbM2.AllowBindingControlLocation = false;
-            rbM2.BackColor = Color.Transparent;
-            rbM2.BindingControlPosition = Bunifu.UI.WinForms.BunifuRadioButton.BindingControlPositions.Right;
-            rbM2.BorderThickness = 1;
-            rbM2.Checked = false;
-            rbM2.Location = new Point(260, 208);
-            rbM2.Name = "rbM2";
-            rbM2.OutlineColor = Color.FromArgb(249, 115, 22);
-            rbM2.OutlineColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbM2.OutlineColorUnchecked = Color.FromArgb(253, 186, 116);
-            rbM2.RadioColor = Color.FromArgb(249, 115, 22);
-            rbM2.RadioColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbM2.Size = new Size(36, 36);
-            rbM2.TabIndex = 30;
-            rbM2.Text = null;
-            rbM2.CheckedChanged2 += rbM2_CheckedChanged2;
-            // 
-            // rbM1
-            // 
-            rbM1.AllowBindingControlLocation = false;
-            rbM1.BackColor = Color.Transparent;
-            rbM1.BindingControlPosition = Bunifu.UI.WinForms.BunifuRadioButton.BindingControlPositions.Right;
-            rbM1.BorderThickness = 1;
-            rbM1.Checked = true;
-            rbM1.Location = new Point(259, 163);
-            rbM1.Name = "rbM1";
-            rbM1.OutlineColor = Color.FromArgb(249, 115, 22);
-            rbM1.OutlineColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbM1.OutlineColorUnchecked = Color.FromArgb(253, 186, 116);
-            rbM1.RadioColor = Color.FromArgb(249, 115, 22);
-            rbM1.RadioColorTabFocused = Color.FromArgb(249, 115, 22);
-            rbM1.Size = new Size(36, 36);
-            rbM1.TabIndex = 27;
-            rbM1.Text = null;
-            rbM1.CheckedChanged2 += rbM1_CheckedChanged2;
             // 
             // txtBookName
             // 
@@ -485,26 +370,26 @@
             txtBookName.Modified = false;
             txtBookName.Multiline = false;
             txtBookName.Name = "txtBookName";
-            stateProperties13.BorderColor = Color.DodgerBlue;
-            stateProperties13.FillColor = Color.Empty;
-            stateProperties13.ForeColor = Color.Empty;
-            stateProperties13.PlaceholderForeColor = Color.Empty;
-            txtBookName.OnActiveState = stateProperties13;
-            stateProperties14.BorderColor = Color.FromArgb(204, 204, 204);
-            stateProperties14.FillColor = Color.FromArgb(240, 240, 240);
-            stateProperties14.ForeColor = Color.FromArgb(109, 109, 109);
-            stateProperties14.PlaceholderForeColor = Color.DarkGray;
-            txtBookName.OnDisabledState = stateProperties14;
-            stateProperties15.BorderColor = Color.FromArgb(105, 181, 255);
-            stateProperties15.FillColor = Color.Empty;
-            stateProperties15.ForeColor = Color.Empty;
-            stateProperties15.PlaceholderForeColor = Color.Empty;
-            txtBookName.OnHoverState = stateProperties15;
-            stateProperties16.BorderColor = Color.Silver;
-            stateProperties16.FillColor = Color.White;
-            stateProperties16.ForeColor = Color.Empty;
-            stateProperties16.PlaceholderForeColor = Color.Empty;
-            txtBookName.OnIdleState = stateProperties16;
+            stateProperties5.BorderColor = Color.DodgerBlue;
+            stateProperties5.FillColor = Color.Empty;
+            stateProperties5.ForeColor = Color.Empty;
+            stateProperties5.PlaceholderForeColor = Color.Empty;
+            txtBookName.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = Color.FromArgb(204, 204, 204);
+            stateProperties6.FillColor = Color.FromArgb(240, 240, 240);
+            stateProperties6.ForeColor = Color.FromArgb(109, 109, 109);
+            stateProperties6.PlaceholderForeColor = Color.DarkGray;
+            txtBookName.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = Color.FromArgb(105, 181, 255);
+            stateProperties7.FillColor = Color.Empty;
+            stateProperties7.ForeColor = Color.Empty;
+            stateProperties7.PlaceholderForeColor = Color.Empty;
+            txtBookName.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = Color.Silver;
+            stateProperties8.FillColor = Color.White;
+            stateProperties8.ForeColor = Color.Empty;
+            stateProperties8.PlaceholderForeColor = Color.Empty;
+            txtBookName.OnIdleState = stateProperties8;
             txtBookName.Padding = new Padding(3);
             txtBookName.PasswordChar = '\0';
             txtBookName.PlaceholderForeColor = Color.Silver;
@@ -534,7 +419,7 @@
             btnCreatLesson.AnimatedGIF = true;
             btnCreatLesson.AutoRoundedCorners = true;
             btnCreatLesson.BackColor = Color.Transparent;
-            btnCreatLesson.CustomizableEdges = customizableEdges21;
+            btnCreatLesson.CustomizableEdges = customizableEdges9;
             btnCreatLesson.DisabledState.BorderColor = Color.DarkGray;
             btnCreatLesson.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCreatLesson.DisabledState.FillColor = Color.FromArgb(253, 186, 116);
@@ -544,9 +429,9 @@
             btnCreatLesson.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnCreatLesson.ForeColor = Color.White;
             btnCreatLesson.HoverState.FillColor = Color.FromArgb(234, 88, 12);
-            btnCreatLesson.Location = new Point(165, 351);
+            btnCreatLesson.Location = new Point(172, 336);
             btnCreatLesson.Name = "btnCreatLesson";
-            btnCreatLesson.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnCreatLesson.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnCreatLesson.Size = new Size(145, 40);
             btnCreatLesson.TabIndex = 3;
             btnCreatLesson.Text = "ایجاد دروس";
@@ -555,11 +440,11 @@
             // numberPick
             // 
             numberPick.BackColor = Color.Transparent;
-            numberPick.CustomizableEdges = customizableEdges23;
+            numberPick.CustomizableEdges = customizableEdges11;
             numberPick.Font = new Font("Segoe UI", 9F);
-            numberPick.Location = new Point(263, 305);
+            numberPick.Location = new Point(263, 284);
             numberPick.Name = "numberPick";
-            numberPick.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            numberPick.ShadowDecoration.CustomizableEdges = customizableEdges12;
             numberPick.Size = new Size(71, 32);
             numberPick.TabIndex = 2;
             numberPick.UpDownButtonFillColor = Color.FromArgb(249, 115, 22);
@@ -571,7 +456,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(341, 307);
+            label5.Location = new Point(341, 288);
             label5.Name = "label5";
             label5.Size = new Size(79, 19);
             label5.TabIndex = 26;
@@ -621,66 +506,6 @@
             label1.TabIndex = 20;
             label1.Text = "اطلاعات کتاب";
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.Transparent;
-            label11.Font = new Font("Segoe UI", 9.5F);
-            label11.ForeColor = Color.Black;
-            label11.Location = new Point(343, 170);
-            label11.Name = "label11";
-            label11.Size = new Size(44, 17);
-            label11.TabIndex = 37;
-            label11.Text = "ابتدایی";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.Transparent;
-            label10.Font = new Font("Segoe UI", 9.5F);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(354, 215);
-            label10.Name = "label10";
-            label10.Size = new Size(31, 17);
-            label10.TabIndex = 35;
-            label10.Text = "سایر";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Segoe UI", 9.5F);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(51, 171);
-            label9.Name = "label9";
-            label9.Size = new Size(50, 17);
-            label9.TabIndex = 33;
-            label9.Text = "دانشگاه";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Segoe UI", 9.5F);
-            label8.ForeColor = Color.Black;
-            label8.Location = new Point(181, 216);
-            label8.Name = "label8";
-            label8.Size = new Size(82, 17);
-            label8.TabIndex = 31;
-            label8.Text = "متوسطه دوم";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Segoe UI", 9.5F);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(183, 171);
-            label7.Name = "label7";
-            label7.Size = new Size(79, 17);
-            label7.TabIndex = 29;
-            label7.Text = "متوسطه اول";
-            // 
             // frmAddBook
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -725,16 +550,6 @@
         private Label label6;
         private Bunifu.UI.WinForms.BunifuTextBox txtBookName;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
-        private Bunifu.UI.WinForms.BunifuRadioButton rbM1;
-        private Label label11;
-        private Bunifu.UI.WinForms.BunifuRadioButton rbElementary;
-        private Label label10;
-        private Bunifu.UI.WinForms.BunifuRadioButton rbMore;
-        private Label label9;
-        private Bunifu.UI.WinForms.BunifuRadioButton rbUni;
-        private Label label8;
-        private Bunifu.UI.WinForms.BunifuRadioButton rbM2;
-        private Label label7;
         private Bunifu.UI.WinForms.BunifuTextBox txtGradeInfo;
         private Guna.UI2.WinForms.Guna2ComboBox cbGrade;
     }
