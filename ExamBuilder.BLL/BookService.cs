@@ -16,16 +16,16 @@ namespace ExamBuilder.BLL
         {
             repository = new BookRepository();
         }
-        public async Task<OprationResult<List<BookInfo>>> SelectAsync()
+        public async Task<OprationResult<List<string>>> SelectAsync(string grade)
         {
-            var data = await repository.SelectAsync();
+            var data = await repository.SelectAsync(grade);
             if (data != null)
             {
-                return OprationResult<List<BookInfo>>.Success(data);
+                return OprationResult<List<string>>.Success(data);
             }
             else
             {
-                return OprationResult<List<BookInfo>>.RunTimeError();
+                return OprationResult<List<string>>.RunTimeError();
             }
         }
         public async Task<OprationResult> InsertAsync(BookInfo info)
@@ -84,6 +84,18 @@ namespace ExamBuilder.BLL
             else
             {
                 return OprationResult<int>.RunTimeError();
+            }
+        }
+        public async Task<OprationResult<List<string>>> SelectAvailableGrades()
+        {
+            var availableGrades = await repository.SelectAvailableGrades();
+            if (availableGrades != null)
+            {
+                return OprationResult<List<string>>.Success(availableGrades);
+            }
+            else
+            { 
+                return OprationResult<List<string>>.RunTimeError();
             }
         }
     }

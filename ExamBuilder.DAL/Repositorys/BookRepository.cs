@@ -18,16 +18,11 @@ namespace ExamBuilder.DAL.Repositorys
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<BookInfo>> SelectAsync()
+        public async Task<List<string>> SelectAsync(string grade)
         {
             try
             {
-                var books = await db.Books.Select(x => new BookInfo
-                {
-                    ID = x.ID,
-                    GradeID = x.GradeID,
-                    Title = x.Title,
-                }).ToListAsync();
+                var books = await db.Books.Include(x => x.Grade).Where(x => x.Grade.Title == grade).Select(x => x.Title).ToListAsync();
                 return books;
             }
             catch (Exception ex)
@@ -98,6 +93,19 @@ namespace ExamBuilder.DAL.Repositorys
         {
             bool duplicate = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo == gradeInfo).AnyAsync();
             return duplicate;
+        }
+        public async Task<List<string>> SelectAvailableGrades()
+        {
+            try
+            {
+                var availableGrades = db.Books.Include(x => x.Grade).ToList().DistinctBy(x => x.GradeID).Select(x => x.Grade.Title).ToList();
+                return availableGrades;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
         }
     }
 }

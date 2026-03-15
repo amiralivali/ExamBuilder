@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.Shared;
 using ExamBuilder.Shared.InformationClases;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,17 +18,12 @@ namespace ExamBuilder.DAL.Repositorys
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<LessonInfo>> SelectAsync(int bookID)
+        public async Task<List<string>> SelectAsync(string bookName)
         {
             try
             {
-                var lessons = await db.Lessons.Where(x => x.BookID == bookID).Select(x => new LessonInfo
-                {
-                    BookID = bookID,
-                    ID = x.ID,
-                    LessonCount = x.LessonCount,
-                    Title = x.Title
-                }).ToListAsync();
+                var lessons = await db.Lessons.Include(x => x.Book).Where(x => x.Book.Title == bookName)
+                    .Select(x => Messages.Lesson + " " + x.LessonCount + " " + x.Title).ToListAsync();
                 return lessons;
             }
             catch (Exception ex)

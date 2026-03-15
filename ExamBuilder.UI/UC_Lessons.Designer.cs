@@ -128,7 +128,7 @@
             txtLessonName.Padding = new Padding(3);
             txtLessonName.PasswordChar = '\0';
             txtLessonName.PlaceholderForeColor = Color.Silver;
-            txtLessonName.PlaceholderText = "نام درس را وارد کنید";
+            txtLessonName.PlaceholderText = "نام درس را وارد کنید (اختیاری)";
             txtLessonName.ReadOnly = false;
             txtLessonName.RightToLeft = RightToLeft.Yes;
             txtLessonName.ScrollBars = ScrollBars.None;
@@ -143,7 +143,7 @@
             txtLessonName.TextMarginBottom = 0;
             txtLessonName.TextMarginLeft = 3;
             txtLessonName.TextMarginTop = 1;
-            txtLessonName.TextPlaceholder = "نام درس را وارد کنید";
+            txtLessonName.TextPlaceholder = "نام درس را وارد کنید (اختیاری)";
             txtLessonName.UseSystemPasswordChar = false;
             txtLessonName.WordWrap = true;
             // 

@@ -80,6 +80,7 @@
             // 
             // guna2CustomGradientPanel1
             // 
+            guna2CustomGradientPanel1.BorderRadius = 2;
             guna2CustomGradientPanel1.Controls.Add(label3);
             guna2CustomGradientPanel1.Controls.Add(pictureBox3);
             guna2CustomGradientPanel1.CustomizableEdges = customizableEdges1;
@@ -91,7 +92,7 @@
             guna2CustomGradientPanel1.Location = new Point(0, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2CustomGradientPanel1.Size = new Size(790, 81);
+            guna2CustomGradientPanel1.Size = new Size(804, 81);
             guna2CustomGradientPanel1.TabIndex = 1;
             // 
             // label3
@@ -119,15 +120,17 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.WhiteSmoke;
+            panel1.BackColor = Color.Linen;
             panel1.Controls.Add(btnEnterBook);
             panel1.Controls.Add(guna2ShadowPanel2);
             panel1.Controls.Add(panelbook);
             panel1.Controls.Add(guna2CustomGradientPanel1);
-            panel1.Location = new Point(20, 12);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(790, 555);
+            panel1.Size = new Size(804, 544);
             panel1.TabIndex = 2;
+            panel1.Paint += panel1_Paint;
             // 
             // btnEnterBook
             // 
@@ -161,7 +164,7 @@
             guna2ShadowPanel2.Controls.Add(guna2Separator2);
             guna2ShadowPanel2.Controls.Add(label6);
             guna2ShadowPanel2.FillColor = Color.White;
-            guna2ShadowPanel2.Location = new Point(3, 87);
+            guna2ShadowPanel2.Location = new Point(12, 87);
             guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             guna2ShadowPanel2.Radius = 5;
             guna2ShadowPanel2.ShadowColor = Color.Black;
@@ -235,7 +238,7 @@
             panelbook.Controls.Add(guna2Separator1);
             panelbook.Controls.Add(label1);
             panelbook.FillColor = Color.White;
-            panelbook.Location = new Point(346, 87);
+            panelbook.Location = new Point(355, 87);
             panelbook.Name = "panelbook";
             panelbook.Radius = 5;
             panelbook.ShadowColor = Color.Black;
@@ -511,7 +514,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 246, 251);
-            ClientSize = new Size(822, 557);
+            ClientSize = new Size(804, 544);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmAddBook";

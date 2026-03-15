@@ -22,5 +22,6 @@ namespace ExamBuilder.Shared
         public const string University = "دانشگاه";
         public const string More = "سایر";
         public const string Book="کتاب";
+        public const string Lesson = "درس";
     }
 }

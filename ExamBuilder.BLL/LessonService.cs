@@ -17,16 +17,16 @@ namespace ExamBuilder.BLL
         {
             repository = new LessonRepository();
         }
-        public async Task<OprationResult<List<LessonInfo>>> SelectAsync(int bookID)
+        public async Task<OprationResult<List<string>>> SelectAsync(string bookName)
         {
-            var data = await repository.SelectAsync(bookID);
+            var data = await repository.SelectAsync(bookName);
             if (data != null)
             {
-                return OprationResult<List<LessonInfo>>.Success(data);
+                return OprationResult<List<string>>.Success(data);
             }
             else
             {
-                return OprationResult<List<LessonInfo>>.RunTimeError();
+                return OprationResult<List<string>>.RunTimeError();
             }
         }
         public async Task<OprationResult> InsertAsync(List<LessonInfo> info)

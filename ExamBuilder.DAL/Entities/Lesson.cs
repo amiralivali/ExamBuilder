@@ -11,7 +11,6 @@ namespace ExamBuilder.DAL.Entities
     {
         [Key]
         public int ID { get; set; }
-        [Required]
         [MaxLength(30)]
         public string Title { get; set; }
         public int LessonCount { get; set; }

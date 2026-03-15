@@ -20,20 +20,20 @@ namespace ExamBuilder.UI
 
         private async void guna2Button2_Click(object sender, EventArgs e)
         {
-            var check = CheckValidationLesson();
-            if (!check)
-            {
-                ShowError("لطفا نام تمامی دروس را وارد کنید");
-                return;
-            }
+            //var check = CheckValidationLesson();
+            //if (!check)
+            //{
+            //    ShowError("لطفا نام تمامی دروس را وارد کنید");
+            //    return;
+            //}
             var bookInfo = new BookInfo()
             {
                 Title = txtBookName.Text.Trim(),
-                GradeID=cbGrade.SelectedIndex+1,
+                GradeID = cbGrade.SelectedIndex + 1,
                 GradeInfo = txtGradeInfo.Text,
             };
             var bookOpration = await bookService.InsertAsync(bookInfo);
-            var bookId=await bookService.GetLastIDAsync(bookInfo.Title,bookInfo.GradeID,bookInfo.GradeInfo);
+            var bookId = await bookService.GetLastIDAsync(bookInfo.Title, bookInfo.GradeID, bookInfo.GradeInfo);
             if (bookOpration.IsSuccess)
             {
                 var lessonsInfo = new List<LessonInfo>();
@@ -63,6 +63,7 @@ namespace ExamBuilder.UI
                 if (lessonOpration.IsSuccess)
                 {
                     ShowSuccess(lessonOpration.Message);
+                    DeleteControlInfo();
                 }
                 else
                 {
@@ -108,7 +109,7 @@ namespace ExamBuilder.UI
         {
             if (((int)numberPick.Value) > 0 &&
                 !string.IsNullOrEmpty(txtBookName.Text) &&
-                cbGrade.SelectedIndex!=-1)
+                cbGrade.SelectedIndex != -1)
             {
                 return true;
             }
@@ -117,46 +118,54 @@ namespace ExamBuilder.UI
                 return false;
             }
         }
-        private bool CheckValidationLesson()
-        {
-            foreach (var item in flpLessons.Controls)
-            {
-                var control = item as UC_Lessons;
-                foreach (var panel in control.Controls)
-                {
-                    var shadow = panel as Guna2ShadowPanel;
-                    foreach (var childItem in shadow.Controls)
-                    {
-                        if (childItem is BunifuTextBox)
-                        {
-                            var txt = childItem as BunifuTextBox;
-                            if (string.IsNullOrEmpty(txt.Text))
-                            {
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
-            return true;
-        }
+        //private bool CheckValidationLesson()
+        //{
+        //    foreach (var item in flpLessons.Controls)
+        //    {
+        //        var control = item as UC_Lessons;
+        //        foreach (var panel in control.Controls)
+        //        {
+        //            var shadow = panel as Guna2ShadowPanel;
+        //            foreach (var childItem in shadow.Controls)
+        //            {
+        //                if (childItem is BunifuTextBox)
+        //                {
+        //                    var txt = childItem as BunifuTextBox;
+        //                    if (string.IsNullOrEmpty(txt.Text))
+        //                    {
+        //                        return false;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return true;
+        //}
         private void txtBookName_TextChanged(object sender, EventArgs e)
         {
             btnCreatLesson.Enabled = CheckValidationBookInfo();
         }
-
+        private void DeleteControlInfo()
+        {
+            panelbook.Enabled = true;
+            txtBookName.Text = "";
+            numberPick.Value = 0;
+            btnEnterBook.Enabled = false;
+            flpLessons.Controls.Clear();
+            btnDelete.Visible = false;
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var result = ShowWarningQuestion("آیا از حذف اطلاعات وارد شده اطمینان دارید؟");
             if (result == DialogResult.Yes)
             {
-                panelbook.Enabled = true;
-                txtBookName.Text = "";
-                numberPick.Value = 0;
-                btnEnterBook.Enabled = false;
-                flpLessons.Controls.Clear();
-                btnDelete.Visible = false;
+                DeleteControlInfo();
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
