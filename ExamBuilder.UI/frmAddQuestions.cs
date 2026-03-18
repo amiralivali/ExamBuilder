@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamBuilder.BLL;
+using ExamBuilder.DAL.Entities;
+using ExamBuilder.Shared;
 
 namespace ExamBuilder.UI
 {
@@ -112,6 +114,47 @@ namespace ExamBuilder.UI
                 cbDifficalty.ForeColor = Color.Gray;
             else
                 cbDifficalty.ForeColor = Color.Black;
+        }
+
+        private void btnOptional_Click(object sender, EventArgs e)
+        {
+            flpQuestions.Controls.Clear();
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_OptionalQuestion()); })));
+        }
+
+        private void btnShort_Click(object sender, EventArgs e)
+        {
+            flpQuestions.Controls.Clear();
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_Descriptive_ShortQuestion(Messages.ShortAnswer)); })));
+        }
+
+        private void btnDescritive_Click(object sender, EventArgs e)
+        {
+            flpQuestions.Controls.Clear();
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_Descriptive_ShortQuestion(Messages.Descriptive)); })));
+        }
+
+        private void btnTrueFalse_Click(object sender, EventArgs e)
+        {
+            flpQuestions.Controls.Clear();
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_TrueFalseQuestion()); })));
+        }
+
+        private void btnBlank_Click(object sender, EventArgs e)
+        {
+            flpQuestions.Controls.Clear();
+
+        }
+
+        private void btnMatching_Click(object sender, EventArgs e)
+        {
+            flpQuestions.Controls.Clear();
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -117,35 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="blue-plus-11976_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blue-plus-11976_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="orange-book-5000_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\orange-book-5000_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="open-book-Photoroom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\open-book-Photoroom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="checklist_7900976" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checklist_7900976.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blue-plus-11976_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blue-plus-11976_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="check-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="calendar-check-symbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar-check-symbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="open-book" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\open-book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="to-do-list-13181_512 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\to-do-list-13181_512 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="check-5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-5121.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtItemName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAATMAAAAeCAYAAABAHfkCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJYSURBVHhe7d2/attQFMfxjBk7duzYR+jYsWPHjFn6Fh36
+        AIVCX6PQLdCpx5LuvfIgXIyxF/8jgxGqMYpxXeMYo3JKKqoLDl2aSOL7gTMYJI8/dP+de3YGAG0nIuci
+        cmGtvbLWfouiaNnpdAqKoqj/XZo3mjvW2q8icikiT/yM+ici8iqKotVgMFhnWVbkeV7sdrsCAB6C5o3m
+        znK5LEaj0cYYk4dh+MbPqpM0/ay1n3u9Xr7f7/3/B4BHcTgciuFweGOtjUXkqZ9dFXdBdr1YLG79PwKA
+        OlitVkUcx9ci8szPsJJ+kRFkAOpOh586n+Zn2G86R6ZDS/8lAKij8Xj8I4qid36QnetkP3NkAJrieDwW
+        3W53JSLP/w6zS10t8B8GgDqbz+cHY8yHMsx0H4cufwJAk2w2m8IYMyvDLIqixXa79Z8DgFrToWYQBIcy
+        zIIg+Kl7OACgafS0QBlm+gMAmogwA9AKhBmAViDMALQCYQagFQgzAK1QCTPdp6H7NQCgaSphph0dabwI
+        oIkqYabNzrRHEAA0iZ5c0hNMZZgFQfB2MpnwaQagUdI01bOZn8ow046NzrmceTMATdLv929E5HUZZsoY
+        8346ndIGCEAjpGl665z7UgkypQ0anXOD9XrtvwMAtaKNZK21309eP6cdG+M4XtIOCEBdaZAlSaIdZl/6
+        GVYhIi/0hqbZbMaCAIBaybLs9u6L7P4g+0OHnNbaj0mS5LpawN0AAB6L9lrUi8j1QnLnXHByaHkfTT9d
+        9gzDcK0b0yiKoh66tHmstfZKRC78jAKA1vkFYXDHtmIQxkEAAAAASUVORK5CYII=
+</value>
   </data>
 </root>

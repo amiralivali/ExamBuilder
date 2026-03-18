@@ -23,5 +23,7 @@ namespace ExamBuilder.Shared
         public const string More = "سایر";
         public const string Book="کتاب";
         public const string Lesson = "درس";
+        public const string Descriptive = "تشریحی";
+        public const string ShortAnswer = "کوتاه پاسخ";
     }
 }
