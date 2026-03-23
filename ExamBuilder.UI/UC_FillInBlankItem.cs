@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace ExamBuilder.UI
 {
-    public partial class UC_TrueFalseItem : UserControl
+    public partial class UC_FillInBlankItem : UserControl
     {
-        public UC_TrueFalseItem(int _count)
+        public UC_FillInBlankItem(int _count)
         {
             InitializeComponent();
             lblCount.Text = _count.ToString();
         }
 
-        private void txtItemName_TextChanged(object sender, EventArgs e)
+        private void btnAddBlank_Click(object sender, EventArgs e)
         {
 
         }

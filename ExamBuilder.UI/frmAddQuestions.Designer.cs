@@ -127,19 +127,19 @@
             panelUc.BackColor = Color.Transparent;
             panelUc.Controls.Add(flpQuestions);
             panelUc.FillColor = Color.FromArgb(235, 240, 250);
-            panelUc.Location = new Point(36, 16);
+            panelUc.Location = new Point(19, 16);
             panelUc.Name = "panelUc";
             panelUc.Radius = 10;
             panelUc.ShadowColor = Color.Black;
             panelUc.ShadowDepth = 20;
-            panelUc.Size = new Size(661, 214);
+            panelUc.Size = new Size(694, 214);
             panelUc.TabIndex = 31;
             // 
             // flpQuestions
             // 
-            flpQuestions.Location = new Point(14, 4);
+            flpQuestions.Location = new Point(5, 4);
             flpQuestions.Name = "flpQuestions";
-            flpQuestions.Size = new Size(645, 202);
+            flpQuestions.Size = new Size(680, 202);
             flpQuestions.TabIndex = 0;
             // 
             // guna2Separator4

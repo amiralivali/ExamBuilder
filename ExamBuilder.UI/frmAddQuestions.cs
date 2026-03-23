@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ExamBuilder.BLL;
 using ExamBuilder.DAL.Entities;
 using ExamBuilder.Shared;
+using static ExamBuilder.Shared.QuestionTypes;
 
 namespace ExamBuilder.UI
 {
@@ -137,19 +138,19 @@ namespace ExamBuilder.UI
         private void btnTrueFalse_Click(object sender, EventArgs e)
         {
             flpQuestions.Controls.Clear();
-            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_TrueFalseQuestion()); })));
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_ItemQuestions(QuestionType.TrueFalseQuestion)); })));
         }
 
         private void btnBlank_Click(object sender, EventArgs e)
         {
             flpQuestions.Controls.Clear();
-
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_ItemQuestions(QuestionType.FillInBlankQuestion)); })));
         }
 
         private void btnMatching_Click(object sender, EventArgs e)
         {
             flpQuestions.Controls.Clear();
-
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_ItemQuestions(QuestionType.MatchingQuestion)); })));
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

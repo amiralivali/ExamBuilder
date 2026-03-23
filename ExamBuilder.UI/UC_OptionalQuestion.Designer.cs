@@ -59,7 +59,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.5F);
-            label1.Location = new Point(569, 20);
+            label1.Location = new Point(630, 20);
             label1.Name = "label1";
             label1.Size = new Size(47, 17);
             label1.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.5F);
-            label2.Location = new Point(569, 64);
+            label2.Location = new Point(630, 68);
             label2.Name = "label2";
             label2.Size = new Size(47, 17);
             label2.TabIndex = 1;
@@ -80,7 +80,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9.5F);
-            label3.Location = new Point(569, 105);
+            label3.Location = new Point(630, 113);
             label3.Name = "label3";
             label3.Size = new Size(47, 17);
             label3.TabIndex = 2;
@@ -90,7 +90,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.5F);
-            label4.Location = new Point(569, 147);
+            label4.Location = new Point(630, 160);
             label4.Name = "label4";
             label4.Size = new Size(47, 17);
             label4.TabIndex = 3;
@@ -160,7 +160,7 @@
             txtLessonName.SelectionLength = 0;
             txtLessonName.SelectionStart = 0;
             txtLessonName.ShortcutsEnabled = true;
-            txtLessonName.Size = new Size(555, 35);
+            txtLessonName.Size = new Size(616, 41);
             txtLessonName.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             txtLessonName.TabIndex = 0;
             txtLessonName.TextAlign = HorizontalAlignment.Left;
@@ -198,7 +198,7 @@
             bunifuTextBox1.IconPadding = 10;
             bunifuTextBox1.IconRight = null;
             bunifuTextBox1.IconRightCursor = Cursors.IBeam;
-            bunifuTextBox1.Location = new Point(8, 54);
+            bunifuTextBox1.Location = new Point(8, 58);
             bunifuTextBox1.MaxLength = 32767;
             bunifuTextBox1.MinimumSize = new Size(1, 1);
             bunifuTextBox1.Modified = false;
@@ -235,7 +235,7 @@
             bunifuTextBox1.SelectionLength = 0;
             bunifuTextBox1.SelectionStart = 0;
             bunifuTextBox1.ShortcutsEnabled = true;
-            bunifuTextBox1.Size = new Size(555, 35);
+            bunifuTextBox1.Size = new Size(616, 41);
             bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             bunifuTextBox1.TabIndex = 1;
             bunifuTextBox1.TextAlign = HorizontalAlignment.Left;
@@ -273,7 +273,7 @@
             bunifuTextBox2.IconPadding = 10;
             bunifuTextBox2.IconRight = null;
             bunifuTextBox2.IconRightCursor = Cursors.IBeam;
-            bunifuTextBox2.Location = new Point(8, 98);
+            bunifuTextBox2.Location = new Point(8, 104);
             bunifuTextBox2.MaxLength = 32767;
             bunifuTextBox2.MinimumSize = new Size(1, 1);
             bunifuTextBox2.Modified = false;
@@ -310,7 +310,7 @@
             bunifuTextBox2.SelectionLength = 0;
             bunifuTextBox2.SelectionStart = 0;
             bunifuTextBox2.ShortcutsEnabled = true;
-            bunifuTextBox2.Size = new Size(555, 35);
+            bunifuTextBox2.Size = new Size(616, 41);
             bunifuTextBox2.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             bunifuTextBox2.TabIndex = 2;
             bunifuTextBox2.TextAlign = HorizontalAlignment.Left;
@@ -348,7 +348,7 @@
             bunifuTextBox3.IconPadding = 10;
             bunifuTextBox3.IconRight = null;
             bunifuTextBox3.IconRightCursor = Cursors.IBeam;
-            bunifuTextBox3.Location = new Point(8, 140);
+            bunifuTextBox3.Location = new Point(8, 151);
             bunifuTextBox3.MaxLength = 32767;
             bunifuTextBox3.MinimumSize = new Size(1, 1);
             bunifuTextBox3.Modified = false;
@@ -385,7 +385,7 @@
             bunifuTextBox3.SelectionLength = 0;
             bunifuTextBox3.SelectionStart = 0;
             bunifuTextBox3.ShortcutsEnabled = true;
-            bunifuTextBox3.Size = new Size(555, 35);
+            bunifuTextBox3.Size = new Size(616, 41);
             bunifuTextBox3.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             bunifuTextBox3.TabIndex = 3;
             bunifuTextBox3.TextAlign = HorizontalAlignment.Left;
@@ -410,7 +410,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "UC_OptionalQuestion";
-            Size = new Size(615, 179);
+            Size = new Size(680, 202);
             Load += UC_OptionalQuestion_Load;
             ResumeLayout(false);
             PerformLayout();

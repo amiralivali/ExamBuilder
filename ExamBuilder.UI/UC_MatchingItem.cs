@@ -10,17 +10,12 @@ using System.Windows.Forms;
 
 namespace ExamBuilder.UI
 {
-    public partial class UC_TrueFalseItem : UserControl
+    public partial class UC_MatchingItem : UserControl
     {
-        public UC_TrueFalseItem(int _count)
+        public UC_MatchingItem(int _count)
         {
             InitializeComponent();
             lblCount.Text = _count.ToString();
-        }
-
-        private void txtItemName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

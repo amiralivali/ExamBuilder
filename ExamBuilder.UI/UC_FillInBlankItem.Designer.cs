@@ -1,6 +1,6 @@
 ﻿namespace ExamBuilder.UI
 {
-    partial class UC_TrueFalseItem
+    partial class UC_FillInBlankItem
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_TrueFalseItem));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties17 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_FillInBlankItem));
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtItemName = new Bunifu.UI.WinForms.BunifuTextBox();
             lblCount = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            btnAddBlank = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2ShadowPanel1.SuspendLayout();
             SuspendLayout();
@@ -69,32 +71,32 @@
             txtItemName.IconPadding = 10;
             txtItemName.IconRight = null;
             txtItemName.IconRightCursor = Cursors.IBeam;
-            txtItemName.Location = new Point(10, 38);
+            txtItemName.Location = new Point(81, 38);
             txtItemName.MaxLength = 32767;
             txtItemName.MinimumSize = new Size(1, 1);
             txtItemName.Modified = false;
             txtItemName.Multiline = false;
             txtItemName.Name = "txtItemName";
-            stateProperties17.BorderColor = Color.DodgerBlue;
-            stateProperties17.FillColor = Color.Empty;
-            stateProperties17.ForeColor = Color.Empty;
-            stateProperties17.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnActiveState = stateProperties17;
-            stateProperties18.BorderColor = Color.FromArgb(204, 204, 204);
-            stateProperties18.FillColor = Color.FromArgb(240, 240, 240);
-            stateProperties18.ForeColor = Color.FromArgb(109, 109, 109);
-            stateProperties18.PlaceholderForeColor = Color.DarkGray;
-            txtItemName.OnDisabledState = stateProperties18;
-            stateProperties19.BorderColor = Color.FromArgb(105, 181, 255);
-            stateProperties19.FillColor = Color.Empty;
-            stateProperties19.ForeColor = Color.Empty;
-            stateProperties19.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnHoverState = stateProperties19;
-            stateProperties20.BorderColor = Color.Silver;
-            stateProperties20.FillColor = Color.White;
-            stateProperties20.ForeColor = Color.Empty;
-            stateProperties20.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnIdleState = stateProperties20;
+            stateProperties1.BorderColor = Color.DodgerBlue;
+            stateProperties1.FillColor = Color.Empty;
+            stateProperties1.ForeColor = Color.Empty;
+            stateProperties1.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = Color.FromArgb(204, 204, 204);
+            stateProperties2.FillColor = Color.FromArgb(240, 240, 240);
+            stateProperties2.ForeColor = Color.FromArgb(109, 109, 109);
+            stateProperties2.PlaceholderForeColor = Color.DarkGray;
+            txtItemName.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = Color.FromArgb(105, 181, 255);
+            stateProperties3.FillColor = Color.Empty;
+            stateProperties3.ForeColor = Color.Empty;
+            stateProperties3.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = Color.Silver;
+            stateProperties4.FillColor = Color.White;
+            stateProperties4.ForeColor = Color.Empty;
+            stateProperties4.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnIdleState = stateProperties4;
             txtItemName.Padding = new Padding(3);
             txtItemName.PasswordChar = '\0';
             txtItemName.PlaceholderForeColor = Color.Silver;
@@ -106,7 +108,7 @@
             txtItemName.SelectionLength = 0;
             txtItemName.SelectionStart = 0;
             txtItemName.ShortcutsEnabled = true;
-            txtItemName.Size = new Size(404, 30);
+            txtItemName.Size = new Size(333, 30);
             txtItemName.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             txtItemName.TabIndex = 7;
             txtItemName.TextAlign = HorizontalAlignment.Left;
@@ -116,7 +118,6 @@
             txtItemName.TextPlaceholder = "متن آیتم را وارد کنید ";
             txtItemName.UseSystemPasswordChar = false;
             txtItemName.WordWrap = true;
-            txtItemName.TextChanged += txtItemName_TextChanged;
             // 
             // lblCount
             // 
@@ -151,6 +152,7 @@
             // guna2ShadowPanel1
             // 
             guna2ShadowPanel1.BackColor = Color.Transparent;
+            guna2ShadowPanel1.Controls.Add(btnAddBlank);
             guna2ShadowPanel1.Controls.Add(txtItemName);
             guna2ShadowPanel1.Controls.Add(lblCount);
             guna2ShadowPanel1.Controls.Add(label1);
@@ -163,15 +165,36 @@
             guna2ShadowPanel1.ShadowColor = Color.Black;
             guna2ShadowPanel1.ShadowDepth = 20;
             guna2ShadowPanel1.Size = new Size(484, 81);
-            guna2ShadowPanel1.TabIndex = 1;
+            guna2ShadowPanel1.TabIndex = 2;
             // 
-            // UC_TrueFalseItem
+            // btnAddBlank
+            // 
+            btnAddBlank.Animated = true;
+            btnAddBlank.AnimatedGIF = true;
+            btnAddBlank.DisabledState.BorderColor = Color.DarkGray;
+            btnAddBlank.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnAddBlank.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnAddBlank.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAddBlank.FillColor = Color.FromArgb(37, 99, 235);
+            btnAddBlank.Font = new Font("Segoe UI", 9F);
+            btnAddBlank.ForeColor = Color.White;
+            btnAddBlank.Location = new Point(9, 11);
+            btnAddBlank.Name = "btnAddBlank";
+            btnAddBlank.PressedDepth = 10;
+            btnAddBlank.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            btnAddBlank.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            btnAddBlank.Size = new Size(66, 60);
+            btnAddBlank.TabIndex = 8;
+            btnAddBlank.Text = "جاخالی";
+            btnAddBlank.Click += btnAddBlank_Click;
+            // 
+            // UC_FillInBlankItem
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             Controls.Add(guna2ShadowPanel1);
-            Name = "UC_TrueFalseItem";
+            Name = "UC_FillInBlankItem";
             Size = new Size(484, 81);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             guna2ShadowPanel1.ResumeLayout(false);
@@ -186,5 +209,6 @@
         private Label label1;
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
+        private Guna.UI2.WinForms.Guna2CircleButton btnAddBlank;
     }
 }

@@ -7,21 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExamBuilder.Shared;
+using static ExamBuilder.Shared.QuestionTypes;
 
 namespace ExamBuilder.UI
 {
-    public partial class UC_TrueFalseQuestion : UserControl
+    public partial class UC_ItemQuestions : UserControl
     {
-        public UC_TrueFalseQuestion()
+        private QuestionType _questionType;
+        public UC_ItemQuestions(QuestionType type)
         {
             InitializeComponent();
+            _questionType = type;
         }
 
         private void btnCreatItem_Click(object sender, EventArgs e)
         {
             for (int i = 1; i <= numberPick.Value; i++)
             {
-                flpItems.Controls.Add(new UC_TrueFalseItem(i));
+                switch (_questionType)
+                {
+                    case QuestionType.FillInBlankQuestion:
+                        flpItems.Controls.Add(new UC_FillInBlankItem(i));
+                        break;
+                    case QuestionType.MatchingQuestion:
+                        flpItems.Controls.Add(new UC_MatchingItem(i));
+                        break;
+                    case QuestionType.TrueFalseQuestion:
+                        flpItems.Controls.Add(new UC_TrueFalseItem(i));
+                        break;
+                }
             }
             btnCreatItem.Enabled = false;
             btnDeleteItem.Visible = true;
@@ -43,7 +58,12 @@ namespace ExamBuilder.UI
         {
             flpItems.Controls.Clear();
             btnCreatItem.Enabled = true;
-            btnDeleteItem.Visible = false; 
+            btnDeleteItem.Visible = false;
+        }
+
+        private void UC_ItemQuestions_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
