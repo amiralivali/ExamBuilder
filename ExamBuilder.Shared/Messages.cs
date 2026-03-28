@@ -25,5 +25,6 @@ namespace ExamBuilder.Shared
         public const string Lesson = "درس";
         public const string Descriptive = "تشریحی";
         public const string ShortAnswer = "کوتاه پاسخ";
+        public const string Blank_Marker = "#BLANK#"; // نشانگر کوتاه برای جاخالی
     }
 }
