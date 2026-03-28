@@ -54,6 +54,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddQuestions));
             panel1 = new Panel();
             guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -68,6 +70,7 @@
             btnBlank = new Guna.UI2.WinForms.Guna2Button();
             btnMatching = new Guna.UI2.WinForms.Guna2Button();
             guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            chipCheckPic = new Guna.UI2.WinForms.Guna2Chip();
             cbGrade = new Guna.UI2.WinForms.Guna2ComboBox();
             btnPicture = new Guna.UI2.WinForms.Guna2Button();
             cbDifficalty = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -329,6 +332,7 @@
             // guna2ShadowPanel1
             // 
             guna2ShadowPanel1.BackColor = Color.Transparent;
+            guna2ShadowPanel1.Controls.Add(chipCheckPic);
             guna2ShadowPanel1.Controls.Add(cbGrade);
             guna2ShadowPanel1.Controls.Add(btnPicture);
             guna2ShadowPanel1.Controls.Add(cbDifficalty);
@@ -347,12 +351,29 @@
             guna2ShadowPanel1.Size = new Size(730, 362);
             guna2ShadowPanel1.TabIndex = 22;
             // 
+            // chipCheckPic
+            // 
+            chipCheckPic.BorderColor = Color.FromArgb(0, 192, 0);
+            chipCheckPic.BorderRadius = 10;
+            chipCheckPic.CustomizableEdges = customizableEdges13;
+            chipCheckPic.FillColor = Color.FromArgb(11, 151, 73);
+            chipCheckPic.Font = new Font("Segoe UI", 9.5F);
+            chipCheckPic.ForeColor = Color.White;
+            chipCheckPic.Location = new Point(175, 312);
+            chipCheckPic.Name = "chipCheckPic";
+            chipCheckPic.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            chipCheckPic.Size = new Size(193, 35);
+            chipCheckPic.TabIndex = 24;
+            chipCheckPic.Text = "تصویر انتخاب شد";
+            chipCheckPic.Visible = false;
+            chipCheckPic.Click += chipCheckPic_Click;
+            // 
             // cbGrade
             // 
             cbGrade.BackColor = Color.White;
             cbGrade.BorderColor = Color.Gainsboro;
             cbGrade.BorderRadius = 10;
-            cbGrade.CustomizableEdges = customizableEdges13;
+            cbGrade.CustomizableEdges = customizableEdges15;
             cbGrade.DrawMode = DrawMode.OwnerDrawFixed;
             cbGrade.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGrade.FillColor = Color.FromArgb(248, 250, 252);
@@ -366,7 +387,7 @@
             cbGrade.Location = new Point(36, 69);
             cbGrade.Name = "cbGrade";
             cbGrade.RightToLeft = RightToLeft.Yes;
-            cbGrade.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            cbGrade.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cbGrade.Size = new Size(661, 36);
             cbGrade.StartIndex = 0;
             cbGrade.TabIndex = 0;
@@ -380,7 +401,7 @@
             btnPicture.BorderColor = Color.Gainsboro;
             btnPicture.BorderRadius = 10;
             btnPicture.BorderThickness = 1;
-            btnPicture.CustomizableEdges = customizableEdges15;
+            btnPicture.CustomizableEdges = customizableEdges17;
             btnPicture.DisabledState.BorderColor = Color.DarkGray;
             btnPicture.DisabledState.CustomBorderColor = Color.DarkGray;
             btnPicture.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -391,17 +412,18 @@
             btnPicture.Location = new Point(36, 312);
             btnPicture.Name = "btnPicture";
             btnPicture.PressedDepth = 4;
-            btnPicture.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnPicture.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnPicture.Size = new Size(133, 35);
             btnPicture.TabIndex = 5;
             btnPicture.Text = "انتخاب تصویر";
+            btnPicture.Click += btnPicture_Click;
             // 
             // cbDifficalty
             // 
             cbDifficalty.BackColor = Color.White;
             cbDifficalty.BorderColor = Color.Gainsboro;
             cbDifficalty.BorderRadius = 10;
-            cbDifficalty.CustomizableEdges = customizableEdges17;
+            cbDifficalty.CustomizableEdges = customizableEdges19;
             cbDifficalty.DrawMode = DrawMode.OwnerDrawFixed;
             cbDifficalty.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDifficalty.FillColor = Color.FromArgb(248, 250, 252);
@@ -415,7 +437,7 @@
             cbDifficalty.Location = new Point(506, 312);
             cbDifficalty.Name = "cbDifficalty";
             cbDifficalty.RightToLeft = RightToLeft.Yes;
-            cbDifficalty.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            cbDifficalty.ShadowDecoration.CustomizableEdges = customizableEdges20;
             cbDifficalty.Size = new Size(191, 36);
             cbDifficalty.StartIndex = 0;
             cbDifficalty.TabIndex = 4;
@@ -425,7 +447,7 @@
             // guna2TextBox1
             // 
             guna2TextBox1.BorderRadius = 12;
-            guna2TextBox1.CustomizableEdges = customizableEdges19;
+            guna2TextBox1.CustomizableEdges = customizableEdges21;
             guna2TextBox1.DefaultText = "";
             guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -444,7 +466,7 @@
             guna2TextBox1.PlaceholderText = "متن سوال را وارد کنید";
             guna2TextBox1.RightToLeft = RightToLeft.Yes;
             guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges22;
             guna2TextBox1.Size = new Size(661, 150);
             guna2TextBox1.TabIndex = 3;
             // 
@@ -453,7 +475,7 @@
             cbLesson.BackColor = Color.White;
             cbLesson.BorderColor = Color.Gainsboro;
             cbLesson.BorderRadius = 10;
-            cbLesson.CustomizableEdges = customizableEdges21;
+            cbLesson.CustomizableEdges = customizableEdges23;
             cbLesson.DrawMode = DrawMode.OwnerDrawFixed;
             cbLesson.DropDownStyle = ComboBoxStyle.DropDownList;
             cbLesson.Enabled = false;
@@ -468,7 +490,7 @@
             cbLesson.Location = new Point(36, 111);
             cbLesson.Name = "cbLesson";
             cbLesson.RightToLeft = RightToLeft.Yes;
-            cbLesson.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            cbLesson.ShadowDecoration.CustomizableEdges = customizableEdges24;
             cbLesson.Size = new Size(332, 36);
             cbLesson.StartIndex = 0;
             cbLesson.TabIndex = 2;
@@ -480,7 +502,7 @@
             cbBook.BackColor = Color.White;
             cbBook.BorderColor = Color.Gainsboro;
             cbBook.BorderRadius = 10;
-            cbBook.CustomizableEdges = customizableEdges23;
+            cbBook.CustomizableEdges = customizableEdges25;
             cbBook.DrawMode = DrawMode.OwnerDrawFixed;
             cbBook.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBook.Enabled = false;
@@ -495,7 +517,7 @@
             cbBook.Location = new Point(374, 111);
             cbBook.Name = "cbBook";
             cbBook.RightToLeft = RightToLeft.Yes;
-            cbBook.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            cbBook.ShadowDecoration.CustomizableEdges = customizableEdges26;
             cbBook.Size = new Size(323, 36);
             cbBook.StartIndex = 0;
             cbBook.TabIndex = 1;
@@ -533,7 +555,7 @@
             guna2CustomGradientPanel1.BorderRadius = 2;
             guna2CustomGradientPanel1.Controls.Add(label3);
             guna2CustomGradientPanel1.Controls.Add(pictureBox3);
-            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges25;
+            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges27;
             guna2CustomGradientPanel1.Dock = DockStyle.Top;
             guna2CustomGradientPanel1.FillColor = Color.FromArgb(59, 130, 246);
             guna2CustomGradientPanel1.FillColor2 = Color.FromArgb(37, 99, 235);
@@ -541,7 +563,7 @@
             guna2CustomGradientPanel1.FillColor4 = Color.FromArgb(37, 99, 235);
             guna2CustomGradientPanel1.Location = new Point(0, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2CustomGradientPanel1.Size = new Size(827, 81);
             guna2CustomGradientPanel1.TabIndex = 0;
             // 
@@ -618,5 +640,6 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private Guna.UI2.WinForms.Guna2ShadowPanel panelUc;
         private FlowLayoutPanel flpQuestions;
+        private Guna.UI2.WinForms.Guna2Chip chipCheckPic;
     }
 }

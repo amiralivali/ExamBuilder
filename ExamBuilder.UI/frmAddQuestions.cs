@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ExamBuilder.BLL;
 using ExamBuilder.DAL.Entities;
 using ExamBuilder.Shared;
+using Guna.UI2.WinForms;
 using static ExamBuilder.Shared.QuestionTypes;
 
 namespace ExamBuilder.UI
@@ -154,6 +155,27 @@ namespace ExamBuilder.UI
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnPicture_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files(*.jpg;*.jpeg;*.gif;*.bmp;*.png)|*.jpg;*.jpeg;*.gif;*.bmp;*.png";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                chipCheckPic.Visible = true;
+                chipCheckPic.Parent = guna2ShadowPanel1;
+            }
+        }
+
+        private void chipCheckPic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
