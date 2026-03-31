@@ -96,7 +96,7 @@
             guna2Panel5.BackColor = Color.LimeGreen;
             guna2Panel5.CustomizableEdges = customizableEdges5;
             guna2Transition1.SetDecoration(guna2Panel5, Guna.UI2.AnimatorNS.DecorationType.None);
-            guna2Panel5.Location = new Point(56, 194);
+            guna2Panel5.Location = new Point(56, 197);
             guna2Panel5.Name = "guna2Panel5";
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel5.Size = new Size(250, 8);
@@ -107,7 +107,7 @@
             guna2Panel7.BackColor = Color.FromArgb(255, 128, 0);
             guna2Panel7.CustomizableEdges = customizableEdges7;
             guna2Transition1.SetDecoration(guna2Panel7, Guna.UI2.AnimatorNS.DecorationType.None);
-            guna2Panel7.Location = new Point(337, 194);
+            guna2Panel7.Location = new Point(337, 197);
             guna2Panel7.Name = "guna2Panel7";
             guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Panel7.Size = new Size(250, 8);
@@ -211,7 +211,7 @@
             pictureBox2.BackColor = Color.White;
             guna2Transition1.SetDecoration(pictureBox2, Guna.UI2.AnimatorNS.DecorationType.None);
             pictureBox2.Image = Properties.Resources.calendar_check_symbol;
-            pictureBox2.Location = new Point(147, 219);
+            pictureBox2.Location = new Point(147, 222);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(68, 68);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -224,7 +224,7 @@
             label2.BackColor = Color.White;
             guna2Transition1.SetDecoration(label2, Guna.UI2.AnimatorNS.DecorationType.None);
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label2.Location = new Point(140, 303);
+            label2.Location = new Point(140, 306);
             label2.Name = "label2";
             label2.Size = new Size(79, 19);
             label2.TabIndex = 12;
@@ -243,7 +243,7 @@
             guna2Button2.FillColor = Color.White;
             guna2Button2.Font = new Font("Segoe UI", 9F);
             guna2Button2.ForeColor = Color.Black;
-            guna2Button2.Location = new Point(56, 197);
+            guna2Button2.Location = new Point(56, 200);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Button2.Size = new Size(250, 150);
@@ -256,7 +256,7 @@
             pictureBox3.BackColor = Color.White;
             guna2Transition1.SetDecoration(pictureBox3, Guna.UI2.AnimatorNS.DecorationType.None);
             pictureBox3.Image = Properties.Resources.open_book;
-            pictureBox3.Location = new Point(429, 219);
+            pictureBox3.Location = new Point(429, 222);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(68, 68);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -270,7 +270,7 @@
             label3.BackColor = Color.White;
             guna2Transition1.SetDecoration(label3, Guna.UI2.AnimatorNS.DecorationType.None);
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label3.Location = new Point(393, 303);
+            label3.Location = new Point(393, 306);
             label3.Name = "label3";
             label3.Size = new Size(143, 19);
             label3.TabIndex = 15;
@@ -290,7 +290,7 @@
             btnAddB.FillColor = Color.White;
             btnAddB.Font = new Font("Segoe UI", 9F);
             btnAddB.ForeColor = Color.Black;
-            btnAddB.Location = new Point(337, 197);
+            btnAddB.Location = new Point(337, 200);
             btnAddB.Name = "btnAddB";
             btnAddB.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnAddB.Size = new Size(250, 150);

@@ -4,12 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExamBuilder.Shared.Attributes;
+
 
 namespace ExamBuilder.Shared.InformationClases
 {
-    public class LessonInfo
+    public class LessonInfo : BaseValidation
     {
         public int ID { get; set; }
+        [RequiredStringValidation(PropertyName = Messages.LessonName)]
         public string Title { get; set; }
         public int LessonCount { get; set; }
         public int BookID { get; set; }

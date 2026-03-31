@@ -67,7 +67,7 @@ namespace ExamBuilder.BLL
                 QuestionText = info.QuestionText,
             };
         }
-        public static OptionalQuestion MapToOptional(this OptionalInfo info)
+        public static OptionalQuestion MapToOptional(this QuestionInfo info)
         {
             return new OptionalQuestion
             {
@@ -76,6 +76,13 @@ namespace ExamBuilder.BLL
                 LessonID = info.LessonID,
                 Picture = info.Picture,
                 QuestionText = info.QuestionText,
+            };
+        }
+        public static OptionalItem MaptoOptional(this OptionalItemInfo info)
+        {
+            return new OptionalItem
+            {
+                OptionalID = info.OptionalID,
                 Option1 = info.Option1,
                 Option2 = info.Option2,
                 Option3 = info.Option3,

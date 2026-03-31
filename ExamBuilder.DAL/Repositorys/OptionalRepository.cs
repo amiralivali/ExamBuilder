@@ -20,7 +20,8 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var optional = await db.OptionalQuestions.Include(x => x.DifficultyLevel)
+                var optional = await db.OptionalQuestions.Include(x=>x.OptionalItem)
+                    .Include(x => x.DifficultyLevel)
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
                     .Select(x => new OptionalDTO
@@ -31,10 +32,10 @@ namespace ExamBuilder.DAL.Repositorys
                         QuestionText = x.QuestionText,
                         Picture = x.Picture,
                         DifficultyLevel = x.DifficultyLevel.Title,
-                        Option1 = x.Option1,
-                        Option2 = x.Option2,
-                        Option3 = x.Option3,
-                        Option4 = x.Option4,
+                        Option1 = x.OptionalItem.Option1,
+                        Option2 = x.OptionalItem.Option2,
+                        Option3 = x.OptionalItem.Option3,
+                        Option4 = x.OptionalItem.Option4,
                     }).ToListAsync();
                 return optional.Where(x => search == "" ||
                 x.QuestionText.Contains(search) ||
@@ -48,11 +49,14 @@ namespace ExamBuilder.DAL.Repositorys
                 return null;
             }
         }
-        public async Task<bool> InsertAsync(OptionalQuestion optional)
+        public async Task<bool> InsertAsync(OptionalQuestion optional,OptionalItem item)
         {
             try
             {
                 await db.OptionalQuestions.AddAsync(optional);
+                await db.SaveChangesAsync();
+                item.OptionalID=db.OptionalQuestions.Last().ID;
+                await db.OptionalItems.AddAsync(item);
                 await db.SaveChangesAsync();
                 return true;
             }
@@ -66,8 +70,10 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var optional = await db.OptionalQuestions.Where(x => x.ID == id).SingleAsync();
-                db.OptionalQuestions.Remove(optional);
+                var optionalQ = await db.OptionalQuestions.Where(x => x.ID == id).SingleAsync();
+                db.OptionalQuestions.Remove(optionalQ);
+                var optionalItem = await db.OptionalItems.Where(x => x.OptionalID == id).SingleAsync();
+                db.OptionalItems.Remove(optionalItem);
                 await db.SaveChangesAsync();
                 return true;
             }
@@ -77,19 +83,20 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
-        public async Task<bool> UpdateAsync(OptionalQuestion optionalUpdate)
+        public async Task<bool> UpdateAsync(OptionalQuestion optionalQUpdate, OptionalItem optionalItemUpdate)
         {
             try
             {
-                var optional = await db.OptionalQuestions.Where(x => x.ID == optionalUpdate.ID).SingleAsync();
-                optional.QuestionText = optionalUpdate.QuestionText;
-                optional.Picture = optionalUpdate.Picture;
-                optional.DifficultyLevelID = optionalUpdate.DifficultyLevelID;
-                optional.LessonID = optionalUpdate.LessonID;
-                optional.Option1 = optionalUpdate.Option1;
-                optional.Option2 = optionalUpdate.Option2;
-                optional.Option3 = optionalUpdate.Option3;
-                optional.Option4 = optionalUpdate.Option4;
+                var optionalQ = await db.OptionalQuestions.Where(x => x.ID == optionalQUpdate.ID).SingleAsync();
+                optionalQ.QuestionText = optionalQUpdate.QuestionText;
+                optionalQ.Picture = optionalQUpdate.Picture;
+                optionalQ.DifficultyLevelID = optionalQUpdate.DifficultyLevelID;
+                optionalQ.LessonID = optionalQUpdate.LessonID;
+                var optionalItem = await db.OptionalItems.Where(x => x.OptionalID == optionalItemUpdate.OptionalID).SingleAsync();
+                optionalItem.Option1 = optionalItemUpdate.Option1;
+                optionalItem.Option2 = optionalItemUpdate.Option2;
+                optionalItem.Option3 = optionalItemUpdate.Option3;
+                optionalItem.Option4 = optionalItemUpdate.Option4;
                 await db.SaveChangesAsync();
                 return true;
             }

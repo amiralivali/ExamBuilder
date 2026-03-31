@@ -14,6 +14,7 @@ namespace ExamBuilder.DAL
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Grade> Grades { get; set; }
         public virtual DbSet<OptionalQuestion> OptionalQuestions { get; set; }
+        public virtual DbSet<OptionalItem> OptionalItems { get; set; }
         public virtual DbSet<DescriptiveQuestion> DescriptiveQuestions { get; set; }
         public virtual DbSet<DifficultyLevel> DifficultyLevels { get; set; }
         public virtual DbSet<Lesson> Lessons { get; set; }
@@ -179,6 +180,12 @@ namespace ExamBuilder.DAL
                 .HasOne(x => x.FillInBlankQuestion)
                 .WithMany(x => x.Items)
                 .HasForeignKey(x => x.FillInBlankQuestionID)
+                .OnDelete(DeleteBehavior.Cascade);
+            
+            modelBuilder.Entity<OptionalItem>()
+                .HasOne(x=>x.OptionalQuestion)
+                .WithOne(x=>x.OptionalItem)
+                .HasForeignKey<OptionalItem>(x=>x.OptionalID)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

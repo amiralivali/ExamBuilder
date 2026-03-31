@@ -44,10 +44,11 @@ namespace ExamBuilder.BLL
             }
         }
 
-        public async Task<OprationResult> InsertAsync(OptionalInfo info)
+        public async Task<OprationResult> InsertAsync(QuestionInfo questionInfo,OptionalItemInfo itemInfo)
         {
-            var data = info.MapToOptional();
-            var check = await repository.InsertAsync(data);
+            var question = questionInfo.MapToOptional();
+            var item = itemInfo.MaptoOptional();
+            var check = await repository.InsertAsync(question,item);
             if (check)
             {
                 return OprationResult.Success(Messages.Insert);
@@ -58,10 +59,11 @@ namespace ExamBuilder.BLL
             }
         }
 
-        public async Task<OprationResult> UpdateAsync(OptionalInfo info)
+        public async Task<OprationResult> UpdateAsync(QuestionInfo questionInfo, OptionalItemInfo itemInfo)
         {
-            var data = info.MapToOptional();
-            var check = await repository.UpdateAsync(data);
+            var question = questionInfo.MapToOptional();
+            var item = itemInfo.MaptoOptional();
+            var check = await repository.UpdateAsync(question, item);
             if (check)
             {
                 return OprationResult.Success(Messages.Update);

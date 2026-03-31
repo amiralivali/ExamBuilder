@@ -81,5 +81,18 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
+        public async Task<int> GetLessonIDAsync(int lessonCount, string bookName)
+        {
+            try
+            {
+                var lesson = await db.Lessons.Include(x => x.Book).Where(x => x.LessonCount == lessonCount && x.Book.Title == bookName).SingleAsync();
+                return lesson.ID;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();   
+                return -1;
+            }
+        }
     }
 }

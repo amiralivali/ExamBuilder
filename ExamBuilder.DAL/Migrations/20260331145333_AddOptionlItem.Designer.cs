@@ -4,6 +4,7 @@ using ExamBuilder.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExamBuilder.DAL.Migrations
 {
     [DbContext(typeof(ExamBuilderDbContext))]
-    partial class ExamBuilderDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260331145333_AddOptionlItem")]
+    partial class AddOptionlItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
