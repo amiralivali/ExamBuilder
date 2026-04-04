@@ -54,7 +54,7 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 await db.MatchingQuestions.AddAsync(question);
                 await db.SaveChangesAsync();
-                int id = db.MatchingQuestions.Last().ID;
+                int id = question.ID;
                 foreach (MatchingItem item in items)
                 {
                     item.MatchingQuestionID = id;

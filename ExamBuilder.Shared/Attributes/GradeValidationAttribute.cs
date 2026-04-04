@@ -14,7 +14,7 @@ namespace ExamBuilder.Shared.Attributes
             int gradeID = int.Parse(value.ToString());
             if (gradeID == -1)
             {
-                ErrorMessage = Messages.Grade + Messages.Required;
+                ErrorMessage = string.Format(Messages.Required, Messages.Grade);
                 return false;
             }
             return true;

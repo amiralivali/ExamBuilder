@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ExamBuilder.Shared;
 using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.DAL.Entities
 {
-    public class OptionalQuestion : QuestionInfo
+    public class OptionalQuestion : BaseQuestion
     {
         public virtual Lesson Lesson { get; set; }
         public virtual DifficultyLevel DifficultyLevel { get; set; }

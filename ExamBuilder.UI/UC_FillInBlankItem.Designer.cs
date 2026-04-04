@@ -166,6 +166,7 @@
             guna2ShadowPanel1.ShadowDepth = 20;
             guna2ShadowPanel1.Size = new Size(484, 81);
             guna2ShadowPanel1.TabIndex = 2;
+            guna2ShadowPanel1.Paint += guna2ShadowPanel1_Paint;
             // 
             // btnAddBlank
             // 

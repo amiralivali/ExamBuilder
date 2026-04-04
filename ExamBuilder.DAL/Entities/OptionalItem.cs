@@ -10,7 +10,7 @@ using ExamBuilder.Shared;
 
 namespace ExamBuilder.DAL.Entities
 {
-    public class OptionalItem : BaseValidation
+    public class OptionalItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

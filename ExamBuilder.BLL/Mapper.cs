@@ -125,7 +125,7 @@ namespace ExamBuilder.BLL
             return new MatchingItem
             {
                 ID = info.ID,
-                MatchingQuestionID = info.QuestionID,
+                MatchingQuestionID = info.MatchingQuestionID,
                 RightText = info.RightText,
                 LeftText = info.LeftText,
             };

@@ -55,7 +55,7 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 await db.OptionalQuestions.AddAsync(optional);
                 await db.SaveChangesAsync();
-                item.OptionalID=db.OptionalQuestions.Last().ID;
+                item.OptionalID = optional.ID;
                 await db.OptionalItems.AddAsync(item);
                 await db.SaveChangesAsync();
                 return true;

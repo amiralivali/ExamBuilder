@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -42,8 +40,15 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddQuestions));
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -58,12 +63,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddQuestions));
             panel1 = new Panel();
-            btnSaveQ = new Guna.UI2.WinForms.Guna2GradientButton();
-            guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            panelUc = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            flpQuestions = new FlowLayoutPanel();
+            panelTypeQuestions = new Panel();
             guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
             guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
             btnDescritive = new Guna.UI2.WinForms.Guna2Button();
@@ -72,12 +73,17 @@
             btnTrueFalse = new Guna.UI2.WinForms.Guna2Button();
             btnBlank = new Guna.UI2.WinForms.Guna2Button();
             btnMatching = new Guna.UI2.WinForms.Guna2Button();
+            btnSaveQ = new Guna.UI2.WinForms.Guna2GradientButton();
+            guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            panelUc = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            flpQuestions = new FlowLayoutPanel();
             guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            cbSuggestion = new Guna.UI2.WinForms.Guna2ComboBox();
+            txtQuestionText = new Bunifu.UI.WinForms.BunifuTextBox();
             chipCheckPic = new Guna.UI2.WinForms.Guna2Chip();
             cbGrade = new Guna.UI2.WinForms.Guna2ComboBox();
             btnPicture = new Guna.UI2.WinForms.Guna2Button();
             cbDifficalty = new Guna.UI2.WinForms.Guna2ComboBox();
-            txtQuestionText = new Guna.UI2.WinForms.Guna2TextBox();
             cbLesson = new Guna.UI2.WinForms.Guna2ComboBox();
             cbBook = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
@@ -86,14 +92,13 @@
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             label3 = new Label();
             pictureBox3 = new PictureBox();
-            panelTypeQuestions = new Panel();
             panel1.SuspendLayout();
+            panelTypeQuestions.SuspendLayout();
             guna2ShadowPanel2.SuspendLayout();
             panelUc.SuspendLayout();
             guna2ShadowPanel1.SuspendLayout();
             guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            panelTypeQuestions.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -109,67 +114,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(827, 828);
             panel1.TabIndex = 3;
-            panel1.Paint += panel1_Paint;
             // 
-            // btnSaveQ
+            // panelTypeQuestions
             // 
-            btnSaveQ.Animated = true;
-            btnSaveQ.AnimatedGIF = true;
-            btnSaveQ.BorderRadius = 7;
-            btnSaveQ.CustomizableEdges = customizableEdges13;
-            btnSaveQ.DisabledState.BorderColor = Color.DarkGray;
-            btnSaveQ.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnSaveQ.DisabledState.FillColor = Color.FromArgb(192, 255, 192);
-            btnSaveQ.DisabledState.FillColor2 = Color.FromArgb(128, 255, 128);
-            btnSaveQ.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnSaveQ.Enabled = false;
-            btnSaveQ.FillColor = Color.FromArgb(93, 184, 77);
-            btnSaveQ.FillColor2 = Color.FromArgb(11, 151, 73);
-            btnSaveQ.FocusedColor = Color.DarkGreen;
-            btnSaveQ.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnSaveQ.ForeColor = Color.White;
-            btnSaveQ.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            btnSaveQ.Location = new Point(304, 765);
-            btnSaveQ.Name = "btnSaveQ";
-            btnSaveQ.PressedDepth = 8;
-            btnSaveQ.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnSaveQ.Size = new Size(223, 51);
-            btnSaveQ.TabIndex = 25;
-            btnSaveQ.Text = "ثبت سوال";
-            btnSaveQ.Click += guna2GradientButton1_Click;
-            // 
-            // guna2ShadowPanel2
-            // 
-            guna2ShadowPanel2.BackColor = Color.Transparent;
-            guna2ShadowPanel2.Controls.Add(panelUc);
-            guna2ShadowPanel2.FillColor = Color.White;
-            guna2ShadowPanel2.Location = new Point(48, 513);
-            guna2ShadowPanel2.Name = "guna2ShadowPanel2";
-            guna2ShadowPanel2.Radius = 10;
-            guna2ShadowPanel2.ShadowColor = Color.Black;
-            guna2ShadowPanel2.ShadowDepth = 20;
-            guna2ShadowPanel2.Size = new Size(730, 243);
-            guna2ShadowPanel2.TabIndex = 30;
-            // 
-            // panelUc
-            // 
-            panelUc.BackColor = Color.Transparent;
-            panelUc.Controls.Add(flpQuestions);
-            panelUc.FillColor = Color.FromArgb(235, 240, 250);
-            panelUc.Location = new Point(19, 16);
-            panelUc.Name = "panelUc";
-            panelUc.Radius = 10;
-            panelUc.ShadowColor = Color.Black;
-            panelUc.ShadowDepth = 20;
-            panelUc.Size = new Size(694, 214);
-            panelUc.TabIndex = 31;
-            // 
-            // flpQuestions
-            // 
-            flpQuestions.Location = new Point(5, 4);
-            flpQuestions.Name = "flpQuestions";
-            flpQuestions.Size = new Size(680, 202);
-            flpQuestions.TabIndex = 0;
+            panelTypeQuestions.Controls.Add(guna2Separator4);
+            panelTypeQuestions.Controls.Add(guna2Separator3);
+            panelTypeQuestions.Controls.Add(btnDescritive);
+            panelTypeQuestions.Controls.Add(btnShort);
+            panelTypeQuestions.Controls.Add(btnOptional);
+            panelTypeQuestions.Controls.Add(btnTrueFalse);
+            panelTypeQuestions.Controls.Add(btnBlank);
+            panelTypeQuestions.Controls.Add(btnMatching);
+            panelTypeQuestions.Location = new Point(46, 457);
+            panelTypeQuestions.Name = "panelTypeQuestions";
+            panelTypeQuestions.Size = new Size(732, 48);
+            panelTypeQuestions.TabIndex = 31;
             // 
             // guna2Separator4
             // 
@@ -355,14 +314,75 @@
             btnMatching.Text = "وصل کردنی";
             btnMatching.Click += btnMatching_Click;
             // 
+            // btnSaveQ
+            // 
+            btnSaveQ.Animated = true;
+            btnSaveQ.AnimatedGIF = true;
+            btnSaveQ.BorderRadius = 7;
+            btnSaveQ.CustomizableEdges = customizableEdges13;
+            btnSaveQ.DisabledState.BorderColor = Color.DarkGray;
+            btnSaveQ.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnSaveQ.DisabledState.FillColor = Color.FromArgb(192, 255, 192);
+            btnSaveQ.DisabledState.FillColor2 = Color.FromArgb(128, 255, 128);
+            btnSaveQ.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnSaveQ.Enabled = false;
+            btnSaveQ.FillColor = Color.FromArgb(93, 184, 77);
+            btnSaveQ.FillColor2 = Color.FromArgb(11, 151, 73);
+            btnSaveQ.FocusedColor = Color.DarkGreen;
+            btnSaveQ.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnSaveQ.ForeColor = Color.White;
+            btnSaveQ.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            btnSaveQ.Location = new Point(302, 765);
+            btnSaveQ.Name = "btnSaveQ";
+            btnSaveQ.PressedDepth = 8;
+            btnSaveQ.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnSaveQ.Size = new Size(223, 51);
+            btnSaveQ.TabIndex = 25;
+            btnSaveQ.Text = "ثبت سوال";
+            btnSaveQ.Click += guna2GradientButton1_Click;
+            // 
+            // guna2ShadowPanel2
+            // 
+            guna2ShadowPanel2.BackColor = Color.Transparent;
+            guna2ShadowPanel2.Controls.Add(panelUc);
+            guna2ShadowPanel2.FillColor = Color.White;
+            guna2ShadowPanel2.Location = new Point(48, 513);
+            guna2ShadowPanel2.Name = "guna2ShadowPanel2";
+            guna2ShadowPanel2.Radius = 10;
+            guna2ShadowPanel2.ShadowColor = Color.Black;
+            guna2ShadowPanel2.ShadowDepth = 20;
+            guna2ShadowPanel2.Size = new Size(730, 243);
+            guna2ShadowPanel2.TabIndex = 30;
+            // 
+            // panelUc
+            // 
+            panelUc.BackColor = Color.Transparent;
+            panelUc.Controls.Add(flpQuestions);
+            panelUc.FillColor = Color.FromArgb(235, 240, 250);
+            panelUc.Location = new Point(19, 16);
+            panelUc.Name = "panelUc";
+            panelUc.Radius = 10;
+            panelUc.ShadowColor = Color.Black;
+            panelUc.ShadowDepth = 20;
+            panelUc.Size = new Size(694, 214);
+            panelUc.TabIndex = 31;
+            // 
+            // flpQuestions
+            // 
+            flpQuestions.Location = new Point(5, 4);
+            flpQuestions.Name = "flpQuestions";
+            flpQuestions.Size = new Size(680, 202);
+            flpQuestions.TabIndex = 0;
+            // 
             // guna2ShadowPanel1
             // 
             guna2ShadowPanel1.BackColor = Color.Transparent;
+            guna2ShadowPanel1.Controls.Add(cbSuggestion);
+            guna2ShadowPanel1.Controls.Add(txtQuestionText);
             guna2ShadowPanel1.Controls.Add(chipCheckPic);
             guna2ShadowPanel1.Controls.Add(cbGrade);
             guna2ShadowPanel1.Controls.Add(btnPicture);
             guna2ShadowPanel1.Controls.Add(cbDifficalty);
-            guna2ShadowPanel1.Controls.Add(txtQuestionText);
             guna2ShadowPanel1.Controls.Add(cbLesson);
             guna2ShadowPanel1.Controls.Add(cbBook);
             guna2ShadowPanel1.Controls.Add(guna2Separator2);
@@ -377,29 +397,130 @@
             guna2ShadowPanel1.Size = new Size(730, 362);
             guna2ShadowPanel1.TabIndex = 22;
             // 
+            // cbSuggestion
+            // 
+            cbSuggestion.BackColor = Color.White;
+            cbSuggestion.BorderColor = Color.Gainsboro;
+            cbSuggestion.BorderRadius = 10;
+            cbSuggestion.CustomizableEdges = customizableEdges15;
+            cbSuggestion.DrawMode = DrawMode.OwnerDrawFixed;
+            cbSuggestion.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSuggestion.FillColor = Color.FromArgb(248, 250, 252);
+            cbSuggestion.FocusedColor = Color.FromArgb(37, 99, 235);
+            cbSuggestion.FocusedState.BorderColor = Color.FromArgb(37, 99, 235);
+            cbSuggestion.Font = new Font("Segoe UI", 10F);
+            cbSuggestion.ForeColor = Color.Gray;
+            cbSuggestion.HoverState.BorderColor = Color.FromArgb(59, 130, 246);
+            cbSuggestion.ItemHeight = 30;
+            cbSuggestion.Items.AddRange(new object[] { "متن سوال های پیشنهادی" });
+            cbSuggestion.Location = new Point(195, 312);
+            cbSuggestion.Name = "cbSuggestion";
+            cbSuggestion.RightToLeft = RightToLeft.Yes;
+            cbSuggestion.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            cbSuggestion.Size = new Size(358, 36);
+            cbSuggestion.StartIndex = 0;
+            cbSuggestion.TabIndex = 26;
+            cbSuggestion.TextAlign = HorizontalAlignment.Right;
+            cbSuggestion.SelectedIndexChanged += cbSuggestion_SelectedIndexChanged;
+            // 
+            // txtQuestionText
+            // 
+            txtQuestionText.AcceptsReturn = false;
+            txtQuestionText.AcceptsTab = false;
+            txtQuestionText.AnimationSpeed = 200;
+            txtQuestionText.AutoCompleteMode = AutoCompleteMode.None;
+            txtQuestionText.AutoCompleteSource = AutoCompleteSource.None;
+            txtQuestionText.AutoSizeHeight = true;
+            txtQuestionText.BackColor = Color.Transparent;
+            txtQuestionText.BackgroundImage = (Image)resources.GetObject("txtQuestionText.BackgroundImage");
+            txtQuestionText.BorderColorActive = Color.FromArgb(213, 218, 223);
+            txtQuestionText.BorderColorDisabled = Color.FromArgb(213, 218, 223);
+            txtQuestionText.BorderColorHover = Color.FromArgb(213, 218, 223);
+            txtQuestionText.BorderColorIdle = Color.FromArgb(213, 218, 223);
+            txtQuestionText.BorderRadius = 25;
+            txtQuestionText.BorderThickness = 1;
+            txtQuestionText.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
+            txtQuestionText.CharacterCasing = CharacterCasing.Normal;
+            txtQuestionText.DefaultFont = new Font("Segoe UI", 9.25F);
+            txtQuestionText.DefaultText = "";
+            txtQuestionText.FillColor = Color.FromArgb(248, 250, 252);
+            txtQuestionText.HideSelection = true;
+            txtQuestionText.IconLeft = null;
+            txtQuestionText.IconLeftCursor = Cursors.IBeam;
+            txtQuestionText.IconPadding = 10;
+            txtQuestionText.IconRight = null;
+            txtQuestionText.IconRightCursor = Cursors.IBeam;
+            txtQuestionText.Location = new Point(27, 154);
+            txtQuestionText.MaxLength = 32767;
+            txtQuestionText.MinimumSize = new Size(1, 1);
+            txtQuestionText.Modified = false;
+            txtQuestionText.Multiline = true;
+            txtQuestionText.Name = "txtQuestionText";
+            stateProperties1.BorderColor = Color.FromArgb(213, 218, 223);
+            stateProperties1.FillColor = Color.Empty;
+            stateProperties1.ForeColor = Color.Empty;
+            stateProperties1.PlaceholderForeColor = Color.Empty;
+            txtQuestionText.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = Color.FromArgb(213, 218, 223);
+            stateProperties2.FillColor = Color.FromArgb(240, 240, 240);
+            stateProperties2.ForeColor = Color.FromArgb(109, 109, 109);
+            stateProperties2.PlaceholderForeColor = Color.DarkGray;
+            txtQuestionText.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = Color.FromArgb(213, 218, 223);
+            stateProperties3.FillColor = Color.Empty;
+            stateProperties3.ForeColor = Color.Empty;
+            stateProperties3.PlaceholderForeColor = Color.Empty;
+            txtQuestionText.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = Color.FromArgb(213, 218, 223);
+            stateProperties4.FillColor = Color.FromArgb(248, 250, 252);
+            stateProperties4.ForeColor = Color.Empty;
+            stateProperties4.PlaceholderForeColor = Color.Empty;
+            txtQuestionText.OnIdleState = stateProperties4;
+            txtQuestionText.Padding = new Padding(3);
+            txtQuestionText.PasswordChar = '\0';
+            txtQuestionText.PlaceholderForeColor = Color.Gray;
+            txtQuestionText.PlaceholderText = "متن سوال را وارد کنید";
+            txtQuestionText.ReadOnly = false;
+            txtQuestionText.RightToLeft = RightToLeft.Yes;
+            txtQuestionText.ScrollBars = ScrollBars.None;
+            txtQuestionText.SelectedText = "";
+            txtQuestionText.SelectionLength = 0;
+            txtQuestionText.SelectionStart = 0;
+            txtQuestionText.ShortcutsEnabled = true;
+            txtQuestionText.Size = new Size(679, 150);
+            txtQuestionText.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            txtQuestionText.TabIndex = 25;
+            txtQuestionText.TextAlign = HorizontalAlignment.Left;
+            txtQuestionText.TextMarginBottom = 0;
+            txtQuestionText.TextMarginLeft = 1;
+            txtQuestionText.TextMarginTop = 5;
+            txtQuestionText.TextPlaceholder = "متن سوال را وارد کنید";
+            txtQuestionText.UseSystemPasswordChar = false;
+            txtQuestionText.WordWrap = true;
+            txtQuestionText.TextChanged += txtQuestionText_TextChanged;
+            // 
             // chipCheckPic
             // 
             chipCheckPic.BorderColor = Color.FromArgb(0, 192, 0);
             chipCheckPic.BorderRadius = 10;
-            chipCheckPic.CustomizableEdges = customizableEdges15;
+            chipCheckPic.CustomizableEdges = customizableEdges17;
             chipCheckPic.FillColor = Color.FromArgb(8, 180, 73);
             chipCheckPic.Font = new Font("Segoe UI", 9.5F);
             chipCheckPic.ForeColor = Color.White;
-            chipCheckPic.Location = new Point(175, 312);
+            chipCheckPic.Location = new Point(28, 310);
             chipCheckPic.Name = "chipCheckPic";
-            chipCheckPic.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            chipCheckPic.Size = new Size(193, 35);
+            chipCheckPic.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            chipCheckPic.Size = new Size(161, 38);
             chipCheckPic.TabIndex = 24;
             chipCheckPic.Text = "تصویر انتخاب شد";
             chipCheckPic.Visible = false;
-            chipCheckPic.Click += chipCheckPic_Click;
             // 
             // cbGrade
             // 
             cbGrade.BackColor = Color.White;
             cbGrade.BorderColor = Color.Gainsboro;
             cbGrade.BorderRadius = 10;
-            cbGrade.CustomizableEdges = customizableEdges17;
+            cbGrade.CustomizableEdges = customizableEdges19;
             cbGrade.DrawMode = DrawMode.OwnerDrawFixed;
             cbGrade.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGrade.FillColor = Color.FromArgb(248, 250, 252);
@@ -410,11 +531,11 @@
             cbGrade.HoverState.BorderColor = Color.FromArgb(59, 130, 246);
             cbGrade.ItemHeight = 30;
             cbGrade.Items.AddRange(new object[] { "مقطع  تحصیلی را انتخاب کنید" });
-            cbGrade.Location = new Point(36, 69);
+            cbGrade.Location = new Point(27, 69);
             cbGrade.Name = "cbGrade";
             cbGrade.RightToLeft = RightToLeft.Yes;
-            cbGrade.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            cbGrade.Size = new Size(661, 36);
+            cbGrade.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            cbGrade.Size = new Size(679, 36);
             cbGrade.StartIndex = 0;
             cbGrade.TabIndex = 0;
             cbGrade.TextAlign = HorizontalAlignment.Right;
@@ -427,7 +548,7 @@
             btnPicture.BorderColor = Color.Gainsboro;
             btnPicture.BorderRadius = 10;
             btnPicture.BorderThickness = 1;
-            btnPicture.CustomizableEdges = customizableEdges19;
+            btnPicture.CustomizableEdges = customizableEdges21;
             btnPicture.DisabledState.BorderColor = Color.DarkGray;
             btnPicture.DisabledState.CustomBorderColor = Color.DarkGray;
             btnPicture.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -435,11 +556,11 @@
             btnPicture.FillColor = Color.FromArgb(248, 250, 252);
             btnPicture.Font = new Font("Segoe UI", 9F);
             btnPicture.ForeColor = Color.Gray;
-            btnPicture.Location = new Point(36, 312);
+            btnPicture.Location = new Point(27, 310);
             btnPicture.Name = "btnPicture";
             btnPicture.PressedDepth = 4;
-            btnPicture.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnPicture.Size = new Size(133, 35);
+            btnPicture.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnPicture.Size = new Size(162, 35);
             btnPicture.TabIndex = 5;
             btnPicture.Text = "انتخاب تصویر";
             btnPicture.Click += btnPicture_Click;
@@ -449,7 +570,7 @@
             cbDifficalty.BackColor = Color.White;
             cbDifficalty.BorderColor = Color.Gainsboro;
             cbDifficalty.BorderRadius = 10;
-            cbDifficalty.CustomizableEdges = customizableEdges21;
+            cbDifficalty.CustomizableEdges = customizableEdges23;
             cbDifficalty.DrawMode = DrawMode.OwnerDrawFixed;
             cbDifficalty.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDifficalty.FillColor = Color.FromArgb(248, 250, 252);
@@ -460,41 +581,15 @@
             cbDifficalty.HoverState.BorderColor = Color.FromArgb(59, 130, 246);
             cbDifficalty.ItemHeight = 30;
             cbDifficalty.Items.AddRange(new object[] { "سطح دشواری", "آسان", "متوسط", "سخت" });
-            cbDifficalty.Location = new Point(506, 312);
+            cbDifficalty.Location = new Point(559, 312);
             cbDifficalty.Name = "cbDifficalty";
             cbDifficalty.RightToLeft = RightToLeft.Yes;
-            cbDifficalty.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            cbDifficalty.Size = new Size(191, 36);
+            cbDifficalty.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            cbDifficalty.Size = new Size(147, 36);
             cbDifficalty.StartIndex = 0;
             cbDifficalty.TabIndex = 4;
             cbDifficalty.TextAlign = HorizontalAlignment.Right;
             cbDifficalty.SelectedIndexChanged += guna2ComboBox1_SelectedIndexChanged;
-            // 
-            // txtQuestionText
-            // 
-            txtQuestionText.BorderRadius = 12;
-            txtQuestionText.CustomizableEdges = customizableEdges23;
-            txtQuestionText.DefaultText = "";
-            txtQuestionText.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtQuestionText.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtQuestionText.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtQuestionText.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtQuestionText.FillColor = Color.FromArgb(248, 250, 252);
-            txtQuestionText.FocusedState.BorderColor = Color.FromArgb(37, 99, 235);
-            txtQuestionText.Font = new Font("Segoe UI", 9F);
-            txtQuestionText.ForeColor = Color.Black;
-            txtQuestionText.HoverState.BorderColor = Color.FromArgb(37, 99, 235);
-            txtQuestionText.Location = new Point(36, 154);
-            txtQuestionText.Margin = new Padding(3, 4, 3, 4);
-            txtQuestionText.Multiline = true;
-            txtQuestionText.Name = "txtQuestionText";
-            txtQuestionText.PlaceholderForeColor = Color.Gray;
-            txtQuestionText.PlaceholderText = "متن سوال را وارد کنید";
-            txtQuestionText.RightToLeft = RightToLeft.Yes;
-            txtQuestionText.SelectedText = "";
-            txtQuestionText.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            txtQuestionText.Size = new Size(661, 150);
-            txtQuestionText.TabIndex = 3;
             // 
             // cbLesson
             // 
@@ -513,11 +608,11 @@
             cbLesson.HoverState.BorderColor = Color.FromArgb(59, 130, 246);
             cbLesson.ItemHeight = 30;
             cbLesson.Items.AddRange(new object[] { "درس را انتخاب کنید" });
-            cbLesson.Location = new Point(36, 111);
+            cbLesson.Location = new Point(27, 111);
             cbLesson.Name = "cbLesson";
             cbLesson.RightToLeft = RightToLeft.Yes;
             cbLesson.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            cbLesson.Size = new Size(332, 36);
+            cbLesson.Size = new Size(335, 36);
             cbLesson.StartIndex = 0;
             cbLesson.TabIndex = 2;
             cbLesson.TextAlign = HorizontalAlignment.Right;
@@ -540,11 +635,11 @@
             cbBook.HoverState.BorderColor = Color.FromArgb(59, 130, 246);
             cbBook.ItemHeight = 30;
             cbBook.Items.AddRange(new object[] { "کتاب را انتخاب کنید" });
-            cbBook.Location = new Point(374, 111);
+            cbBook.Location = new Point(371, 111);
             cbBook.Name = "cbBook";
             cbBook.RightToLeft = RightToLeft.Yes;
             cbBook.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            cbBook.Size = new Size(323, 36);
+            cbBook.Size = new Size(335, 36);
             cbBook.StartIndex = 0;
             cbBook.TabIndex = 1;
             cbBook.TextAlign = HorizontalAlignment.Right;
@@ -616,21 +711,6 @@
             pictureBox3.TabIndex = 18;
             pictureBox3.TabStop = false;
             // 
-            // panelTypeQuestions
-            // 
-            panelTypeQuestions.Controls.Add(guna2Separator4);
-            panelTypeQuestions.Controls.Add(guna2Separator3);
-            panelTypeQuestions.Controls.Add(btnDescritive);
-            panelTypeQuestions.Controls.Add(btnShort);
-            panelTypeQuestions.Controls.Add(btnOptional);
-            panelTypeQuestions.Controls.Add(btnTrueFalse);
-            panelTypeQuestions.Controls.Add(btnBlank);
-            panelTypeQuestions.Controls.Add(btnMatching);
-            panelTypeQuestions.Location = new Point(46, 457);
-            panelTypeQuestions.Name = "panelTypeQuestions";
-            panelTypeQuestions.Size = new Size(732, 48);
-            panelTypeQuestions.TabIndex = 31;
-            // 
             // frmAddQuestions
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -644,6 +724,7 @@
             Text = "آزمون یار";
             Load += frmAddQuestions_Load;
             panel1.ResumeLayout(false);
+            panelTypeQuestions.ResumeLayout(false);
             guna2ShadowPanel2.ResumeLayout(false);
             panelUc.ResumeLayout(false);
             guna2ShadowPanel1.ResumeLayout(false);
@@ -651,7 +732,6 @@
             guna2CustomGradientPanel1.ResumeLayout(false);
             guna2CustomGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            panelTypeQuestions.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -667,7 +747,6 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2ComboBox cbBook;
         private Guna.UI2.WinForms.Guna2ComboBox cbLesson;
-        private Guna.UI2.WinForms.Guna2TextBox txtQuestionText;
         private Guna.UI2.WinForms.Guna2ComboBox cbDifficalty;
         private Guna.UI2.WinForms.Guna2Button btnPicture;
         private Guna.UI2.WinForms.Guna2Button btnMatching;
@@ -685,5 +764,7 @@
         private Guna.UI2.WinForms.Guna2Chip chipCheckPic;
         private Guna.UI2.WinForms.Guna2GradientButton btnSaveQ;
         private Panel panelTypeQuestions;
+        private Bunifu.UI.WinForms.BunifuTextBox txtQuestionText;
+        private Guna.UI2.WinForms.Guna2ComboBox cbSuggestion;
     }
 }

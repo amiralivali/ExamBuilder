@@ -48,11 +48,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label2.Location = new Point(257, 59);
+            label2.Location = new Point(164, 59);
             label2.Name = "label2";
-            label2.Size = new Size(189, 21);
+            label2.Size = new Size(353, 21);
             label2.TabIndex = 1;
-            label2.Text = "سوال را با موفقیت ثبت کنید";
+            label2.Text = "در کادر متنی بالا سوال را وارد کنید و سوال را ثبت کنید";
             // 
             // pictureBox1
             // 

@@ -16,13 +16,21 @@ namespace ExamBuilder.UI
         {
             InitializeComponent();
         }
-
+        public string Option1_Text => txtOptionA.Text.Trim();
+        public string Option2_Text => txtOptionB.Text.Trim();
+        public string Option3_Text => txtOptionC.Text.Trim();
+        public string Option4_Text => txtOptionD.Text.Trim();
         private void UC_OptionalQuestion_Load(object sender, EventArgs e)
         {
 
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtOptionA_TextChanged(object sender, EventArgs e)
         {
 
         }

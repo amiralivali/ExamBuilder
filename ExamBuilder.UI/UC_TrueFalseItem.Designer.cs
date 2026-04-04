@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_TrueFalseItem));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties17 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             txtItemName = new Bunifu.UI.WinForms.BunifuTextBox();
             lblCount = new Label();
             label1 = new Label();
@@ -75,26 +75,26 @@
             txtItemName.Modified = false;
             txtItemName.Multiline = false;
             txtItemName.Name = "txtItemName";
-            stateProperties17.BorderColor = Color.DodgerBlue;
-            stateProperties17.FillColor = Color.Empty;
-            stateProperties17.ForeColor = Color.Empty;
-            stateProperties17.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnActiveState = stateProperties17;
-            stateProperties18.BorderColor = Color.FromArgb(204, 204, 204);
-            stateProperties18.FillColor = Color.FromArgb(240, 240, 240);
-            stateProperties18.ForeColor = Color.FromArgb(109, 109, 109);
-            stateProperties18.PlaceholderForeColor = Color.DarkGray;
-            txtItemName.OnDisabledState = stateProperties18;
-            stateProperties19.BorderColor = Color.FromArgb(105, 181, 255);
-            stateProperties19.FillColor = Color.Empty;
-            stateProperties19.ForeColor = Color.Empty;
-            stateProperties19.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnHoverState = stateProperties19;
-            stateProperties20.BorderColor = Color.Silver;
-            stateProperties20.FillColor = Color.White;
-            stateProperties20.ForeColor = Color.Empty;
-            stateProperties20.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnIdleState = stateProperties20;
+            stateProperties1.BorderColor = Color.DodgerBlue;
+            stateProperties1.FillColor = Color.Empty;
+            stateProperties1.ForeColor = Color.Empty;
+            stateProperties1.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = Color.FromArgb(204, 204, 204);
+            stateProperties2.FillColor = Color.FromArgb(240, 240, 240);
+            stateProperties2.ForeColor = Color.FromArgb(109, 109, 109);
+            stateProperties2.PlaceholderForeColor = Color.DarkGray;
+            txtItemName.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = Color.FromArgb(105, 181, 255);
+            stateProperties3.FillColor = Color.Empty;
+            stateProperties3.ForeColor = Color.Empty;
+            stateProperties3.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = Color.Silver;
+            stateProperties4.FillColor = Color.White;
+            stateProperties4.ForeColor = Color.Empty;
+            stateProperties4.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnIdleState = stateProperties4;
             txtItemName.Padding = new Padding(3);
             txtItemName.PasswordChar = '\0';
             txtItemName.PlaceholderForeColor = Color.Silver;
@@ -164,6 +164,7 @@
             guna2ShadowPanel1.ShadowDepth = 20;
             guna2ShadowPanel1.Size = new Size(484, 81);
             guna2ShadowPanel1.TabIndex = 1;
+            guna2ShadowPanel1.Paint += guna2ShadowPanel1_Paint;
             // 
             // UC_TrueFalseItem
             // 

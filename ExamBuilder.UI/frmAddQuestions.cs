@@ -22,13 +22,13 @@ namespace ExamBuilder.UI
         BookService bookService;
         LessonService lessonService;
         private QuestionType? _questionType;
+        string _pictureLocation;
         public frmAddQuestions()
         {
             InitializeComponent();
             bookService = new BookService();
             lessonService = new LessonService();
         }
-
         private async void cbBook_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbBook.SelectedIndex == 0)
@@ -61,6 +61,7 @@ namespace ExamBuilder.UI
                         this.Invoke(new Action(() =>
                         {
                             cbGrade.Items.AddRange(check.Data.ToArray());
+                            cbSuggestion.Items.AddRange(Messages.AllQuestionText_Suggestions.ToArray());
                         }));
                     }
                     else
@@ -132,6 +133,7 @@ namespace ExamBuilder.UI
             flpQuestions.Controls.Clear();
             Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_OptionalQuestion()); })));
             _questionType = QuestionType.OptionalQuestion;
+
         }
 
         private void btnShort_Click(object sender, EventArgs e)
@@ -153,6 +155,7 @@ namespace ExamBuilder.UI
             flpQuestions.Controls.Clear();
             Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_ItemQuestions(QuestionType.TrueFalseQuestion)); })));
             _questionType = QuestionType.TrueFalseQuestion;
+            AddSuggestionsText(Messages.TrueFalseText_Suggestions.ToArray());
         }
 
         private void btnBlank_Click(object sender, EventArgs e)
@@ -160,6 +163,7 @@ namespace ExamBuilder.UI
             flpQuestions.Controls.Clear();
             Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_ItemQuestions(QuestionType.FillInBlankQuestion)); })));
             _questionType = QuestionType.FillInBlankQuestion;
+            AddSuggestionsText(Messages.FillInBlankText_Suggestions.ToArray());
         }
 
         private void btnMatching_Click(object sender, EventArgs e)
@@ -167,11 +171,15 @@ namespace ExamBuilder.UI
             flpQuestions.Controls.Clear();
             Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_ItemQuestions(QuestionType.MatchingQuestion)); })));
             _questionType = QuestionType.MatchingQuestion;
+            AddSuggestionsText(Messages.MatchingText_Suggestions.ToArray());
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+        private void AddSuggestionsText(string[] texts) 
+        { 
+            cbSuggestion.Items.Clear();
+            cbSuggestion.Items.Add("متن سوال های پیشنهادی");
+            cbSuggestion.Items.AddRange(texts);
+            cbSuggestion.SelectedIndex = 0;
         }
 
         private void btnPicture_Click(object sender, EventArgs e)
@@ -182,77 +190,111 @@ namespace ExamBuilder.UI
             {
                 chipCheckPic.Visible = true;
                 chipCheckPic.Parent = guna2ShadowPanel1;
+                _pictureLocation = ofd.FileName;
             }
         }
 
-        private void chipCheckPic_Click(object sender, EventArgs e)
+        private OptionalItemInfo GetOptionalItem()
         {
-
-        }
-        private void CheckButtonsSelection()
-        {
-            foreach (var item in panelTypeQuestions.Controls)
+            var optionalItems = new OptionalItemInfo();
+            foreach (var uc in flpQuestions.Controls.OfType<UC_OptionalQuestion>())
             {
-                if (item is Guna2Button)
+                optionalItems.Option1 = uc.Option1_Text;
+                optionalItems.Option2 = uc.Option2_Text;
+                optionalItems.Option3 = uc.Option3_Text;
+                optionalItems.Option4 = uc.Option4_Text;
+            }
+            return optionalItems;
+        }
+        private List<ItemQuestionInfo> GetTrueFalseItem()
+        {
+            var items = new List<ItemQuestionInfo>();
+            foreach (var uc in flpQuestions.Controls.OfType<UC_ItemQuestions>())
+            {
+                foreach (var control in uc.Controls)
                 {
-                    var btn = (Guna2Button)item;
-                    if (btn.Checked)
-                    { 
-                        
+                    if (control is Guna2ShadowPanel)
+                    {
+                        var panel = control as Guna2ShadowPanel;
+                        foreach (var flp in panel.Controls)
+                        {
+                            if (flp is FlowLayoutPanel)
+                            {
+                                var flpItems = flp as FlowLayoutPanel;
+                                foreach (var ucItem in flpItems.Controls.OfType<UC_TrueFalseItem>())
+                                {
+                                    items.Add(new ItemQuestionInfo()
+                                    {
+                                        Text = ucItem.Item_Text,
+                                    });
+                                }
+                            }
+                        }
                     }
                 }
             }
+            return items;
         }
-        private OptionalItemInfo GetOptionalItem()
+        private List<ItemQuestionInfo> GetFillInBlankItem()
         {
-            string[] options = new string[4];
-            int count = 0;
-            foreach (var item in flpQuestions.Controls)
+            var items = new List<ItemQuestionInfo>();
+            foreach (var uc in flpQuestions.Controls.OfType<UC_ItemQuestions>())
             {
-                if (item is BunifuTextBox)
+                foreach (var control in uc.Controls)
                 {
-                    var txt= (BunifuTextBox)item;
-                    options[count++] = (string)txt.Text;
+                    if (control is Guna2ShadowPanel)
+                    {
+                        var panel = control as Guna2ShadowPanel;
+                        foreach (var flp in panel.Controls)
+                        {
+                            if (flp is FlowLayoutPanel)
+                            {
+                                var flpItems = flp as FlowLayoutPanel;
+                                foreach (var ucItem in flpItems.Controls.OfType<UC_FillInBlankItem>())
+                                {
+                                    items.Add(new ItemQuestionInfo()
+                                    {
+                                        Text = ucItem.Item_Text,
+                                    });
+                                }
+                            }
+                        }
+                    }
                 }
             }
-            OptionalItemInfo optionalItems = new OptionalItemInfo()
-            {
-                Option1 = options[0],
-                Option2 = options[1],
-                Option3 = options[2],
-                Option4 = options[3],
-            };
-            return optionalItems;
+            return items;
         }
-        //private ItemQuestionInfo GetTrueFalseItem()
-        //{
-        //    string[] options = new string[4];
-        //    int count = 0;
-        //    foreach (var item in flpQuestions.Controls)
-        //    {
-        //        if (item is BunifuTextBox)
-        //        {
-        //            var txt = (BunifuTextBox)item;
-        //            options[count++] = (string)txt.Text;
-        //        }
-        //    }
-        //    OptionalItemInfo optionalItems = new OptionalItemInfo()
-        //    {
-        //        Option1 = options[0],
-        //        Option2 = options[1],
-        //        Option3 = options[2],
-        //        Option4 = options[3],
-        //    };
-        //    return optionalItems;
-        //}
-        //private ItemQuestionInfo GetFillInBlankItem()
-        //{ 
-        
-        //}
-        //private ItemQuestionInfo GetItemQuestion()
-        //{ 
-        
-        //}
+        private List<MatchingItemInfo> GetMatchingItem()
+        {
+            var items = new List<MatchingItemInfo>();
+            foreach (var uc in flpQuestions.Controls.OfType<UC_ItemQuestions>())
+            {
+                foreach (var control in uc.Controls)
+                {
+                    if (control is Guna2ShadowPanel)
+                    {
+                        var panel = control as Guna2ShadowPanel;
+                        foreach (var flp in panel.Controls)
+                        {
+                            if (flp is FlowLayoutPanel)
+                            {
+                                var flpItems = flp as FlowLayoutPanel;
+                                foreach (var ucItem in flpItems.Controls.OfType<UC_MatchingItem>())
+                                {
+                                    items.Add(new MatchingItemInfo()
+                                    {
+                                        RightText = ucItem.ItemRight_Text,
+                                        LeftText = ucItem.ItemLeft_Text,
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return items;
+        }
+
         private async void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             var lessonService = new LessonService();
@@ -263,13 +305,18 @@ namespace ExamBuilder.UI
                 {
                     LessonID = lessonId.Data,
                     DifficultyLevelID = cbDifficalty.SelectedIndex,
-                    QuestionText = txtQuestionText.Text,
+                    QuestionText = txtQuestionText.Text.Trim(),
                 };
+                if (chipCheckPic.Parent != null && _pictureLocation != null)
+                {
+                    questionInfo.Picture = _pictureLocation;
+                }
                 if (questionInfo.IsValid)
                 {
                     if (_questionType != null)
                     {
-                        OprationResult oprationResult = new OprationResult();
+                        var oprationResult = new OprationResult();
+                        oprationResult = null;
                         switch (_questionType)
                         {
                             case QuestionType.DescriptiveQuestion:
@@ -285,7 +332,7 @@ namespace ExamBuilder.UI
                                 var options = GetOptionalItem();
                                 if (options.IsValid)
                                 {
-                                    oprationResult = await optionalService.InsertAsync(questionInfo,options);
+                                    oprationResult = await optionalService.InsertAsync(questionInfo, options);
                                 }
                                 else
                                 {
@@ -294,16 +341,73 @@ namespace ExamBuilder.UI
                                 break;
                             case QuestionType.TrueFalseQuestion:
                                 var trueFalseService = new TrueFalseService();
-                                oprationResult = await trueFalseService.InsertAsync(questionInfo);
+                                var trueFalseItems = GetTrueFalseItem();
+                                if (trueFalseItems.Count != 0)
+                                {
+                                    foreach (var trueFalseItem in trueFalseItems)
+                                    {
+                                        if (!trueFalseItem.IsValid)
+                                        {
+                                            ShowError(trueFalseItem.ErrorMessage);
+                                        }
+                                    }
+                                    oprationResult = await trueFalseService.InsertAsync(questionInfo, trueFalseItems);
+                                }
+                                else
+                                {
+                                    ShowError(Messages.SelectItemError);
+                                }
                                 break;
                             case QuestionType.MatchingQuestion:
                                 var matchingService = new MatchingService();
-                                oprationResult = await matchingService.InsertAsync(questionInfo);
+                                var matchingItems = GetMatchingItem();
+                                if (matchingItems.Count != 0)
+                                {
+                                    foreach (var matchingitem in matchingItems)
+                                    {
+                                        if (!matchingitem.IsValid)
+                                        {
+                                            ShowError(matchingitem.ErrorMessage);
+                                        }
+                                    }
+                                    oprationResult = await matchingService.InsertAsync(questionInfo, matchingItems);
+                                }
+                                else
+                                {
+                                    ShowError(Messages.SelectItemError);
+                                }
                                 break;
                             case QuestionType.FillInBlankQuestion:
                                 var fillInBlankService = new FillInBlankService();
-                                oprationResult = await fillInBlankService.InsertAsync(questionInfo);
+                                var fillInBlankItems = GetFillInBlankItem();
+                                if (fillInBlankItems.Count != 0)
+                                {
+                                    foreach (var fillInBlankItem in fillInBlankItems)
+                                    {
+                                        if (!fillInBlankItem.IsValid)
+                                        {
+                                            ShowError(fillInBlankItem.ErrorMessage);
+                                        }
+                                    }
+                                    oprationResult = await fillInBlankService.InsertAsync(questionInfo, fillInBlankItems);
+                                }
+                                else
+                                {
+                                    ShowError(Messages.SelectItemError);
+                                }
                                 break;
+                        }
+                        if (oprationResult != null)
+                        {
+                            if (oprationResult.IsSuccess)
+                            {
+                                ShowSuccess(oprationResult.Message);
+                                ClearControls();
+                            }
+                            else
+                            {
+                                ShowError(oprationResult.Message);
+                            }
                         }
                     }
                     else
@@ -316,10 +420,46 @@ namespace ExamBuilder.UI
                     ShowError(questionInfo.ErrorMessage);
                 }
             }
-            else 
+            else
             {
                 ShowError(lessonId.Message);
             }
         }
+
+        private void ClearControls()
+        {
+            txtQuestionText.Clear();
+            cbDifficalty.SelectedIndex = 0;
+            flpQuestions.Controls.Clear();
+            foreach (var item in panelTypeQuestions.Controls)
+            {
+                if (item is Guna2Button)
+                {
+                    var btn = (Guna2Button)item;
+                    if (btn.Checked)
+                    {
+                        btn.Checked = false;
+                        break;
+                    }
+                }
+            }
+            _questionType = null;
+            _pictureLocation = null;
+        }
+
+        private void txtQuestionText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSuggestion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSuggestion.SelectedIndex != 0)
+            {
+                txtQuestionText.Text = cbSuggestion.SelectedItem.ToString();
+                cbSuggestion.SelectedIndex = 0;
+            }
+        }
+
     }
 }

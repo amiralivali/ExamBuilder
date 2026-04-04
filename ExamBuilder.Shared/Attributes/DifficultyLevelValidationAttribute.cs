@@ -14,7 +14,7 @@ namespace ExamBuilder.Shared.Attributes
             int levelID = int.Parse(value.ToString());
             if (levelID == 0)
             {
-                ErrorMessage = Messages.DifficultyLevel + Messages.Required;
+                ErrorMessage = string.Format(Messages.Required,Messages.DifficultyLevel);
                 return false;
             }
             return true;

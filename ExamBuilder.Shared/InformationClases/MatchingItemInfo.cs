@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace ExamBuilder.Shared.InformationClases
 {
-    public class MatchingItemInfo : ItemQuestionInfo
+    public class MatchingItemInfo : BaseValidation
     {
+        public int ID { get; set; }
+        public int MatchingQuestionID { get; set; }
         //the reason that I didn`t use ItemQuestionInfo = It has special field
         [RequiredStringValidation(PropertyName = Messages.LeftItem)]
         public string LeftText { get; set; }

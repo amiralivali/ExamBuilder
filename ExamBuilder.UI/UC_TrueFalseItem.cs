@@ -12,6 +12,7 @@ namespace ExamBuilder.UI
 {
     public partial class UC_TrueFalseItem : UserControl
     {
+        public string Item_Text => txtItemName.Text.Trim();
         public UC_TrueFalseItem(int _count)
         {
             InitializeComponent();
@@ -19,6 +20,11 @@ namespace ExamBuilder.UI
         }
 
         private void txtItemName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -14,12 +14,13 @@ namespace ExamBuilder.UI
 {
     public partial class UC_FillInBlankItem : UserControl
     {
+        public string Item_Text => txtItemName.Text.Trim();
         public UC_FillInBlankItem(int _count)
         {
             InitializeComponent();
             lblCount.Text = _count.ToString();
         }
-        
+
         private void btnAddBlank_Click(object sender, EventArgs e)
         {
             int selectionStart = txtItemName.SelectionStart;
@@ -32,6 +33,11 @@ namespace ExamBuilder.UI
             txtItemName.SelectionStart = selectionStart + Messages.Blank_Marker.Length;
             txtItemName.ScrollToCaret();
             txtItemName.Focus();
+        }
+
+        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -52,7 +52,7 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 await db.FillInBlankQuestions.AddAsync(question);
                 await db.SaveChangesAsync();
-                int id = db.FillInBlankQuestions.Last().ID;
+                int id = question.ID;
                 foreach (FillInBlankItem item in items)
                 {
                     item.FillInBlankQuestionID = id;

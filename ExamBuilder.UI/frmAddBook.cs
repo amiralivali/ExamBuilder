@@ -20,59 +20,49 @@ namespace ExamBuilder.UI
 
         private async void guna2Button2_Click(object sender, EventArgs e)
         {
-            //var check = CheckValidationLesson();
-            //if (!check)
-            //{
-            //    ShowError("لطفا نام تمامی دروس را وارد کنید");
-            //    return;
-            //}
             var bookInfo = new BookInfo()
             {
                 Title = txtBookName.Text.Trim(),
                 GradeID = cbGrade.SelectedIndex + 1,
                 GradeInfo = txtGradeInfo.Text,
             };
-            var bookOpration = await bookService.InsertAsync(bookInfo);
-            var bookId = await bookService.GetLastIDAsync(bookInfo.Title, bookInfo.GradeID, bookInfo.GradeInfo);
-            if (bookOpration.IsSuccess)
+            if (bookInfo.IsValid)
             {
-                var lessonsInfo = new List<LessonInfo>();
-                int count = 1;
-                foreach (var item in flpLessons.Controls)
+                var bookOpration = await bookService.InsertAsync(bookInfo);
+                var bookId = await bookService.GetLastIDAsync(bookInfo.Title, bookInfo.GradeID, bookInfo.GradeInfo);
+                if (bookOpration.IsSuccess)
                 {
-                    var control = item as UC_Lessons;
-                    foreach (var panel in control.Controls)
+                    var lessonsInfo = new List<LessonInfo>();
+                    int count = 1;
+                    var lessonInfo = new List<LessonInfo>();
+                    foreach (var uc in flpLessons.Controls.OfType<UC_Lessons>())
                     {
-                        var shadow = panel as Guna2ShadowPanel;
-                        var lessonInfo = new LessonInfo();
-                        foreach (var childItem in shadow.Controls)
+                        lessonInfo.Add(new LessonInfo()
                         {
-                            if (childItem is BunifuTextBox)
-                            {
-                                var txt = childItem as BunifuTextBox;
-                                lessonInfo.Title = txt.Text;
-                                lessonInfo.LessonCount = count;
-                                lessonInfo.BookID = bookId.Data;
-                                count++;
-                            }
-                        }
-                        lessonsInfo.Add(lessonInfo);
+                            Title = uc.LessonName,
+                            LessonCount = count++,
+                            BookID = bookId.Data
+                        });
                     }
-                }
-                var lessonOpration = await lessonService.InsertAsync(lessonsInfo);
-                if (lessonOpration.IsSuccess)
-                {
-                    ShowSuccess(lessonOpration.Message);
-                    DeleteControlInfo();
+                    var lessonOpration = await lessonService.InsertAsync(lessonsInfo);
+                    if (lessonOpration.IsSuccess)
+                    {
+                        ShowSuccess(lessonOpration.Message);
+                        DeleteControlInfo();
+                    }
+                    else
+                    {
+                        ShowError(lessonOpration.Message);
+                    }
                 }
                 else
                 {
-                    ShowError(lessonOpration.Message);
+                    ShowError(bookOpration.Message);
                 }
             }
-            else
+            else 
             {
-                ShowError(bookOpration.Message);
+                ShowError(bookInfo.ErrorMessage);
             }
         }
 
@@ -87,7 +77,7 @@ namespace ExamBuilder.UI
             if (result == DialogResult.Yes)
             {
                 btnEnterBook.Enabled = true;
-                panelbook.Enabled = false;
+                numberPick.Enabled = false;
                 for (int i = 1; i <= numberPick.Value; i++)
                 {
                     flpLessons.Controls.Add(new UC_Lessons(i));
@@ -118,36 +108,14 @@ namespace ExamBuilder.UI
                 return false;
             }
         }
-        //private bool CheckValidationLesson()
-        //{
-        //    foreach (var item in flpLessons.Controls)
-        //    {
-        //        var control = item as UC_Lessons;
-        //        foreach (var panel in control.Controls)
-        //        {
-        //            var shadow = panel as Guna2ShadowPanel;
-        //            foreach (var childItem in shadow.Controls)
-        //            {
-        //                if (childItem is BunifuTextBox)
-        //                {
-        //                    var txt = childItem as BunifuTextBox;
-        //                    if (string.IsNullOrEmpty(txt.Text))
-        //                    {
-        //                        return false;
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return true;
-        //}
+
         private void txtBookName_TextChanged(object sender, EventArgs e)
         {
             btnCreatLesson.Enabled = CheckValidationBookInfo();
         }
         private void DeleteControlInfo()
         {
-            panelbook.Enabled = true;
+            numberPick.Enabled = true;
             txtBookName.Text = "";
             numberPick.Value = 0;
             btnEnterBook.Enabled = false;
