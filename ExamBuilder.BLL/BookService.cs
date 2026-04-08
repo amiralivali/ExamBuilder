@@ -30,14 +30,14 @@ namespace ExamBuilder.BLL
         }
         public async Task<OprationResult> InsertAsync(BookInfo info)
         {
-            bool duplicate = await repository.CheckDuplicate(info.Title, info.GradeID, info.GradeInfo);
-            if (!duplicate)
+            var entity = info.MapToBook();
+            var checkData = await CheckDuplicateAsync(info.Title,info.GradeID,info.GradeInfo);
+            if (checkData.IsSuccess)
             {
-                var entity = info.MapToBook();
-                var check = await repository.InsertAsync(entity);
-                if (check)
+                var checkInsert = await repository.InsertAsync(entity);
+                if (checkInsert)
                 {
-                    return OprationResult.Success();
+                    return OprationResult.Success(Messages.Insert);
                 }
                 else
                 {
@@ -45,21 +45,29 @@ namespace ExamBuilder.BLL
                 }
             }
             else
-            { 
-                return OprationResult.Duplicate(Messages.Book);
+            {
+                return checkData;
             }
         }
         public async Task<OprationResult> UpdateAsync(BookInfo info)
         {
             var entity = info.MapToBook();
-            var check = await repository.UpdateAsync(entity);
-            if (check)
+            var checkData = await CheckDuplicateAsync(info.Title, info.GradeID, info.GradeInfo, info.ID);
+            if (checkData.IsSuccess)
             {
-                return OprationResult.Success(Messages.Update);
+                var checkUpdate = await repository.UpdateAsync(entity);
+                if (checkUpdate)
+                {
+                    return OprationResult.Success(Messages.Update);
+                }
+                else
+                {
+                    return OprationResult.RunTimeError();
+                }
             }
             else
             {
-                return OprationResult.RunTimeError();
+                return checkData;
             }
         }
         public async Task<OprationResult> DeleteAsync(int id)
@@ -96,6 +104,26 @@ namespace ExamBuilder.BLL
             else
             { 
                 return OprationResult<List<string>>.RunTimeError();
+            }
+        }
+        public async Task<OprationResult> CheckDuplicateAsync(string title, int gradeID, string gradeInfo, int bookId = 0)
+        {
+            bool duplicate;
+            if (bookId == 0)
+            {
+                duplicate = await repository.CheckDuplicateAsync(title, gradeID, gradeInfo);
+            }
+            else
+            { 
+                duplicate = await repository.CheckDuplicateAsync(title, gradeID, gradeInfo,bookId);
+            }
+            if (duplicate)
+            {
+                return OprationResult.Duplicate(Messages.Book);
+            }
+            else
+            {
+                return OprationResult.Success();
             }
         }
     }

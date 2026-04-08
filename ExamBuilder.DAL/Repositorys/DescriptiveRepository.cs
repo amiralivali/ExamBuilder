@@ -91,5 +91,20 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
+        public async Task<bool> CheckDuplicateAsync(string questionText, int lessonId, int questionId = 0)
+        {
+            bool duplicate;
+            if (questionId == 0) //Insert
+            {
+                duplicate = await db.DescriptiveQuestions.Where(x => x.QuestionText == questionText && x.LessonID == lessonId).AnyAsync();
+            }
+            else //Update
+            {
+                duplicate = await db.DescriptiveQuestions.Where(x => x.QuestionText == questionText && 
+                    x.LessonID == lessonId && 
+                    x.ID != questionId).AnyAsync();
+            }
+            return duplicate;
+        }
     }
 }

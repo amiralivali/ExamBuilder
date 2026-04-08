@@ -33,37 +33,53 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> InsertAsync(QuestionInfo info, List<MatchingItemInfo> items)
         {
             var newQuestion = info.MapToMatching();
-            List<MatchingItem> newItems = new List<MatchingItem>();
+            var newItems = new List<MatchingItem>();
             foreach (var item in items)
             {
                 newItems.Add(item.MapToMatching());
             }
-            var check = await repository.InsertAsync(newQuestion, newItems);
-            if (check)
+            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonID, newItems);
+            if (checkData.IsSuccess)
             {
-                return OprationResult.Success(Messages.Insert);
+                var checkInsert = await repository.InsertAsync(newQuestion, newItems);
+                if (checkInsert)
+                {
+                    return OprationResult.Success(Messages.Insert);
+                }
+                else
+                {
+                    return OprationResult.RunTimeError();
+                }
             }
             else
             {
-                return OprationResult.RunTimeError();
+                return checkData;
             }
         }
         public async Task<OprationResult> UpdateAsync(QuestionInfo info, List<MatchingItemInfo> items)
         {
             var newQuestion = info.MapToMatching();
-            List<MatchingItem> newItems = new List<MatchingItem>();
+            var newItems = new List<MatchingItem>();
             foreach (var item in items)
             {
                 newItems.Add(item.MapToMatching());
             }
-            var check = await repository.UpdateAsync(newQuestion, newItems);
-            if (check)
+            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonID, newItems, info.ID);
+            if (checkData.IsSuccess)
             {
-                return OprationResult.Success(Messages.Update);
+                var checkUpdate = await repository.UpdateAsync(newQuestion, newItems);
+                if (checkUpdate)
+                {
+                    return OprationResult.Success(Messages.Update);
+                }
+                else
+                {
+                    return OprationResult.RunTimeError();
+                }
             }
             else
             {
-                return OprationResult.RunTimeError();
+                return checkData;
             }
         }
         public async Task<OprationResult> DeleteAsync(int id)
@@ -76,6 +92,26 @@ namespace ExamBuilder.BLL
             else
             {
                 return OprationResult.RunTimeError();
+            }
+        }
+        public async Task<OprationResult> CheckDuplicateAsync(string questionText, int lessonId, List<MatchingItem> items, int questionId = 0)
+        {
+            bool duplicate;
+            if (questionId == 0)
+            {
+                duplicate = await repository.CheckDuplicateAsync(questionText, lessonId, items);
+            }
+            else
+            {
+                duplicate = await repository.CheckDuplicateAsync(questionText, lessonId, items, questionId);
+            }
+            if (duplicate)
+            {
+                return OprationResult.Duplicate(Messages.Question);
+            }
+            else
+            {
+                return OprationResult.Success();
             }
         }
     }

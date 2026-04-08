@@ -127,5 +127,43 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
+        public async Task<bool> CheckDuplicateAsync(string questionText, int lessonId, List<TrueFalseItem> trueFalseItems, int questionId = 0)
+        {
+            var inputTexts = trueFalseItems
+                .Select(x => x.Text.Trim().ToLower())
+                .OrderBy(x => x)
+                .ToList();
+            List<int> questionIds;
+            if (questionId == 0) //Insert
+            {
+                questionIds = await db.TrueFalseQuestions
+                    .Where(q => q.QuestionText == questionText && q.LessonID == lessonId)
+                    .Select(q => q.ID)
+                    .ToListAsync();
+            }
+            else //Update
+            {
+                questionIds = await db.TrueFalseQuestions
+                    .Where(q => q.QuestionText == questionText && q.LessonID == lessonId && q.ID != questionId)
+                    .Select(q => q.ID)
+                    .ToListAsync();
+            }
+            foreach (var qid in questionIds)
+            {
+                var dbTexts = await db.TrueFalseItems
+                    .Where(i => i.TrueFalseQuestionID == qid)
+                    .Select(i => i.Text.Trim().ToLower())
+                    .OrderBy(x => x)
+                    .ToListAsync();
+
+                if (dbTexts.Count != inputTexts.Count)
+                    continue;
+
+                if (dbTexts.SequenceEqual(inputTexts))
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

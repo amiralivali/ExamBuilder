@@ -89,9 +89,17 @@ namespace ExamBuilder.DAL.Repositorys
                 return -1;
             }
         }
-        public async Task<bool> CheckDuplicate(string name, int gradeID, string gradeInfo)
+        public async Task<bool> CheckDuplicateAsync(string name, int gradeID, string gradeInfo, int bookId=0)
         {
-            bool duplicate = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo == gradeInfo).AnyAsync();
+            bool duplicate;
+            if (bookId == 0)
+            {
+                duplicate = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo == gradeInfo).AnyAsync();
+            }
+            else 
+            {
+                duplicate = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo == gradeInfo && x.ID != bookId).AnyAsync();
+            }
             return duplicate;
         }
         public async Task<List<string>> SelectAvailableGrades()

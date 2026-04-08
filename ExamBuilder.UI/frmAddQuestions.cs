@@ -206,9 +206,9 @@ namespace ExamBuilder.UI
             }
             return optionalItems;
         }
-        private List<ItemQuestionInfo> GetTrueFalseItem()
+        private List<TrueFalseItemInfo> GetTrueFalseItem()
         {
-            var items = new List<ItemQuestionInfo>();
+            var items = new List<TrueFalseItemInfo>();
             foreach (var uc in flpQuestions.Controls.OfType<UC_ItemQuestions>())
             {
                 foreach (var control in uc.Controls)
@@ -223,7 +223,7 @@ namespace ExamBuilder.UI
                                 var flpItems = flp as FlowLayoutPanel;
                                 foreach (var ucItem in flpItems.Controls.OfType<UC_TrueFalseItem>())
                                 {
-                                    items.Add(new ItemQuestionInfo()
+                                    items.Add(new TrueFalseItemInfo()
                                     {
                                         Text = ucItem.Item_Text,
                                     });
@@ -235,9 +235,9 @@ namespace ExamBuilder.UI
             }
             return items;
         }
-        private List<ItemQuestionInfo> GetFillInBlankItem()
+        private List<FillInBlankItemInfo> GetFillInBlankItem()
         {
-            var items = new List<ItemQuestionInfo>();
+            var items = new List<FillInBlankItemInfo>();
             foreach (var uc in flpQuestions.Controls.OfType<UC_ItemQuestions>())
             {
                 foreach (var control in uc.Controls)
@@ -252,7 +252,7 @@ namespace ExamBuilder.UI
                                 var flpItems = flp as FlowLayoutPanel;
                                 foreach (var ucItem in flpItems.Controls.OfType<UC_FillInBlankItem>())
                                 {
-                                    items.Add(new ItemQuestionInfo()
+                                    items.Add(new FillInBlankItemInfo()
                                     {
                                         Text = ucItem.Item_Text,
                                     });

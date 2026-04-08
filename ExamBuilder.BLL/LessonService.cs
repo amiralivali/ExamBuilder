@@ -31,10 +31,9 @@ namespace ExamBuilder.BLL
         }
         public async Task<OprationResult> InsertAsync(List<LessonInfo> info)
         {
-            //////////////////////////////////////////////////////
             var entity = info.MapToLesson();
-            var check = await repository.InsertAsync(entity);
-            if (check)
+            var checkInsert = await repository.InsertAsync(entity);
+            if (checkInsert)
             {
                 return OprationResult.Success(Messages.Insert);
             }
@@ -46,8 +45,8 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> UpdateAsync(LessonInfo info)
         {
             var entity = info.MapToLesson();
-            var check = await repository.UpdateAsync(entity);
-            if (check)
+            var checkUpdate = await repository.UpdateAsync(entity);
+            if (checkUpdate)
             {
                 return OprationResult.Success(Messages.Update);
             }

@@ -7,6 +7,7 @@ using ExamBuilder.DAL.Repositorys;
 using ExamBuilder.Shared.DTOClases;
 using ExamBuilder.Shared.InformationClases;
 using ExamBuilder.Shared;
+using ExamBuilder.DAL.Entities;
 
 namespace ExamBuilder.BLL
 {
@@ -48,14 +49,22 @@ namespace ExamBuilder.BLL
         {
             var question = questionInfo.MapToOptional();
             var item = itemInfo.MaptoOptional();
-            var check = await repository.InsertAsync(question,item);
-            if (check)
+            var checkData = await CheckDuplicateAsync(questionInfo.QuestionText, questionInfo.LessonID, item);
+            if (checkData.IsSuccess)
             {
-                return OprationResult.Success(Messages.Insert);
+                var checkInsert = await repository.InsertAsync(question, item);
+                if (checkInsert)
+                {
+                    return OprationResult.Success(Messages.Insert);
+                }
+                else
+                {
+                    return OprationResult.RunTimeError();
+                }
             }
             else
             {
-                return OprationResult.RunTimeError();
+                return checkData;
             }
         }
 
@@ -63,14 +72,43 @@ namespace ExamBuilder.BLL
         {
             var question = questionInfo.MapToOptional();
             var item = itemInfo.MaptoOptional();
-            var check = await repository.UpdateAsync(question, item);
-            if (check)
+            var checkData = await CheckDuplicateAsync(questionInfo.QuestionText, questionInfo.LessonID, item, questionInfo.ID);
+            if (checkData.IsSuccess)
             {
-                return OprationResult.Success(Messages.Update);
+                var checkUpdate = await repository.UpdateAsync(question, item);
+                if (checkUpdate)
+                {
+                    return OprationResult.Success(Messages.Update);
+                }
+                else
+                {
+                    return OprationResult.RunTimeError();
+                }
             }
             else
             {
-                return OprationResult.RunTimeError();
+                return checkData;
+            }
+        }
+
+        public async Task<OprationResult> CheckDuplicateAsync(string questionText, int lessonId, OptionalItem item, int questionId = 0)
+        {
+            bool duplicate;
+            if (questionId == 0)
+            {
+                duplicate = await repository.CheckDuplicateAsync(questionText, lessonId, item);
+            }
+            else
+            {
+                duplicate = await repository.CheckDuplicateAsync(questionText, lessonId, item, questionId);
+            }
+            if (duplicate)
+            {
+                return OprationResult.Duplicate(Messages.Question);
+            }
+            else
+            {
+                return OprationResult.Success();
             }
         }
     }

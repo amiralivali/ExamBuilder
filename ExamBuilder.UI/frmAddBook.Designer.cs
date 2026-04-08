@@ -192,7 +192,7 @@
             btnDelete.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnDelete.Size = new Size(173, 37);
             btnDelete.TabIndex = 5;
-            btnDelete.Text = "حذف اطلاعات وارد شده";
+            btnDelete.Text = "حذف دروس ایجاد شده";
             btnDelete.Visible = false;
             btnDelete.Click += btnDelete_Click;
             // 

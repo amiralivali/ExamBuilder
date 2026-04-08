@@ -48,7 +48,7 @@ namespace ExamBuilder.UI
                     if (lessonOpration.IsSuccess)
                     {
                         ShowSuccess(lessonOpration.Message);
-                        DeleteControlInfo();
+                        DeleteValueOfAllControls();
                     }
                     else
                     {
@@ -68,22 +68,19 @@ namespace ExamBuilder.UI
 
         private void guna2NumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            btnCreatLesson.Enabled = CheckValidationBookInfo();
+            btnCreatLesson.Enabled = CheckBookInformationValues();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            var result = ShowWarningQuestion("آیا از اطلاعات وارد شده اطمینان دارید؟");
-            if (result == DialogResult.Yes)
+            btnEnterBook.Enabled = true;
+            btnCreatLesson.Enabled = false;
+            numberPick.Enabled = false;
+            for (int i = 1; i <= numberPick.Value; i++)
             {
-                btnEnterBook.Enabled = true;
-                numberPick.Enabled = false;
-                for (int i = 1; i <= numberPick.Value; i++)
-                {
-                    flpLessons.Controls.Add(new UC_Lessons(i));
-                }
-                btnDelete.Visible = true;
+                flpLessons.Controls.Add(new UC_Lessons(i));
             }
+            btnDelete.Visible = true;
         }
 
         private void frmAddBook_Load(object sender, EventArgs e)
@@ -91,15 +88,12 @@ namespace ExamBuilder.UI
 
         }
 
-        private void cbGrade_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnCreatLesson.Enabled = CheckValidationBookInfo();
-        }
-        private bool CheckValidationBookInfo()
+        private bool CheckBookInformationValues()
         {
             if (((int)numberPick.Value) > 0 &&
                 !string.IsNullOrEmpty(txtBookName.Text) &&
-                cbGrade.SelectedIndex != -1)
+                cbGrade.SelectedIndex != -1 &&
+                numberPick.Enabled != false)//check if it isnt in lesson mode
             {
                 return true;
             }
@@ -111,23 +105,30 @@ namespace ExamBuilder.UI
 
         private void txtBookName_TextChanged(object sender, EventArgs e)
         {
-            btnCreatLesson.Enabled = CheckValidationBookInfo();
+            btnCreatLesson.Enabled = CheckBookInformationValues();
         }
-        private void DeleteControlInfo()
+        private void DeleteLessonUserControls()
         {
             numberPick.Enabled = true;
-            txtBookName.Text = "";
             numberPick.Value = 0;
             btnEnterBook.Enabled = false;
+            btnCreatLesson.Enabled = false;
             flpLessons.Controls.Clear();
             btnDelete.Visible = false;
         }
+        private void DeleteValueOfAllControls()
+        {
+            DeleteLessonUserControls();
+            txtBookName.Text = string.Empty;
+            cbGrade.SelectedIndex = -1;
+            txtGradeInfo.Text = string.Empty;
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var result = ShowWarningQuestion("آیا از حذف اطلاعات وارد شده اطمینان دارید؟");
+            var result = ShowWarningQuestion("آیا از حذف دروس ایجاد شده اطمینان دارید؟");
             if (result == DialogResult.Yes)
             {
-                DeleteControlInfo();
+                DeleteLessonUserControls();
             }
         }
 

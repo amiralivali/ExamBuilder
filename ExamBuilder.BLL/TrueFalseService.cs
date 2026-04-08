@@ -30,40 +30,56 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<ItemQuestionsDTO>>.RunTimeError();
             }
         }
-        public async Task<OprationResult> InsertAsync(QuestionInfo question,List<ItemQuestionInfo> items)
+        public async Task<OprationResult> InsertAsync(QuestionInfo question,List<TrueFalseItemInfo> items)
         { 
-            var newQuestion=question.MapToTrueFalse();
-            List<TrueFalseItem> newItems=new List<TrueFalseItem>();
+            var newQuestion = question.MapToTrueFalse();
+            var newItems = new List<TrueFalseItem>();
             foreach (var item in items)
             {
                 newItems.Add(item.MapToTrueFalse());
             }
-            var check = await repository.InsertAsync(newQuestion, newItems);
-            if (check)
+            var checkData = await CheckDuplicateAsync(question.QuestionText, question.LessonID, newItems);
+            if (checkData.IsSuccess)
             {
-                return OprationResult.Success(Messages.Insert);
+                var checkInsert = await repository.InsertAsync(newQuestion, newItems);
+                if (checkInsert)
+                {
+                    return OprationResult.Success(Messages.Insert);
+                }
+                else
+                {
+                    return OprationResult.RunTimeError();
+                }
             }
             else
             {
-                return OprationResult.RunTimeError();
+                return checkData;
             }
         }
-        public async Task<OprationResult> UpdateAsync(QuestionInfo question, List<ItemQuestionInfo> items)
+        public async Task<OprationResult> UpdateAsync(QuestionInfo question, List<TrueFalseItemInfo> items)
         {
             var newQuestion = question.MapToTrueFalse();
-            List<TrueFalseItem> newItems = new List<TrueFalseItem>();
+            var newItems = new List<TrueFalseItem>();
             foreach (var item in items)
             {
                 newItems.Add(item.MapToTrueFalse());
             }
-            var check = await repository.UpdateAsync(newQuestion, newItems);
-            if (check)
+            var checkData = await CheckDuplicateAsync(question.QuestionText, question.LessonID, newItems, question.ID);
+            if (checkData.IsSuccess)
             {
-                return OprationResult.Success(Messages.Update);
+                var checkUpdate = await repository.UpdateAsync(newQuestion, newItems);
+                if (checkUpdate)
+                {
+                    return OprationResult.Success(Messages.Update);
+                }
+                else
+                {
+                    return OprationResult.RunTimeError();
+                }
             }
             else
             {
-                return OprationResult.RunTimeError();
+                return checkData;
             }
         }
         public async Task<OprationResult> DeleteAsync(int id)
@@ -76,6 +92,26 @@ namespace ExamBuilder.BLL
             else
             {
                 return OprationResult.RunTimeError();
+            }
+        }
+        public async Task<OprationResult> CheckDuplicateAsync(string questionText, int lessonId, List<TrueFalseItem> items, int questionId = 0)
+        {
+            bool duplicate;
+            if (questionId == 0)
+            {
+                duplicate = await repository.CheckDuplicateAsync(questionText, lessonId, items);
+            }
+            else
+            {
+                duplicate = await repository.CheckDuplicateAsync(questionText, lessonId, items, questionId);
+            }
+            if (duplicate)
+            {
+                return OprationResult.Duplicate(Messages.Question);
+            }
+            else
+            {
+                return OprationResult.Success();
             }
         }
     }

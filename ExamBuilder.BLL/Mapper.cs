@@ -100,7 +100,7 @@ namespace ExamBuilder.BLL
                 QuestionText = info.QuestionText,
             };
         }
-        public static FillInBlankItem MapToFillInBlank(this ItemQuestionInfo info)
+        public static FillInBlankItem MapToFillInBlank(this FillInBlankItemInfo info)
         {
             return new FillInBlankItem
             {
@@ -141,7 +141,7 @@ namespace ExamBuilder.BLL
                 QuestionText = info.QuestionText,
             };
         }
-        public static TrueFalseItem MapToTrueFalse(this ItemQuestionInfo info)
+        public static TrueFalseItem MapToTrueFalse(this TrueFalseItemInfo info)
         {
             return new TrueFalseItem
             {

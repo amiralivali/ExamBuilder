@@ -130,5 +130,56 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
+        public async Task<bool> CheckDuplicateAsync(string questionText, int lessonId, List<MatchingItem> matchingItems, int questionId = 0)
+        {
+            var inputTexts = matchingItems
+                .SelectMany(x => new[]
+                {
+                    x.LeftText.Trim().ToLower(),
+                    x.RightText.Trim().ToLower()
+                })
+                .OrderBy(x => x)
+                .ToList();
+            List<int> questionIds;
+            if (questionId == 0) //Insert
+            {
+                questionIds = await db.MatchingQuestions
+                    .Where(q => q.QuestionText == questionText && q.LessonID == lessonId)
+                    .Select(q => q.ID)
+                    .ToListAsync();
+            }
+            else //Update
+            {
+                questionIds = await db.MatchingQuestions
+                        .Where(q => q.QuestionText == questionText && q.LessonID == lessonId && q.ID != questionId)
+                        .Select(q => q.ID)
+                        .ToListAsync();
+            }
+
+            foreach (var qid in questionIds)
+            {
+                var dbItems = await db.MatchingItems
+                    .Where(i => i.MatchingQuestionID == qid)
+                    .Select(i => new { i.LeftText, i.RightText })
+                    .ToListAsync();
+
+                var dbTexts = dbItems
+                    .SelectMany(x => new[]
+                    {
+                       x.LeftText.Trim().ToLower(),
+                       x.RightText.Trim().ToLower()
+                    })
+                    .OrderBy(x => x)
+                    .ToList();
+
+                if (dbTexts.Count != inputTexts.Count)
+                    continue;
+
+                if (dbTexts.SequenceEqual(inputTexts))
+                    return true; 
+            }
+
+            return false;
+        }
     }
 }

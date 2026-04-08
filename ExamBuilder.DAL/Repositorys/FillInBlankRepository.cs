@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace ExamBuilder.DAL.Repositorys
 {
@@ -126,6 +127,45 @@ namespace ExamBuilder.DAL.Repositorys
                 await ex.AddLogAsync();
                 return false;
             }
+        }
+        public async Task<bool> CheckDuplicateAsync(string questionText, int lessonId, List<FillInBlankItem> fillInBlankItems, int questionId = 0)
+        {
+            var inputTexts = fillInBlankItems
+                .Select(x => x.Text.Trim().ToLower())
+                .OrderBy(x => x)
+                .ToList();
+            List<int> questionIds;
+            if (questionId == 0) //Insert
+            {
+                 questionIds = await db.FillInBlankQuestions
+                 .Where(q => q.QuestionText == questionText && q.LessonID == lessonId)
+                 .Select(q => q.ID)
+                 .ToListAsync();
+            }
+            else //Update
+            {
+                 questionIds = await db.FillInBlankQuestions
+                        .Where(q => q.QuestionText == questionText && q.LessonID == lessonId && q.ID != questionId)
+                        .Select(q => q.ID)
+                        .ToListAsync();
+            }
+
+            foreach (var qid in questionIds)
+            {
+                var dbTexts = await db.FillInBlankItems
+                    .Where(i => i.FillInBlankQuestionID == qid)
+                    .Select(i => i.Text.Trim().ToLower())
+                    .OrderBy(x => x)
+                    .ToListAsync();
+
+                if (dbTexts.Count != inputTexts.Count)
+                    continue;
+
+                if (dbTexts.SequenceEqual(inputTexts))
+                    return true; 
+            }
+
+            return false;
         }
     }
 }

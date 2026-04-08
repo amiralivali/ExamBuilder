@@ -106,5 +106,61 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
+        public async Task<bool> CheckDuplicateAsync(string questionText, int lessonId, OptionalItem optionalItem, int questionId = 0)
+        {
+            List<int> questionIds;
+
+            if (questionId == 0) // Insert
+            {
+                questionIds = await db.OptionalQuestions
+                    .Where(x => x.QuestionText == questionText && x.LessonID == lessonId)
+                    .Select(x => x.ID)
+                    .ToListAsync();
+            }
+            else // Update
+            {
+                questionIds = await db.OptionalQuestions
+                    .Where(x => x.QuestionText == questionText && x.LessonID == lessonId && x.ID != questionId)
+                    .Select(x => x.ID)
+                    .ToListAsync();
+            }
+
+            var inputItems = new[]
+            {
+                optionalItem.Option1.Trim().ToLower(),
+                optionalItem.Option2.Trim().ToLower(),
+                optionalItem.Option3.Trim().ToLower(),
+                optionalItem.Option4.Trim().ToLower(),
+            }        
+            .OrderBy(x => x)
+            .ToList();
+
+            foreach (var id in questionIds)
+            {
+                var dbItemRows = await db.OptionalItems
+                    .Where(x => x.OptionalID == id)
+                    .Select(x => new { x.Option1, x.Option2, x.Option3, x.Option4 })
+                    .ToListAsync();
+
+                var dbItem = dbItemRows.FirstOrDefault();
+                if (dbItem == null)
+                    continue;
+
+                var dbItems = new[]
+                {
+                   dbItem.Option1.Trim().ToLower(),
+                   dbItem.Option2.Trim().ToLower(),
+                   dbItem.Option3.Trim().ToLower(),
+                   dbItem.Option4.Trim().ToLower(),
+                }
+                .OrderBy(x => x)
+                .ToList();
+
+                if (dbItems.SequenceEqual(inputItems))
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
