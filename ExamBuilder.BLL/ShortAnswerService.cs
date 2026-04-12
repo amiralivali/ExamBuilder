@@ -47,7 +47,7 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> InsertAsync(QuestionInfo info)
         {
             var data = info.MapToShortAnswer();
-            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonID);
+            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonId);
             if (checkData.IsSuccess)
             {
                 var checkInsert = await repository.InsertAsync(data);
@@ -69,7 +69,7 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> UpdateAsync(QuestionInfo info)
         {
             var data = info.MapToShortAnswer();
-            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonID, info.ID);
+            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonId, info.ID);
             if (checkData.IsSuccess)
             {
                 var checkUpdate = await repository.UpdateAsync(data);

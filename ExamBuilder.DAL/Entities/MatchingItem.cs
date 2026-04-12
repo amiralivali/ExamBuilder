@@ -5,8 +5,8 @@ namespace ExamBuilder.DAL.Entities
     public class MatchingItem
     {
         [Key]
-        public int ID { get; set; }
-        public int MatchingQuestionID { get; set; }
+        public int Id { get; set; }
+        public int MatchingQuestionId { get; set; }
         [Required]
         [MaxLength(30)]
         public string LeftText { get; set; }

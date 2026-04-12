@@ -5,8 +5,8 @@ namespace ExamBuilder.DAL.Entities
     public class TrueFalseItem
     {
         [Key]
-        public int ID { get; set; }
-        public int TrueFalseQuestionID { get; set; }
+        public int Id { get; set; }
+        public int TrueFalseQuestionId { get; set; }
         [Required]
         [MaxLength(50)]
         public string Text { get; set; }

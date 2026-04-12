@@ -53,9 +53,9 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var lesson = await db.Lessons.Where(x => x.ID == updateLesson.ID).SingleAsync();
+                var lesson = await db.Lessons.Where(x => x.Id == updateLesson.Id).SingleAsync();
                 lesson.Title = updateLesson.Title;
-                lesson.BookID = updateLesson.BookID;
+                lesson.BookId = updateLesson.BookId;
                 lesson.LessonCount = updateLesson.LessonCount;
                 await db.SaveChangesAsync();
                 return true;
@@ -70,7 +70,7 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var lesson = await db.Lessons.Where(x => x.ID == id).SingleAsync();
+                var lesson = await db.Lessons.Where(x => x.Id == id).SingleAsync();
                 db.Lessons.Remove(lesson);
                 await db.SaveChangesAsync();
                 return true;
@@ -81,12 +81,12 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
-        public async Task<int> GetLessonIDAsync(int lessonCount, string bookName)
+        public async Task<int> GetLessonIdAsync(int lessonCount, string bookName)
         {
             try
             {
                 var lesson = await db.Lessons.Include(x => x.Book).Where(x => x.LessonCount == lessonCount && x.Book.Title == bookName).SingleAsync();
-                return lesson.ID;
+                return lesson.Id;
             }
             catch (Exception ex)
             {

@@ -31,7 +31,7 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> InsertAsync(BookInfo info)
         {
             var entity = info.MapToBook();
-            var checkData = await CheckDuplicateAsync(info.Title,info.GradeID,info.GradeInfo);
+            var checkData = await CheckDuplicateAsync(info.Title,info.GradeId,info.GradeInfo);
             if (checkData.IsSuccess)
             {
                 var checkInsert = await repository.InsertAsync(entity);
@@ -52,7 +52,7 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> UpdateAsync(BookInfo info)
         {
             var entity = info.MapToBook();
-            var checkData = await CheckDuplicateAsync(info.Title, info.GradeID, info.GradeInfo, info.ID);
+            var checkData = await CheckDuplicateAsync(info.Title, info.GradeId, info.GradeInfo, info.Id);
             if (checkData.IsSuccess)
             {
                 var checkUpdate = await repository.UpdateAsync(entity);
@@ -82,9 +82,9 @@ namespace ExamBuilder.BLL
                 return OprationResult.RunTimeError();
             }
         }
-        public async Task<OprationResult<int>> GetLastIDAsync(string name,int gradeID,string gradeInfo)
+        public async Task<OprationResult<int>> GetLastIdAsync(string name,int gradeID,string gradeInfo)
         {
-            int id=await repository.GetLastIDAsync(name,gradeID,gradeInfo);
+            int id=await repository.GetLastIdAsync(name,gradeID,gradeInfo);
             if (id != -1)
             {
                 return OprationResult<int>.Success(id);

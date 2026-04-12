@@ -14,7 +14,7 @@ namespace ExamBuilder.DAL.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int OptionalID { get; set; }
+        public int OptionalId { get; set; }
         [Required]
         [MaxLength(50)]
         public string Option1 { get; set; }

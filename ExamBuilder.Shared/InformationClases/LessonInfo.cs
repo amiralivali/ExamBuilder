@@ -11,9 +11,9 @@ namespace ExamBuilder.Shared.InformationClases
 {
     public class LessonInfo : BaseValidation
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public int LessonCount { get; set; }
-        public int BookID { get; set; }
+        public int BookId { get; set; }
     }
 }

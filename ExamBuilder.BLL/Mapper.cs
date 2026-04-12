@@ -14,9 +14,9 @@ namespace ExamBuilder.BLL
         {
             return new Book
             {
-                ID = info.ID,
+                Id = info.Id,
                 Title = info.Title,
-                GradeID = info.GradeID,
+                GradeId = info.GradeId,
                 GradeInfo = info.GradeInfo,
             };
         }
@@ -27,10 +27,10 @@ namespace ExamBuilder.BLL
             {
                 list.Add(new Lesson()
                 {
-                    ID = lesson.ID,
+                    Id = lesson.Id,
                     Title = lesson.Title,
                     LessonCount = lesson.LessonCount,
-                    BookID = lesson.BookID,
+                    BookId = lesson.BookId,
                 });
             }
             return list;
@@ -39,19 +39,19 @@ namespace ExamBuilder.BLL
         {
             return new Lesson() 
             {
-                ID = info.ID,
+                Id = info.Id,
                 Title = info.Title,
                 LessonCount = info.LessonCount,
-                BookID = info.BookID,
+                BookId = info.BookId,
             };
         }
         public static DescriptiveQuestion MapToDescriptive(this QuestionInfo info)
         {
             return new DescriptiveQuestion
             {
-                ID = info.ID,
-                DifficultyLevelID = info.DifficultyLevelID,
-                LessonID = info.LessonID,
+                Id = info.ID,
+                DifficultyLevelId = info.DifficultyLevelId,
+                LessonID = info.LessonId,
                 Picture=info.Picture,
                 QuestionText = info.QuestionText,
             };
@@ -60,9 +60,9 @@ namespace ExamBuilder.BLL
         {
             return new ShortQuestion
             {
-                ID = info.ID,
-                DifficultyLevelID = info.DifficultyLevelID,
-                LessonID = info.LessonID,
+                Id = info.ID,
+                DifficultyLevelId = info.DifficultyLevelId,
+                LessonID = info.LessonId,
                 Picture = info.Picture,
                 QuestionText = info.QuestionText,
             };
@@ -71,9 +71,9 @@ namespace ExamBuilder.BLL
         {
             return new OptionalQuestion
             {
-                ID = info.ID,
-                DifficultyLevelID = info.DifficultyLevelID,
-                LessonID = info.LessonID,
+                Id = info.ID,
+                DifficultyLevelId = info.DifficultyLevelId,
+                LessonID = info.LessonId,
                 Picture = info.Picture,
                 QuestionText = info.QuestionText,
             };
@@ -82,7 +82,7 @@ namespace ExamBuilder.BLL
         {
             return new OptionalItem
             {
-                OptionalID = info.OptionalID,
+                OptionalId = info.OptionalId,
                 Option1 = info.Option1,
                 Option2 = info.Option2,
                 Option3 = info.Option3,
@@ -93,9 +93,9 @@ namespace ExamBuilder.BLL
         {
             return new FillInBlankQuestion
             {
-                ID = info.ID,
-                DifficultyLevelID = info.DifficultyLevelID,
-                LessonID = info.LessonID,
+                Id = info.ID,
+                DifficultyLevelId = info.DifficultyLevelId,
+                LessonID = info.LessonId,
                 Picture = info.Picture,
                 QuestionText = info.QuestionText,
             };
@@ -104,18 +104,18 @@ namespace ExamBuilder.BLL
         {
             return new FillInBlankItem
             {
-                ID = info.ID,
+                Id = info.Id,
                 Text = info.Text,
-                FillInBlankQuestionID = info.QuestionID,
+                FillInBlankQuestionId = info.QuestionId,
             };
         }
         public static MatchingQuestion MapToMatching(this QuestionInfo info)
         {
             return new MatchingQuestion
             {
-                ID = info.ID,
-                DifficultyLevelID = info.DifficultyLevelID,
-                LessonID = info.LessonID,
+                Id = info.ID,
+                DifficultyLevelId = info.DifficultyLevelId,
+                LessonID = info.LessonId,
                 Picture = info.Picture,
                 QuestionText = info.QuestionText,
             };
@@ -124,8 +124,8 @@ namespace ExamBuilder.BLL
         {
             return new MatchingItem
             {
-                ID = info.ID,
-                MatchingQuestionID = info.MatchingQuestionID,
+                Id = info.Id,
+                MatchingQuestionId = info.MatchingQuestionId,
                 RightText = info.RightText,
                 LeftText = info.LeftText,
             };
@@ -135,9 +135,9 @@ namespace ExamBuilder.BLL
             return new TrueFalseQuestion
             {
                 ID = info.ID,
-                LessonID = info.LessonID,
+                LessonId = info.LessonId,
                 Picture = info.Picture,
-                DifficultyLevelID = info.DifficultyLevelID,
+                DifficultyLevelId = info.DifficultyLevelId,
                 QuestionText = info.QuestionText,
             };
         }
@@ -145,9 +145,9 @@ namespace ExamBuilder.BLL
         {
             return new TrueFalseItem
             {
-                ID = info.ID,
+                Id = info.Id,
                 Text = info.Text,
-                TrueFalseQuestionID = info.QuestionID
+                TrueFalseQuestionId = info.QuestionId
             };
         }
     }

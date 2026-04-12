@@ -19,6 +19,7 @@ namespace ExamBuilder.Shared
         public const string Required = "وارد کردن {0} اجباری است";
         public const string SelectItemError = "لطفا آیتم های سوال را ایجاد کنید";
         public const string SelectBlankError = "لطفا برای تمامی آیتم ها حداقل یک جاخالی انتخاب کنید";
+        public const string SelectQuestionError = "لطفا نوع سوال را انتخاب کنید";
         public const string Elementary = "ابتدایی";
         public const string MiddleSchool = "متوسطه اول";
         public const string HighSchool = "متوسطه دوم";

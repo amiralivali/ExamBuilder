@@ -10,7 +10,7 @@ namespace ExamBuilder.Shared.DTOClases
     {
         //this class is for Questions Without Item
         //Descriptive ShortAnswer 
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string QuestionText { get; set; }
         public string BookName { get; set; }
         public string LessonName { get; set; }

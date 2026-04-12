@@ -38,69 +38,69 @@ namespace ExamBuilder.DAL
             modelBuilder.Entity<Grade>()
                 .HasData(new Grade()
                 {
-                    ID = 1,
+                    Id = 1,
                     Title = "ابتدایی-اول"
                 },
                 new Grade()
                 {
-                    ID = 2,
+                    Id = 2,
                     Title = "ابتدایی-دوم"
                 },
                 new Grade()
                 {
-                    ID = 3,
+                    Id = 3,
                     Title = "ابتدایی-سوم"
                 },
                 new Grade()
                 {
-                    ID = 4,
+                    Id = 4,
                     Title = "ابتدایی-چهارم"
                 }, new Grade()
                 {
-                    ID = 5,
+                    Id = 5,
                     Title = "ابتدایی-پنجم"
                 }, new Grade()
                 {
-                    ID = 6,
+                    Id = 6,
                     Title = "ابتدایی-ششم"
                 }, new Grade()
                 {
-                    ID = 7,
+                    Id = 7,
                     Title = "متوسطه اول-هفتم"
                 },
                 new Grade()
                 {
-                    ID = 8,
+                    Id = 8,
                     Title = "متوسطه اول-هشتم"
                 },
                 new Grade()
                 {
-                    ID = 9,
+                    Id = 9,
                     Title = "متوسطه اول-نهم"
                 },
                 new Grade()
                 {
-                    ID = 10,
+                    Id = 10,
                     Title = "متوسطه دوم-دهم"
                 },
                 new Grade()
                 {
-                    ID = 11,
+                    Id = 11,
                     Title = "متوسطه دوم-یازدهم"
                 },
                 new Grade()
                 {
-                    ID = 12,
+                    Id = 12,
                     Title = "متوسطه دوم-دوازدهم"
                 },
                 new Grade()
                 { 
-                ID=13,
+                Id=13,
                 Title="دانشگاه"
                 },
                 new Grade()
                 { 
-                ID=14,
+                Id=14,
                 Title="سایر"
                 }
                 );
@@ -108,24 +108,24 @@ namespace ExamBuilder.DAL
                 .HasData(
                 new DifficultyLevel()
                 {
-                    ID = 1,
+                    Id = 1,
                     Title = "آسان"
                 },
                 new DifficultyLevel()
                 {
-                    ID = 2,
+                    Id = 2,
                     Title = "متوسط"
                 },
                 new DifficultyLevel()
                 {
-                    ID = 3,
+                    Id = 3,
                     Title = "سخت"
                 }
             );
             modelBuilder.Entity<Lesson>()
                 .HasOne(x => x.Book)
                 .WithMany(x => x.Lessons)
-                .HasForeignKey(x => x.BookID)
+                .HasForeignKey(x => x.BookId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<DescriptiveQuestion>()
@@ -149,7 +149,7 @@ namespace ExamBuilder.DAL
             modelBuilder.Entity<TrueFalseQuestion>()
                 .HasOne(q => q.Lesson)
                 .WithMany(l => l.TrueFalseQuestions)
-                .HasForeignKey(q => q.LessonID)
+                .HasForeignKey(q => q.LessonId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<OptionalQuestion>()
@@ -167,25 +167,25 @@ namespace ExamBuilder.DAL
             modelBuilder.Entity<TrueFalseItem>()
                 .HasOne(x => x.TrueFalseQuestion)
                 .WithMany(x => x.Items)
-                .HasForeignKey(x => x.TrueFalseQuestionID)
+                .HasForeignKey(x => x.TrueFalseQuestionId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<MatchingItem>()
                 .HasOne(x => x.MatchingQuestion)
                 .WithMany(x => x.Items)
-                .HasForeignKey(x => x.MatchingQuestionID)
+                .HasForeignKey(x => x.MatchingQuestionId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<FillInBlankItem>()
                 .HasOne(x => x.FillInBlankQuestion)
                 .WithMany(x => x.Items)
-                .HasForeignKey(x => x.FillInBlankQuestionID)
+                .HasForeignKey(x => x.FillInBlankQuestionId)
                 .OnDelete(DeleteBehavior.Cascade);
             
             modelBuilder.Entity<OptionalItem>()
                 .HasOne(x=>x.OptionalQuestion)
                 .WithOne(x=>x.OptionalItem)
-                .HasForeignKey<OptionalItem>(x=>x.OptionalID)
+                .HasForeignKey<OptionalItem>(x=>x.OptionalId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

@@ -9,7 +9,7 @@ namespace ExamBuilder.DAL.Entities
 {
     public class Grade
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         [Required]
         [MaxLength(20)]
         public string Title { get; set; }

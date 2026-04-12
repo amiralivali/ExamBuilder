@@ -23,13 +23,13 @@ namespace ExamBuilder.UI
             var bookInfo = new BookInfo()
             {
                 Title = txtBookName.Text.Trim(),
-                GradeID = cbGrade.SelectedIndex + 1,
+                GradeId = cbGrade.SelectedIndex + 1,
                 GradeInfo = txtGradeInfo.Text,
             };
             if (bookInfo.IsValid)
             {
                 var bookOpration = await bookService.InsertAsync(bookInfo);
-                var bookId = await bookService.GetLastIDAsync(bookInfo.Title, bookInfo.GradeID, bookInfo.GradeInfo);
+                var bookId = await bookService.GetLastIdAsync(bookInfo.Title, bookInfo.GradeId, bookInfo.GradeInfo);
                 if (bookOpration.IsSuccess)
                 {
                     var lessonsInfo = new List<LessonInfo>();
@@ -41,7 +41,7 @@ namespace ExamBuilder.UI
                         {
                             Title = uc.LessonName,
                             LessonCount = count++,
-                            BookID = bookId.Data
+                            BookId = bookId.Data
                         });
                     }
                     var lessonOpration = await lessonService.InsertAsync(lessonsInfo);

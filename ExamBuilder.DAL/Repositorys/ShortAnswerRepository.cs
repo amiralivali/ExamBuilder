@@ -25,7 +25,7 @@ namespace ExamBuilder.DAL.Repositorys
                     .ThenInclude(x => x.Book)
                     .Select(x => new QuestionsDTO
                     {
-                        ID = x.ID,
+                        Id = x.Id,
                         BookName = x.Lesson.Book.Title,
                         LessonName = x.Lesson.Title,
                         QuestionText = x.QuestionText,
@@ -62,9 +62,9 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var shortQuestion = await db.ShortQuestions.Where(x => x.ID == updateShortQuestion.ID).SingleAsync();
+                var shortQuestion = await db.ShortQuestions.Where(x => x.Id == updateShortQuestion.Id).SingleAsync();
                 shortQuestion.QuestionText = updateShortQuestion.QuestionText;
-                shortQuestion.DifficultyLevelID = updateShortQuestion.DifficultyLevelID;
+                shortQuestion.DifficultyLevelId = updateShortQuestion.DifficultyLevelId;
                 shortQuestion.Picture = updateShortQuestion.Picture;
                 shortQuestion.LessonID = updateShortQuestion.LessonID;
                 await db.SaveChangesAsync();
@@ -80,7 +80,7 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var shortQuestion = await db.ShortQuestions.Where(x => x.ID == id).SingleAsync();
+                var shortQuestion = await db.ShortQuestions.Where(x => x.Id == id).SingleAsync();
                 db.ShortQuestions.Remove(shortQuestion);
                 await db.SaveChangesAsync();
                 return true;
@@ -102,7 +102,7 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 duplicate = await db.DescriptiveQuestions.Where(x => x.QuestionText == questionText &&
                     x.LessonID == lessonId &&
-                    x.ID != questionId).AnyAsync();
+                    x.Id != questionId).AnyAsync();
             }
             return duplicate;
         }

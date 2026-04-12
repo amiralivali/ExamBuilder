@@ -26,12 +26,12 @@ namespace ExamBuilder.DAL.Repositorys
                     .ThenInclude(x => x.Book)
                     .Select(x => new ItemQuestionsDTO()
                     {
-                        ID = x.ID,
+                        Id = x.ID,
                         QuestionText = x.QuestionText,
                         BookName = x.Lesson.Book.Title,
                         LessonName = x.Lesson.Title,
                         DifficultyLevel = x.DifficultyLevel.Title,
-                        Items = x.Items.Where(y => y.TrueFalseQuestionID == x.ID).Select(x => x.Text).ToList(),
+                        Items = x.Items.Where(y => y.TrueFalseQuestionId == x.ID).Select(x => x.Text).ToList(),
                     }).ToListAsync();
                 return trueFalseQuestion.Where(x => search == "" ||
                     x.QuestionText.Contains(search) ||
@@ -55,7 +55,7 @@ namespace ExamBuilder.DAL.Repositorys
                 int id = question.ID;
                 foreach (TrueFalseItem item in items)
                 {
-                    item.TrueFalseQuestionID = id;
+                    item.TrueFalseQuestionId = id;
                     await db.TrueFalseItems.AddAsync(item);
                 }
                 await db.SaveChangesAsync();
@@ -71,7 +71,7 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var item = await db.TrueFalseItems.Where(x => x.ID == id).SingleAsync();
+                var item = await db.TrueFalseItems.Where(x => x.Id == id).SingleAsync();
                 db.TrueFalseItems.Remove(item);
                 await db.SaveChangesAsync();
                 return true;
@@ -103,15 +103,15 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 var question = await db.TrueFalseQuestions.Where(x => x.ID == updateQuestion.ID).SingleAsync();
                 question.QuestionText = updateQuestion.QuestionText;
-                question.DifficultyLevelID = updateQuestion.DifficultyLevelID;
+                question.DifficultyLevelId = updateQuestion.DifficultyLevelId;
                 question.Picture = updateQuestion.Picture;
-                question.LessonID = updateQuestion.LessonID;
-                var items = await db.TrueFalseItems.Where(x => x.TrueFalseQuestionID == updateQuestion.ID).ToListAsync();
+                question.LessonId = updateQuestion.LessonId;
+                var items = await db.TrueFalseItems.Where(x => x.TrueFalseQuestionId == updateQuestion.ID).ToListAsync();
                 foreach (var item in items)
                 {
                     foreach (var upadateItem in updateItems)
                     {
-                        if (item.ID == upadateItem.ID)
+                        if (item.Id == upadateItem.Id)
                         {
                             item.Text = upadateItem.Text;
                             break;
@@ -137,21 +137,21 @@ namespace ExamBuilder.DAL.Repositorys
             if (questionId == 0) //Insert
             {
                 questionIds = await db.TrueFalseQuestions
-                    .Where(q => q.QuestionText == questionText && q.LessonID == lessonId)
+                    .Where(q => q.QuestionText == questionText && q.LessonId == lessonId)
                     .Select(q => q.ID)
                     .ToListAsync();
             }
             else //Update
             {
                 questionIds = await db.TrueFalseQuestions
-                    .Where(q => q.QuestionText == questionText && q.LessonID == lessonId && q.ID != questionId)
+                    .Where(q => q.QuestionText == questionText && q.LessonId == lessonId && q.ID != questionId)
                     .Select(q => q.ID)
                     .ToListAsync();
             }
             foreach (var qid in questionIds)
             {
                 var dbTexts = await db.TrueFalseItems
-                    .Where(i => i.TrueFalseQuestionID == qid)
+                    .Where(i => i.TrueFalseQuestionId == qid)
                     .Select(i => i.Text.Trim().ToLower())
                     .OrderBy(x => x)
                     .ToListAsync();

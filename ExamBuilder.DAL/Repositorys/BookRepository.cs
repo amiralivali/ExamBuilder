@@ -49,7 +49,7 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var book = await db.Books.Where(x => x.ID == id).SingleAsync();
+                var book = await db.Books.Where(x => x.Id == id).SingleAsync();
                 db.Books.Remove(book);
                 await db.SaveChangesAsync();
                 return true;
@@ -64,7 +64,7 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var book = await db.Books.Where(x => x.ID == updateBook.ID).SingleAsync();
+                var book = await db.Books.Where(x => x.Id == updateBook.Id).SingleAsync();
                 book.Title = updateBook.Title;
                 book.Grade = updateBook.Grade;
                 await db.SaveChangesAsync();
@@ -76,11 +76,11 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
-        public async Task<int> GetLastIDAsync(string name,int gradeID,string gradeInfo)
+        public async Task<int> GetLastIdAsync(string name,int gradeID,string gradeInfo)
         {
             try
             {
-                var id = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo==gradeInfo).Select(x=>x.ID).SingleAsync();
+                var id = await db.Books.Where(x => x.Title == name && x.GradeId == gradeID && x.GradeInfo==gradeInfo).Select(x=>x.Id).SingleAsync();
                 return id;
             }
             catch (Exception ex)
@@ -94,11 +94,11 @@ namespace ExamBuilder.DAL.Repositorys
             bool duplicate;
             if (bookId == 0)
             {
-                duplicate = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo == gradeInfo).AnyAsync();
+                duplicate = await db.Books.Where(x => x.Title == name && x.GradeId == gradeID && x.GradeInfo == gradeInfo).AnyAsync();
             }
             else 
             {
-                duplicate = await db.Books.Where(x => x.Title == name && x.GradeID == gradeID && x.GradeInfo == gradeInfo && x.ID != bookId).AnyAsync();
+                duplicate = await db.Books.Where(x => x.Title == name && x.GradeId == gradeID && x.GradeInfo == gradeInfo && x.Id != bookId).AnyAsync();
             }
             return duplicate;
         }
@@ -106,7 +106,7 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var availableGrades = db.Books.Include(x => x.Grade).ToList().DistinctBy(x => x.GradeID).Select(x => x.Grade.Title).ToList();
+                var availableGrades = db.Books.Include(x => x.Grade).ToList().DistinctBy(x => x.GradeId).Select(x => x.Grade.Title).ToList();
                 return availableGrades;
             }
             catch (Exception ex)

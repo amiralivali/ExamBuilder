@@ -298,13 +298,13 @@ namespace ExamBuilder.UI
         private async void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             var lessonService = new LessonService();
-            var lessonId = await lessonService.GetLessonIDAsync(cbLesson.SelectedIndex, cbBook.SelectedItem.ToString());
+            var lessonId = await lessonService.GetLessonIdAsync(cbLesson.SelectedIndex, cbBook.SelectedItem.ToString());
             if (lessonId.IsSuccess)
             {
                 var questionInfo = new QuestionInfo()
                 {
-                    LessonID = lessonId.Data,
-                    DifficultyLevelID = cbDifficalty.SelectedIndex,
+                    LessonId = lessonId.Data,
+                    DifficultyLevelId = cbDifficalty.SelectedIndex,
                     QuestionText = txtQuestionText.Text.Trim(),
                 };
                 if (chipCheckPic.Parent != null && _pictureLocation != null)
@@ -317,6 +317,7 @@ namespace ExamBuilder.UI
                     {
                         var oprationResult = new OprationResult();
                         oprationResult = null;
+                        bool itemValid = true;
                         switch (_questionType)
                         {
                             case QuestionType.DescriptiveQuestion:
@@ -349,9 +350,14 @@ namespace ExamBuilder.UI
                                         if (!trueFalseItem.IsValid)
                                         {
                                             ShowError(trueFalseItem.ErrorMessage);
+                                            itemValid = false;
+                                            break;
                                         }
                                     }
-                                    oprationResult = await trueFalseService.InsertAsync(questionInfo, trueFalseItems);
+                                    if (itemValid)
+                                    {
+                                        oprationResult = await trueFalseService.InsertAsync(questionInfo, trueFalseItems);
+                                    }
                                 }
                                 else
                                 {
@@ -368,9 +374,14 @@ namespace ExamBuilder.UI
                                         if (!matchingitem.IsValid)
                                         {
                                             ShowError(matchingitem.ErrorMessage);
+                                            itemValid = false;
+                                            break;
                                         }
                                     }
-                                    oprationResult = await matchingService.InsertAsync(questionInfo, matchingItems);
+                                    if (itemValid)
+                                    {
+                                        oprationResult = await matchingService.InsertAsync(questionInfo, matchingItems);
+                                    }
                                 }
                                 else
                                 {
@@ -387,9 +398,14 @@ namespace ExamBuilder.UI
                                         if (!fillInBlankItem.IsValid)
                                         {
                                             ShowError(fillInBlankItem.ErrorMessage);
+                                            itemValid = false;
+                                            break;
                                         }
                                     }
-                                    oprationResult = await fillInBlankService.InsertAsync(questionInfo, fillInBlankItems);
+                                    if (itemValid)
+                                    {
+                                        oprationResult = await fillInBlankService.InsertAsync(questionInfo, fillInBlankItems);
+                                    }
                                 }
                                 else
                                 {
@@ -412,7 +428,7 @@ namespace ExamBuilder.UI
                     }
                     else
                     {
-                        ShowError("لطفا نوع سوال رو انتخاب کنید");
+                        ShowError(Messages.SelectQuestionError);
                     }
                 }
                 else

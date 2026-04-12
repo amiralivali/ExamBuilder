@@ -10,11 +10,11 @@ namespace ExamBuilder.DAL.Entities
     public class Lesson
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
         [MaxLength(30)]
         public string Title { get; set; }
         public int LessonCount { get; set; }
-        public int BookID { get; set; }
+        public int BookId { get; set; }
         public virtual Book Book { get; set; }
         public virtual ICollection<DescriptiveQuestion> DescriptiveQuestions { get; set; }
         public virtual ICollection<MatchingQuestion> MatchingQuestions { get; set; }

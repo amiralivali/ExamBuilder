@@ -9,7 +9,7 @@ namespace ExamBuilder.Shared.InformationClases
 {
     public class OptionalItemInfo : BaseValidation
     {
-        public int OptionalID { get; set; }
+        public int OptionalId { get; set; }
         [RequiredStringValidation(PropertyName = Messages.Option1)]
         public string Option1 {  get; set; }
         [RequiredStringValidation(PropertyName = Messages.Option2)]

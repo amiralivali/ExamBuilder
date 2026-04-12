@@ -9,9 +9,9 @@ namespace ExamBuilder.Shared.InformationClases
 {
     public class TrueFalseItemInfo : BaseValidation
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         [RequiredStringValidation(PropertyName = Messages.Item)]
         public string Text { get; set; }
-        public int QuestionID { get; set; }
+        public int QuestionId { get; set; }
     }
 }

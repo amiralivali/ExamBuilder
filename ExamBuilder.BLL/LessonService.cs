@@ -67,9 +67,9 @@ namespace ExamBuilder.BLL
                 return OprationResult.RunTimeError();
             }
         }
-        public async Task<OprationResult<int>> GetLessonIDAsync(int lessonCount,string bookName)
+        public async Task<OprationResult<int>> GetLessonIdAsync(int lessonCount,string bookName)
         {
-            int id = await repository.GetLessonIDAsync(lessonCount, bookName);
+            int id = await repository.GetLessonIdAsync(lessonCount, bookName);
             if (id != -1)
             {
                 return OprationResult<int>.Success(id);

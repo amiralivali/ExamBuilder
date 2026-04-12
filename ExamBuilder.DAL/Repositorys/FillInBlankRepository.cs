@@ -27,12 +27,12 @@ namespace ExamBuilder.DAL.Repositorys
                     .ThenInclude(x => x.Book)
                     .Select(x => new ItemQuestionsDTO()
                     {
-                        ID = x.ID,
+                        Id = x.Id,
                         QuestionText = x.QuestionText,
                         BookName = x.Lesson.Book.Title,
                         LessonName = x.Lesson.Title,
                         DifficultyLevel = x.DifficultyLevel.Title,
-                        Items = x.Items.Where(y => y.FillInBlankQuestionID == x.ID).Select(x => x.Text).ToList(),
+                        Items = x.Items.Where(y => y.FillInBlankQuestionId == x.Id).Select(x => x.Text).ToList(),
                     }).ToListAsync();
                 return blankQuestions.Where(x => search == "" ||
                     x.QuestionText.Contains(search) ||
@@ -53,10 +53,10 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 await db.FillInBlankQuestions.AddAsync(question);
                 await db.SaveChangesAsync();
-                int id = question.ID;
+                int id = question.Id;
                 foreach (FillInBlankItem item in items)
                 {
-                    item.FillInBlankQuestionID = id;
+                    item.FillInBlankQuestionId = id;
                     await db.FillInBlankItems.AddAsync(item);
                 }
                 await db.SaveChangesAsync();
@@ -72,7 +72,7 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var item = await db.FillInBlankItems.Where(x => x.ID == id).SingleAsync();
+                var item = await db.FillInBlankItems.Where(x => x.Id == id).SingleAsync();
                 db.FillInBlankItems.Remove(item);
                 await db.SaveChangesAsync();
                 return true;
@@ -87,7 +87,7 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var question = await db.FillInBlankQuestions.Where(x => x.ID == id).SingleAsync();
+                var question = await db.FillInBlankQuestions.Where(x => x.Id == id).SingleAsync();
                 db.FillInBlankQuestions.Remove(question);
                 await db.SaveChangesAsync();
                 return true;
@@ -102,17 +102,17 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var question = await db.FillInBlankQuestions.Where(x => x.ID == updateQuestion.ID).SingleAsync();
+                var question = await db.FillInBlankQuestions.Where(x => x.Id == updateQuestion.Id).SingleAsync();
                 question.QuestionText = updateQuestion.QuestionText;
-                question.DifficultyLevelID = updateQuestion.DifficultyLevelID;
+                question.DifficultyLevelId = updateQuestion.DifficultyLevelId;
                 question.Picture = updateQuestion.Picture;
                 question.LessonID = updateQuestion.LessonID;
-                var items = await db.FillInBlankItems.Where(x => x.FillInBlankQuestionID == updateQuestion.ID).ToListAsync();
+                var items = await db.FillInBlankItems.Where(x => x.FillInBlankQuestionId == updateQuestion.Id).ToListAsync();
                 foreach (var item in items)
                 {
                     foreach (var upadateItem in updateItems)
                     {
-                        if (item.ID == upadateItem.ID)
+                        if (item.Id == upadateItem.Id)
                         {
                             item.Text = upadateItem.Text;
                             break;
@@ -139,21 +139,21 @@ namespace ExamBuilder.DAL.Repositorys
             {
                  questionIds = await db.FillInBlankQuestions
                  .Where(q => q.QuestionText == questionText && q.LessonID == lessonId)
-                 .Select(q => q.ID)
+                 .Select(q => q.Id)
                  .ToListAsync();
             }
             else //Update
             {
                  questionIds = await db.FillInBlankQuestions
-                        .Where(q => q.QuestionText == questionText && q.LessonID == lessonId && q.ID != questionId)
-                        .Select(q => q.ID)
+                        .Where(q => q.QuestionText == questionText && q.LessonID == lessonId && q.Id != questionId)
+                        .Select(q => q.Id)
                         .ToListAsync();
             }
 
             foreach (var qid in questionIds)
             {
                 var dbTexts = await db.FillInBlankItems
-                    .Where(i => i.FillInBlankQuestionID == qid)
+                    .Where(i => i.FillInBlankQuestionId == qid)
                     .Select(i => i.Text.Trim().ToLower())
                     .OrderBy(x => x)
                     .ToListAsync();

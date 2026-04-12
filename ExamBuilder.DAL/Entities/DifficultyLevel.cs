@@ -10,7 +10,7 @@ namespace ExamBuilder.DAL.Entities
     public class DifficultyLevel
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
         [Required]
         [MaxLength(10)]
         public string Title { get; set; }

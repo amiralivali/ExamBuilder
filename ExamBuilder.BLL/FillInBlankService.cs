@@ -38,7 +38,7 @@ namespace ExamBuilder.BLL
             {
                 newItems.Add(item.MapToFillInBlank());
             }
-            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonID, newItems);
+            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonId, newItems);
             if (checkData.IsSuccess)
             {
                 var checkInsert = await repository.InsertAsync(newQuestion, newItems);
@@ -64,7 +64,7 @@ namespace ExamBuilder.BLL
             {
                 newItems.Add(item.MapToFillInBlank());
             }
-            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonID, newItems, info.ID);
+            var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonId, newItems, info.ID);
             if (checkData.IsSuccess)
             {
                 var checkUpdate = await repository.UpdateAsync(newQuestion, newItems);

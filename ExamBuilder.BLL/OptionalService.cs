@@ -49,7 +49,7 @@ namespace ExamBuilder.BLL
         {
             var question = questionInfo.MapToOptional();
             var item = itemInfo.MaptoOptional();
-            var checkData = await CheckDuplicateAsync(questionInfo.QuestionText, questionInfo.LessonID, item);
+            var checkData = await CheckDuplicateAsync(questionInfo.QuestionText, questionInfo.LessonId, item);
             if (checkData.IsSuccess)
             {
                 var checkInsert = await repository.InsertAsync(question, item);
@@ -72,7 +72,7 @@ namespace ExamBuilder.BLL
         {
             var question = questionInfo.MapToOptional();
             var item = itemInfo.MaptoOptional();
-            var checkData = await CheckDuplicateAsync(questionInfo.QuestionText, questionInfo.LessonID, item, questionInfo.ID);
+            var checkData = await CheckDuplicateAsync(questionInfo.QuestionText, questionInfo.LessonId, item, questionInfo.ID);
             if (checkData.IsSuccess)
             {
                 var checkUpdate = await repository.UpdateAsync(question, item);

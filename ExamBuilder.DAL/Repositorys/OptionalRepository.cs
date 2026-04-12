@@ -26,7 +26,7 @@ namespace ExamBuilder.DAL.Repositorys
                     .ThenInclude(x => x.Book)
                     .Select(x => new OptionalDTO
                     {
-                        ID = x.ID,
+                        Id = x.Id,
                         BookName = x.Lesson.Book.Title,
                         LessonName = x.Lesson.Title,
                         QuestionText = x.QuestionText,
@@ -55,7 +55,7 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 await db.OptionalQuestions.AddAsync(optional);
                 await db.SaveChangesAsync();
-                item.OptionalID = optional.ID;
+                item.OptionalId = optional.Id;
                 await db.OptionalItems.AddAsync(item);
                 await db.SaveChangesAsync();
                 return true;
@@ -70,9 +70,9 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var optionalQ = await db.OptionalQuestions.Where(x => x.ID == id).SingleAsync();
+                var optionalQ = await db.OptionalQuestions.Where(x => x.Id == id).SingleAsync();
                 db.OptionalQuestions.Remove(optionalQ);
-                var optionalItem = await db.OptionalItems.Where(x => x.OptionalID == id).SingleAsync();
+                var optionalItem = await db.OptionalItems.Where(x => x.OptionalId == id).SingleAsync();
                 db.OptionalItems.Remove(optionalItem);
                 await db.SaveChangesAsync();
                 return true;
@@ -87,12 +87,12 @@ namespace ExamBuilder.DAL.Repositorys
         {
             try
             {
-                var optionalQ = await db.OptionalQuestions.Where(x => x.ID == optionalQUpdate.ID).SingleAsync();
+                var optionalQ = await db.OptionalQuestions.Where(x => x.Id == optionalQUpdate.Id).SingleAsync();
                 optionalQ.QuestionText = optionalQUpdate.QuestionText;
                 optionalQ.Picture = optionalQUpdate.Picture;
-                optionalQ.DifficultyLevelID = optionalQUpdate.DifficultyLevelID;
+                optionalQ.DifficultyLevelId = optionalQUpdate.DifficultyLevelId;
                 optionalQ.LessonID = optionalQUpdate.LessonID;
-                var optionalItem = await db.OptionalItems.Where(x => x.OptionalID == optionalItemUpdate.OptionalID).SingleAsync();
+                var optionalItem = await db.OptionalItems.Where(x => x.OptionalId == optionalItemUpdate.OptionalId).SingleAsync();
                 optionalItem.Option1 = optionalItemUpdate.Option1;
                 optionalItem.Option2 = optionalItemUpdate.Option2;
                 optionalItem.Option3 = optionalItemUpdate.Option3;
@@ -114,14 +114,14 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 questionIds = await db.OptionalQuestions
                     .Where(x => x.QuestionText == questionText && x.LessonID == lessonId)
-                    .Select(x => x.ID)
+                    .Select(x => x.Id)
                     .ToListAsync();
             }
             else // Update
             {
                 questionIds = await db.OptionalQuestions
-                    .Where(x => x.QuestionText == questionText && x.LessonID == lessonId && x.ID != questionId)
-                    .Select(x => x.ID)
+                    .Where(x => x.QuestionText == questionText && x.LessonID == lessonId && x.Id != questionId)
+                    .Select(x => x.Id)
                     .ToListAsync();
             }
 
@@ -138,7 +138,7 @@ namespace ExamBuilder.DAL.Repositorys
             foreach (var id in questionIds)
             {
                 var dbItemRows = await db.OptionalItems
-                    .Where(x => x.OptionalID == id)
+                    .Where(x => x.OptionalId == id)
                     .Select(x => new { x.Option1, x.Option2, x.Option3, x.Option4 })
                     .ToListAsync();
 
