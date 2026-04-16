@@ -22,7 +22,7 @@ namespace ExamBuilder.UI
                 BunifuSnackbar.MessageTypes.Success,
                 3000,
                 null,
-                BunifuSnackbar.Positions.BottomRight
+                BunifuSnackbar.Positions.BottomLeft
             );
         }
 
@@ -36,7 +36,7 @@ namespace ExamBuilder.UI
                 BunifuSnackbar.MessageTypes.Error,
                 5000, 
                 null,
-                BunifuSnackbar.Positions.BottomRight
+                BunifuSnackbar.Positions.BottomLeft
             );
         }
         public DialogResult ShowWarningQuestion(string message)

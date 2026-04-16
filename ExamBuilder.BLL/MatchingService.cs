@@ -11,25 +11,38 @@ using ExamBuilder.Shared;
 
 namespace ExamBuilder.BLL
 {
-    public class MatchingService
+    public class MatchingService : ISelectDTO
     {
         MatchingRepository repository;
         public MatchingService()
         {
             repository = new MatchingRepository();
         }
-        public async Task<OprationResult<List<MatchingDTO>>> SelectAsync(string search)
+
+        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName)
         {
-            var data = await repository.SelectAsync(search);
+            var data = await repository.SelectAsync(search,grade,bookName,lessonName);
             if (data != null)
             {
-                return OprationResult<List<MatchingDTO>>.Success(data);
+                return OprationResult<List<QuestionDTO>>.Success(data);
             }
             else
             {
-                return OprationResult<List<MatchingDTO>>.RunTimeError();
+                return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
+        //public async Task<OprationResult<List<MatchingDTO>>> SelectAsync(string search)
+        //{
+        //    var data = await repository.SelectAsync(search);
+        //    if (data != null)
+        //    {
+        //        return OprationResult<List<MatchingDTO>>.Success(data);
+        //    }
+        //    else
+        //    {
+        //        return OprationResult<List<MatchingDTO>>.RunTimeError();
+        //    }
+        //}
         public async Task<OprationResult> InsertAsync(QuestionInfo info, List<MatchingItemInfo> items)
         {
             var newQuestion = info.MapToMatching();

@@ -11,7 +11,7 @@ using ExamBuilder.DAL.Entities;
 
 namespace ExamBuilder.BLL
 {
-    public class OptionalService
+    public class OptionalService : ISelectDTO
     {
         OptionalRepository repository;
         public OptionalService()
@@ -19,16 +19,16 @@ namespace ExamBuilder.BLL
             repository = new OptionalRepository();
         }
 
-        public async Task<OprationResult<List<OptionalDTO>>> SelectAsync(string search)
+        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string book, string lesson)
         {
-            var data = await repository.SelectAsync(search);
+            var data = await repository.SelectAsync(search,grade,book,lesson);
             if (data != null)
             {
-                return OprationResult<List<OptionalDTO>>.Success(data);
+                return OprationResult<List<QuestionDTO>>.Success(data);
             }
             else
             {
-                return OprationResult<List<OptionalDTO>>.RunTimeError();
+                return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
 

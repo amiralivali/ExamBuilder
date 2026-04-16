@@ -4,50 +4,74 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExamBuilder.DAL.Repositorys
 {
-    public class MatchingRepository
+    public class MatchingRepository 
     {
         ExamBuilderDbContext db;
         public MatchingRepository()
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<MatchingDTO>> SelectAsync(string search)
+
+        public async Task<List<QuestionDTO>> SelectAsync(string search, string grade, string book, string lesson)
         {
-            try
-            {
-                var matchingQuestions = await db.MatchingQuestions.Include(x => x.Items)
-                    .Include(x => x.DifficultyLevel)
+            var matchingQuestions = await db.MatchingQuestions
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
-                    .Select(x => new MatchingDTO()
+                    .ThenInclude(x => x.Grade)
+                    .Select(x => new QuestionDTO
                     {
                         Id = x.Id,
-                        QuestionText = x.QuestionText,
-                        BookName = x.Lesson.Book.Title,
                         LessonName = x.Lesson.Title,
-                        DifficultyLevel = x.DifficultyLevel.Title,
-                        LeftTexts = x.Items.Where(y => y.MatchingQuestionId == x.Id).Select(x => x.LeftText).ToList(),
-                        RightTexts = x.Items.Where(y => y.MatchingQuestionId == x.Id).Select(x => x.RightText).ToList()
+                        BookName = x.Lesson.Book.Title,
+                        QuestionText = x.QuestionText,
+                        QuestionType = Messages.Matching,
+                        Grade = x.Lesson.Book.Grade.Title,
+
                     }).ToListAsync();
-                return matchingQuestions.Where(x => search == "" ||
-                    x.QuestionText.Contains(search) ||
-                    x.LessonName.Contains(search) ||
-                    x.DifficultyLevel.Contains(search) ||
-                    x.BookName.Contains(search) ||
-                    x.RightTexts.Contains(search) ||
-                    x.LeftTexts.Contains(search)).ToList();
-            }
-            catch (Exception ex)
-            {
-                await ex.AddLogAsync();    
-                return null;
-            }
+            var filter = matchingQuestions.Where(x => (grade == "" || x.Grade.Contains(grade)) &&
+            (book == "" || x.BookName.Contains(book)) &&
+            (lesson == "" || x.Grade.Contains(lesson)));
+            return filter.Where(x => search == "" ||
+            x.QuestionText.Contains(search)).ToList();
         }
+        //public async Task<List<QuestionDTO>> SelectAsync(string search)
+        //{
+        //    try
+        //    {
+        //        var matchingQuestions = await db.MatchingQuestions.Include(x => x.Items)
+        //            .Include(x => x.DifficultyLevel)
+        //            .Include(x => x.Lesson)
+        //            .ThenInclude(x => x.Book)
+        //            .Select(x => new MatchingDTO()
+        //            {
+        //                Id = x.Id,
+        //                QuestionText = x.QuestionText,
+        //                BookName = x.Lesson.Book.Title,
+        //                LessonName = x.Lesson.Title,
+        //                DifficultyLevel = x.DifficultyLevel.Title,
+        //                LeftTexts = x.Items.Where(y => y.MatchingQuestionId == x.Id).Select(x => x.LeftText).ToList(),
+        //                RightTexts = x.Items.Where(y => y.MatchingQuestionId == x.Id).Select(x => x.RightText).ToList()
+        //            }).ToListAsync();
+        //        return matchingQuestions.Where(x => search == "" ||
+        //            x.QuestionText.Contains(search) ||
+        //            x.LessonName.Contains(search) ||
+        //            x.DifficultyLevel.Contains(search) ||
+        //            x.BookName.Contains(search) ||
+        //            x.RightTexts.Contains(search) ||
+        //            x.LeftTexts.Contains(search)).ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await ex.AddLogAsync();    
+        //        return null;
+        //    }
+        //}
         public async Task<bool> InsertAsync(MatchingQuestion question, List<MatchingItem> items)
         {
             try

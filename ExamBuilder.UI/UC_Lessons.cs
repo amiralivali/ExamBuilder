@@ -12,7 +12,7 @@ namespace ExamBuilder.UI
 {
     public partial class UC_Lessons : UserControl
     {
-        public string LessonName => txtLessonName.Text.Trim();
+        public string LessonName =>  txtLessonName.Text.Trim();
         public UC_Lessons(int _count)
         {
             InitializeComponent();

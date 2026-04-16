@@ -82,5 +82,11 @@ namespace ExamBuilder.UI
             var frmAddB = new frmAddBook();
             frmAddB.Show();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            var frmManage = new frmManagementQuestion();
+            frmManage.Show();
+        }
     }
 }

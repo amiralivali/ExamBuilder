@@ -10,7 +10,7 @@ using ExamBuilder.Shared;
 
 namespace ExamBuilder.BLL
 {
-    public class ShortAnswerService
+    public class ShortAnswerService : ISelectDTO
     {
         ShortAnswerRepository repository;
         public ShortAnswerService()
@@ -18,16 +18,16 @@ namespace ExamBuilder.BLL
             repository = new ShortAnswerRepository();
         }
 
-        public async Task<OprationResult<List<QuestionsDTO>>> SelectAsync(string search)
+        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string book, string lesson)
         {
-            var data = await repository.SelectAsync(search);
+            var data = await repository.SelectAsync(search,grade,book,lesson);
             if (data != null)
             {
-                return OprationResult<List<QuestionsDTO>>.Success(data);
+                return OprationResult<List<QuestionDTO>>.Success(data);
             }
             else
             {
-                return OprationResult<List<QuestionsDTO>>.RunTimeError();
+                return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
 

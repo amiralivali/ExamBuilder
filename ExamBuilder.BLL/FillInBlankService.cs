@@ -11,23 +11,23 @@ using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.BLL
 {
-    public class FillInBlankService
+    public class FillInBlankService : ISelectDTO
     {
         FillInBlankRepository repository;
         public FillInBlankService()
         {
             repository = new FillInBlankRepository();
         }
-        public async Task<OprationResult<List<ItemQuestionsDTO>>> SelectAsync(string search)
+        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName)
         {
-            var data = await repository.SelectAsync(search);
+            var data = await repository.SelectAsync(search,grade,bookName,lessonName);
             if (data != null)
             {
-                return OprationResult<List<ItemQuestionsDTO>>.Success(data);
+                return OprationResult<List<QuestionDTO>>.Success(data);
             }
             else
             {
-                return OprationResult<List<ItemQuestionsDTO>>.RunTimeError();
+                return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
         public async Task<OprationResult> InsertAsync(QuestionInfo info, List<FillInBlankItemInfo> items)
@@ -114,5 +114,7 @@ namespace ExamBuilder.BLL
                 return OprationResult.Success();
             }
         }
+
+       
     }
 }

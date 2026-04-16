@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace ExamBuilder.Shared.DTOClases
 {
-    public class QuestionsDTO
+    public class QuestionDTO
     {
-        //this class is for Questions Without Item
-        //Descriptive ShortAnswer 
         public int Id { get; set; }
         public string QuestionText { get; set; }
+        public string Grade { get; set; }
         public string BookName { get; set; }
         public string LessonName { get; set; }
-        public string DifficultyLevel { get; set; }
-        public string Picture { get; set; }
+        public string QuestionType { get; set; }
     }
 }

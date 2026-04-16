@@ -11,7 +11,7 @@ using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.BLL
 {
-    public class DescriptiveService
+    public class DescriptiveService : ISelectDTO
     {
         DescriptiveRepository repository;
         public DescriptiveService()
@@ -19,16 +19,16 @@ namespace ExamBuilder.BLL
             repository = new DescriptiveRepository();
         }
 
-        public async Task<OprationResult<List<QuestionsDTO>>> SelectAsync(string search)
+        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName)
         {
-            var data = await repository.SelectAsync(search);
+            var data = await repository.SelectAsync(search, grade, bookName, lessonName);
             if (data != null)
             {
-                return OprationResult<List<QuestionsDTO>>.Success(data);
+                return OprationResult<List<QuestionDTO>>.Success(data);
             }
             else
             {
-                return OprationResult<List<QuestionsDTO>>.RunTimeError();
+                return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
 
@@ -109,5 +109,7 @@ namespace ExamBuilder.BLL
                 return OprationResult.Success();
             }
         }
+
+       
     }
 }

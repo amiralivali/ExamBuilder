@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
+using static ExamBuilder.Shared.QuestionTypes;
 
 namespace ExamBuilder.DAL.Repositorys
 {
@@ -16,27 +18,30 @@ namespace ExamBuilder.DAL.Repositorys
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<QuestionsDTO>> SelectAsync(string search)
+
+        public async Task<List<QuestionDTO>> SelectAsync(string search, string grade, string book, string lesson)
         {
             try
             {
-                var Descriptives = await db.DescriptiveQuestions.Include(x => x.DifficultyLevel)
+                var descriptives = await db.DescriptiveQuestions
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
-                    .Select(x => new QuestionsDTO
+                    .ThenInclude(x => x.Grade)
+                    .Select(x => new QuestionDTO
                     {
                         Id = x.Id,
-                        DifficultyLevel = x.DifficultyLevel.Title,
                         LessonName = x.Lesson.Title,
                         BookName = x.Lesson.Book.Title,
-                        Picture = x.Picture,
                         QuestionText = x.QuestionText,
+                        QuestionType = Messages.Descriptive,
+                        Grade = x.Lesson.Book.Grade.Title,
+
                     }).ToListAsync();
-                return Descriptives.Where(x => search == "" ||
-                x.QuestionText.Contains(search) ||
-                x.DifficultyLevel.Contains(search) ||
-                x.LessonName.Contains(search) ||
-                x.BookName.Contains(search)).ToList();
+                var filter = descriptives.Where(x => (grade == "" || x.Grade.Contains(grade)) &&
+                (book == "" || x.BookName.Contains(book)) &&
+                (lesson == "" || x.Grade.Contains(lesson)));
+                return filter.Where(x => search == "" ||
+                x.QuestionText.Contains(search)).ToList();
             }
             catch (Exception ex)
             {
@@ -44,6 +49,7 @@ namespace ExamBuilder.DAL.Repositorys
                 return null;
             }
         }
+
         public async Task<bool> InsertAsync(DescriptiveQuestion descriptive)
         {
             try

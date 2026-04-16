@@ -11,25 +11,38 @@ using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.BLL
 {
-    public class TrueFalseService
+    public class TrueFalseService : ISelectDTO
     {
         TrueFalseRepository repository;
         public TrueFalseService()
         {
             repository = new TrueFalseRepository();
         }
-        public async Task<OprationResult<List<ItemQuestionsDTO>>> SelectAsync(string search)
+
+        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName)
         {
-            var data = await repository.SelectAsync(search);
+            var data = await repository.SelectAsync(search, grade, bookName, lessonName);
             if (data != null)
             {
-                return OprationResult<List<ItemQuestionsDTO>>.Success(data);
+                return OprationResult<List<QuestionDTO>>.Success(data);
             }
             else
             {
-                return OprationResult<List<ItemQuestionsDTO>>.RunTimeError();
+                return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
+        //public async Task<OprationResult<List<ItemQuestionsDTO>>> SelectAsync(string search)
+        //{
+        //    var data = await repository.SelectAsync(search);
+        //    if (data != null)
+        //    {
+        //        return OprationResult<List<ItemQuestionsDTO>>.Success(data);
+        //    }
+        //    else
+        //    {
+        //        return OprationResult<List<ItemQuestionsDTO>>.RunTimeError();
+        //    }
+        //}
         public async Task<OprationResult> InsertAsync(QuestionInfo question,List<TrueFalseItemInfo> items)
         { 
             var newQuestion = question.MapToTrueFalse();

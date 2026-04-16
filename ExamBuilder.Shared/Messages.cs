@@ -29,7 +29,20 @@ namespace ExamBuilder.Shared
         public const string Question = "سوال";
         public const string Lesson = "درس";
         public const string Descriptive = "تشریحی";
+        public const string FillInBlank = "جاخالی";
+        public const string TrueFalse = "درست نادرست";
+        public const string Matching = "وصل کردنی";
+        public const string Optional = "تستی";
         public const string ShortAnswer = "کوتاه پاسخ";
+        public static List<string> AllQuestionTypes = new List<string>()
+        {
+              Descriptive,
+              FillInBlank,
+              TrueFalse,
+              Matching,
+              Optional,
+              ShortAnswer,
+        };
         public const string DifficultyLevel = "سطح سوال";
         public const string QuestionText = "متن سوال";
         public const string Option1 = "گزینه 1";
@@ -42,6 +55,7 @@ namespace ExamBuilder.Shared
         public const string BookName = "نام کتاب";
         public const string Grade = "مقطع تحصیلی";
         public const string LessonName = "نام درس";
+        public const string PageOf = "صفحه {0} از {1}";
         public static List<string> TrueFalseText_Suggestions = new List<string>()
         {
               "درستی یا نادرستی هر یک از گزاره‌های زیر را با علامت (ص) برای صحیح و (غ) برای غلط مشخص کنید.",

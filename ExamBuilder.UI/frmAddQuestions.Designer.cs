@@ -371,6 +371,7 @@
             // 
             flpQuestions.Location = new Point(5, 4);
             flpQuestions.Name = "flpQuestions";
+            flpQuestions.RightToLeft = RightToLeft.No;
             flpQuestions.Size = new Size(680, 202);
             flpQuestions.TabIndex = 0;
             // 
@@ -721,6 +722,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmAddQuestions";
+            RightToLeft = RightToLeft.Yes;
             Text = "آزمون یار";
             Load += frmAddQuestions_Load;
             panel1.ResumeLayout(false);

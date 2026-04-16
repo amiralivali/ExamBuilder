@@ -101,7 +101,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(536, 31);
+            label3.Location = new Point(355, 30);
             label3.Name = "label3";
             label3.Size = new Size(158, 20);
             label3.TabIndex = 19;
@@ -447,6 +447,7 @@
             numberPick.Font = new Font("Segoe UI", 9F);
             numberPick.Location = new Point(263, 284);
             numberPick.Name = "numberPick";
+            numberPick.RightToLeft = RightToLeft.No;
             numberPick.ShadowDecoration.CustomizableEdges = customizableEdges12;
             numberPick.Size = new Size(71, 32);
             numberPick.TabIndex = 2;
@@ -518,6 +519,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmAddBook";
+            RightToLeft = RightToLeft.Yes;
             Text = "آزمون یار";
             Load += frmAddBook_Load;
             guna2CustomGradientPanel1.ResumeLayout(false);

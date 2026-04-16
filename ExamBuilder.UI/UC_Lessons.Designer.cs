@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Lessons));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
+            lblLesson = new Label();
             lblCount = new Label();
             txtLessonName = new Bunifu.UI.WinForms.BunifuTextBox();
             guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -52,15 +52,15 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblLesson
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(188, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(40, 20);
-            label1.TabIndex = 5;
-            label1.Text = "درس";
+            lblLesson.AutoSize = true;
+            lblLesson.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblLesson.Location = new Point(188, 10);
+            lblLesson.Name = "lblLesson";
+            lblLesson.Size = new Size(40, 20);
+            lblLesson.TabIndex = 5;
+            lblLesson.Text = "درس";
             // 
             // lblCount
             // 
@@ -105,26 +105,26 @@
             txtLessonName.Modified = false;
             txtLessonName.Multiline = false;
             txtLessonName.Name = "txtLessonName";
-            stateProperties1.BorderColor = Color.DodgerBlue;
-            stateProperties1.FillColor = Color.Empty;
-            stateProperties1.ForeColor = Color.Empty;
-            stateProperties1.PlaceholderForeColor = Color.Empty;
-            txtLessonName.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = Color.FromArgb(204, 204, 204);
-            stateProperties2.FillColor = Color.FromArgb(240, 240, 240);
-            stateProperties2.ForeColor = Color.FromArgb(109, 109, 109);
-            stateProperties2.PlaceholderForeColor = Color.DarkGray;
-            txtLessonName.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = Color.FromArgb(105, 181, 255);
-            stateProperties3.FillColor = Color.Empty;
-            stateProperties3.ForeColor = Color.Empty;
-            stateProperties3.PlaceholderForeColor = Color.Empty;
-            txtLessonName.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = Color.Silver;
-            stateProperties4.FillColor = Color.White;
-            stateProperties4.ForeColor = Color.Empty;
-            stateProperties4.PlaceholderForeColor = Color.Empty;
-            txtLessonName.OnIdleState = stateProperties4;
+            stateProperties5.BorderColor = Color.DodgerBlue;
+            stateProperties5.FillColor = Color.Empty;
+            stateProperties5.ForeColor = Color.Empty;
+            stateProperties5.PlaceholderForeColor = Color.Empty;
+            txtLessonName.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = Color.FromArgb(204, 204, 204);
+            stateProperties6.FillColor = Color.FromArgb(240, 240, 240);
+            stateProperties6.ForeColor = Color.FromArgb(109, 109, 109);
+            stateProperties6.PlaceholderForeColor = Color.DarkGray;
+            txtLessonName.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = Color.FromArgb(105, 181, 255);
+            stateProperties7.FillColor = Color.Empty;
+            stateProperties7.ForeColor = Color.Empty;
+            stateProperties7.PlaceholderForeColor = Color.Empty;
+            txtLessonName.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = Color.Silver;
+            stateProperties8.FillColor = Color.White;
+            stateProperties8.ForeColor = Color.Empty;
+            stateProperties8.PlaceholderForeColor = Color.Empty;
+            txtLessonName.OnIdleState = stateProperties8;
             txtLessonName.Padding = new Padding(3);
             txtLessonName.PasswordChar = '\0';
             txtLessonName.PlaceholderForeColor = Color.Silver;
@@ -152,7 +152,7 @@
             guna2ShadowPanel1.BackColor = Color.Transparent;
             guna2ShadowPanel1.Controls.Add(txtLessonName);
             guna2ShadowPanel1.Controls.Add(lblCount);
-            guna2ShadowPanel1.Controls.Add(label1);
+            guna2ShadowPanel1.Controls.Add(lblLesson);
             guna2ShadowPanel1.Controls.Add(pictureBox1);
             guna2ShadowPanel1.Dock = DockStyle.Fill;
             guna2ShadowPanel1.FillColor = Color.White;
@@ -183,7 +183,7 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private Label label1;
+        private Label lblLesson;
         private Label lblCount;
         private Bunifu.UI.WinForms.BunifuTextBox txtLessonName;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;

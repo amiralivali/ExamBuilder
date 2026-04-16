@@ -4,49 +4,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 
 namespace ExamBuilder.DAL.Repositorys
 {
-    public class FillInBlankRepository
+    public class FillInBlankRepository 
     {
         ExamBuilderDbContext db;
         public FillInBlankRepository()
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<ItemQuestionsDTO>> SelectAsync(string search)
+
+        public async Task<List<QuestionDTO>> SelectAsync(string search, string grade, string book, string lesson)
         {
-            try
-            {
-                var blankQuestions = await db.FillInBlankQuestions.Include(x => x.Items)
-                    .Include(x => x.DifficultyLevel)
+            var blankQuestions = await db.FillInBlankQuestions
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
-                    .Select(x => new ItemQuestionsDTO()
+                    .ThenInclude(x => x.Grade)
+                    .Select(x => new QuestionDTO
                     {
                         Id = x.Id,
-                        QuestionText = x.QuestionText,
-                        BookName = x.Lesson.Book.Title,
                         LessonName = x.Lesson.Title,
-                        DifficultyLevel = x.DifficultyLevel.Title,
-                        Items = x.Items.Where(y => y.FillInBlankQuestionId == x.Id).Select(x => x.Text).ToList(),
+                        BookName = x.Lesson.Book.Title,
+                        QuestionText = x.QuestionText,
+                        QuestionType = Messages.FillInBlank,
+                        Grade = x.Lesson.Book.Grade.Title,
                     }).ToListAsync();
-                return blankQuestions.Where(x => search == "" ||
-                    x.QuestionText.Contains(search) ||
-                    x.LessonName.Contains(search) ||
-                    x.DifficultyLevel.Contains(search) ||
-                    x.BookName.Contains(search) ||
-                    x.Items.Contains(search)).ToList();
-            }
-            catch (Exception ex)
-            {
-                await ex.AddLogAsync();
-                return null;
-            }
+            var filter = blankQuestions.Where(x => (grade == "" || x.Grade.Contains(grade)) &&
+            (book == "" || x.BookName.Contains(book)) &&
+            (lesson == "" || x.Grade.Contains(lesson)));
+            return filter.Where(x => search == "" ||
+            x.QuestionText.Contains(search)).ToList();
         }
+        //public async Task<List<ItemQuestionsDTO>> SelectAsync(string search)
+        //{
+        //    try
+        //    {
+        //        var blankQuestions = await db.FillInBlankQuestions.Include(x => x.Items)
+        //            .Include(x => x.DifficultyLevel)
+        //            .Include(x => x.Lesson)
+        //            .ThenInclude(x => x.Book)
+        //            .Select(x => new ItemQuestionsDTO()
+        //            {
+        //                Id = x.Id,
+        //                QuestionText = x.QuestionText,
+        //                BookName = x.Lesson.Book.Title,
+        //                LessonName = x.Lesson.Title,
+        //                DifficultyLevel = x.DifficultyLevel.Title,
+        //                Items = x.Items.Where(y => y.FillInBlankQuestionId == x.Id).Select(x => x.Text).ToList(),
+        //            }).ToListAsync();
+        //        return blankQuestions.Where(x => search == "" ||
+        //            x.QuestionText.Contains(search) ||
+        //            x.LessonName.Contains(search) ||
+        //            x.DifficultyLevel.Contains(search) ||
+        //            x.BookName.Contains(search) ||
+        //            x.Items.Contains(search)).ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await ex.AddLogAsync();
+        //        return null;
+        //    }
+        //}
         public async Task<bool> InsertAsync(FillInBlankQuestion question, List<FillInBlankItem> items)
         {
             try

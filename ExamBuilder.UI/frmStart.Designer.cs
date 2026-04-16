@@ -82,7 +82,7 @@
             // 
             // guna2Panel3
             // 
-            guna2Panel3.BackColor = Color.Indigo;
+            guna2Panel3.BackColor = Color.FromArgb(108, 39, 179);
             guna2Panel3.CustomizableEdges = customizableEdges3;
             guna2Transition1.SetDecoration(guna2Panel3, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2Panel3.Location = new Point(337, 35);
@@ -203,6 +203,7 @@
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Button1.Size = new Size(250, 150);
             guna2Button1.TabIndex = 10;
+            guna2Button1.Click += guna2Button1_Click;
             guna2Button1.MouseEnter += guna2Button1_MouseEnter_1;
             guna2Button1.MouseLeave += guna2Button1_MouseLeave;
             // 

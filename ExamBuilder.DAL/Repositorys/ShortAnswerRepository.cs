@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,27 +17,29 @@ namespace ExamBuilder.DAL.Repositorys
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<QuestionsDTO>> SelectAsync(string search)
+        public async Task<List<QuestionDTO>> SelectAsync(string search, string grade, string book, string lesson)
         {
             try
             {
-                var shortAnswer = await db.ShortQuestions.Include(x => x.DifficultyLevel)
+                var shortQuestions = await db.ShortQuestions
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
-                    .Select(x => new QuestionsDTO
+                    .ThenInclude(x => x.Grade)
+                    .Select(x => new QuestionDTO
                     {
                         Id = x.Id,
-                        BookName = x.Lesson.Book.Title,
                         LessonName = x.Lesson.Title,
+                        BookName = x.Lesson.Book.Title,
                         QuestionText = x.QuestionText,
-                        Picture = x.Picture,
-                        DifficultyLevel = x.DifficultyLevel.Title,
+                        QuestionType = Messages.ShortAnswer,
+                        Grade = x.Lesson.Book.Grade.Title,
+
                     }).ToListAsync();
-                return shortAnswer.Where(x => search == "" ||
-                x.QuestionText.Contains(search) ||
-                x.DifficultyLevel.Contains(search) ||
-                x.LessonName.Contains(search) ||
-                x.BookName.Contains(search)).ToList();
+                var filter = shortQuestions.Where(x => (grade == "" || x.Grade.Contains(grade)) &&
+                (book == "" || x.BookName.Contains(book)) &&
+                (lesson == "" || x.Grade.Contains(lesson)));
+                return filter.Where(x => search == "" ||
+                x.QuestionText.Contains(search)).ToList();
             }
             catch (Exception ex)
             {

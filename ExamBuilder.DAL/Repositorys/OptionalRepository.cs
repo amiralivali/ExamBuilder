@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,32 +18,29 @@ namespace ExamBuilder.DAL.Repositorys
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<OptionalDTO>> SelectAsync(string search)
+        public async Task<List<QuestionDTO>> SelectAsync(string search, string grade, string book, string lesson)
         {
             try
             {
-                var optional = await db.OptionalQuestions.Include(x=>x.OptionalItem)
-                    .Include(x => x.DifficultyLevel)
+                var optionals = await db.OptionalQuestions
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
-                    .Select(x => new OptionalDTO
+                    .ThenInclude(x => x.Grade)
+                    .Select(x => new QuestionDTO
                     {
                         Id = x.Id,
                         BookName = x.Lesson.Book.Title,
                         LessonName = x.Lesson.Title,
                         QuestionText = x.QuestionText,
-                        Picture = x.Picture,
-                        DifficultyLevel = x.DifficultyLevel.Title,
-                        Option1 = x.OptionalItem.Option1,
-                        Option2 = x.OptionalItem.Option2,
-                        Option3 = x.OptionalItem.Option3,
-                        Option4 = x.OptionalItem.Option4,
+                        QuestionType = Messages.Optional,
+                        Grade = x.Lesson.Book.Grade.Title,
                     }).ToListAsync();
-                return optional.Where(x => search == "" ||
-                x.QuestionText.Contains(search) ||
-                x.DifficultyLevel.Contains(search) ||
-                x.LessonName.Contains(search) ||
-                x.BookName.Contains(search)).ToList();
+                var filter = optionals.Where(x => (grade == "" || x.Grade.Contains(grade)) &&
+                (book == "" || x.BookName.Contains(book)) &&
+                (lesson == "" || x.Grade.Contains(lesson)));
+
+                return filter.Where(x => search == "" ||
+                x.QuestionText.Contains(search)).ToList();
             }
             catch (Exception ex)
             {
