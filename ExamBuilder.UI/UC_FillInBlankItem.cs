@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamBuilder.Shared;
+using ExamBuilder.Shared.InformationClases;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ExamBuilder.UI
@@ -33,6 +34,12 @@ namespace ExamBuilder.UI
             txtItemName.SelectionStart = selectionStart + Messages.Blank_Marker.Length;
             txtItemName.ScrollToCaret();
             txtItemName.Focus();
+        }
+
+        public void LoadItem(FillInBlankItemInfo item,bool readOnly)
+        {
+            txtItemName.Text = item.Text;
+            txtItemName.ReadOnly = readOnly;
         }
 
         private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)

@@ -515,6 +515,7 @@
             chipCheckPic.TabIndex = 24;
             chipCheckPic.Text = "تصویر انتخاب شد";
             chipCheckPic.Visible = false;
+            chipCheckPic.Click += chipCheckPic_Click;
             // 
             // cbGrade
             // 

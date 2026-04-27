@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
 using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
+using ExamBuilder.Shared.InformationClases;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExamBuilder.DAL.Repositorys
@@ -48,6 +49,20 @@ namespace ExamBuilder.DAL.Repositorys
                 return null;
             }
         }
+        public async Task<OptionalItem> SelectItemsAsync(int questionId)
+        {
+            try
+            {
+                var items = await db.OptionalItems.Where(x => x.OptionalId == questionId).SingleAsync();
+                return items;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
+
         public async Task<bool> InsertAsync(OptionalQuestion optional,OptionalItem item)
         {
             try

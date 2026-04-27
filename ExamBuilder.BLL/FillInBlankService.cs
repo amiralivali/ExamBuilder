@@ -30,14 +30,22 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
+        public async Task<OprationResult<List<FillInBlankItemInfo>>> SelectItemAsync(int questionId)
+        {
+            var data = await repository.SelectItemsAsync(questionId);
+            if (data != null)
+            {
+                return OprationResult<List<FillInBlankItemInfo>>.Success(data.MapToFillInBlank());
+            }
+            else
+            {
+                return OprationResult<List<FillInBlankItemInfo>>.RunTimeError();
+            }
+        }
         public async Task<OprationResult> InsertAsync(QuestionInfo info, List<FillInBlankItemInfo> items)
         {
             var newQuestion = info.MapToFillInBlank();
-            var newItems = new List<FillInBlankItem>();
-            foreach (var item in items)
-            {
-                newItems.Add(item.MapToFillInBlank());
-            }
+            var newItems = items.MapToFillInBlank();
             var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonId, newItems);
             if (checkData.IsSuccess)
             {
@@ -59,11 +67,7 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> UpdateAsync(QuestionInfo info, List<FillInBlankItemInfo> items)
         {
             var newQuestion = info.MapToFillInBlank();
-            var newItems = new List<FillInBlankItem>();
-            foreach (var item in items)
-            {
-                newItems.Add(item.MapToFillInBlank());
-            }
+            var newItems = items.MapToFillInBlank();
             var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonId, newItems, info.ID);
             if (checkData.IsSuccess)
             {

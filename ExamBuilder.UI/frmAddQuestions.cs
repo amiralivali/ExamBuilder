@@ -174,8 +174,8 @@ namespace ExamBuilder.UI
             AddSuggestionsText(Messages.MatchingText_Suggestions.ToArray());
         }
 
-        private void AddSuggestionsText(string[] texts) 
-        { 
+        private void AddSuggestionsText(string[] texts)
+        {
             cbSuggestion.Items.Clear();
             cbSuggestion.Items.Add("متن سوال های پیشنهادی");
             cbSuggestion.Items.AddRange(texts);
@@ -189,6 +189,7 @@ namespace ExamBuilder.UI
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 chipCheckPic.Visible = true;
+                chipCheckPic.BringToFront();
                 chipCheckPic.Parent = guna2ShadowPanel1;
                 _pictureLocation = ofd.FileName;
             }
@@ -477,5 +478,9 @@ namespace ExamBuilder.UI
             }
         }
 
+        private void chipCheckPic_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,6 +10,6 @@ namespace ExamBuilder.BLL
 {
     public interface ISelectDTO
     {
-        public Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName);
+        Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName);
     }
 }

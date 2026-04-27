@@ -40,36 +40,21 @@ namespace ExamBuilder.DAL.Repositorys
             return filter.Where(x => search == "" ||
             x.QuestionText.Contains(search)).ToList();
         }
-        //public async Task<List<ItemQuestionsDTO>> SelectAsync(string search)
-        //{
-        //    try
-        //    {
-        //        var trueFalseQuestion = await db.TrueFalseQuestions.Include(x => x.Items)
-        //            .Include(x => x.DifficultyLevel)
-        //            .Include(x => x.Lesson)
-        //            .ThenInclude(x => x.Book)
-        //            .Select(x => new ItemQuestionsDTO()
-        //            {
-        //                Id = x.ID,
-        //                QuestionText = x.QuestionText,
-        //                BookName = x.Lesson.Book.Title,
-        //                LessonName = x.Lesson.Title,
-        //                DifficultyLevel = x.DifficultyLevel.Title,
-        //                Items = x.Items.Where(y => y.TrueFalseQuestionId == x.ID).Select(x => x.Text).ToList(),
-        //            }).ToListAsync();
-        //        return trueFalseQuestion.Where(x => search == "" ||
-        //            x.QuestionText.Contains(search) ||
-        //            x.LessonName.Contains(search) ||
-        //            x.DifficultyLevel.Contains(search) ||
-        //            x.BookName.Contains(search) ||
-        //            x.Items.Contains(search)).ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await ex.AddLogAsync();
-        //        return null;
-        //    }
-        //}
+
+        public async Task<List<TrueFalseItem>> SelectItemsAsync(int questionId)
+        {
+            try
+            {
+                var items = await db.TrueFalseItems.Where(x => x.TrueFalseQuestionId == questionId).ToListAsync();
+                return items;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
+
         public async Task<bool> InsertAsync(TrueFalseQuestion question, List<TrueFalseItem> items)
         {
             try

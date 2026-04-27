@@ -31,26 +31,23 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
-        //public async Task<OprationResult<List<MatchingDTO>>> SelectAsync(string search)
-        //{
-        //    var data = await repository.SelectAsync(search);
-        //    if (data != null)
-        //    {
-        //        return OprationResult<List<MatchingDTO>>.Success(data);
-        //    }
-        //    else
-        //    {
-        //        return OprationResult<List<MatchingDTO>>.RunTimeError();
-        //    }
-        //}
+        public async Task<OprationResult<List<MatchingItemInfo>>> SelectItemAsync(int questionId)
+        {
+            var data = await repository.SelectItemsAsync(questionId);
+            if (data != null)
+            {
+                return OprationResult<List<MatchingItemInfo>>.Success(data.MapToMatching());
+            }
+            else
+            {
+                return OprationResult<List<MatchingItemInfo>>.RunTimeError();
+            }
+        }
+
         public async Task<OprationResult> InsertAsync(QuestionInfo info, List<MatchingItemInfo> items)
         {
             var newQuestion = info.MapToMatching();
-            var newItems = new List<MatchingItem>();
-            foreach (var item in items)
-            {
-                newItems.Add(item.MapToMatching());
-            }
+            var newItems = items.MapToMatching();
             var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonId, newItems);
             if (checkData.IsSuccess)
             {
@@ -72,11 +69,7 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> UpdateAsync(QuestionInfo info, List<MatchingItemInfo> items)
         {
             var newQuestion = info.MapToMatching();
-            var newItems = new List<MatchingItem>();
-            foreach (var item in items)
-            {
-                newItems.Add(item.MapToMatching());
-            }
+            var newItems = items.MapToMatching();
             var checkData = await CheckDuplicateAsync(info.QuestionText, info.LessonId, newItems, info.ID);
             if (checkData.IsSuccess)
             {

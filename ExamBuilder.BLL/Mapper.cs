@@ -89,6 +89,17 @@ namespace ExamBuilder.BLL
                 Option4 = info.Option4,
             };
         }
+        public static OptionalItemInfo MaptoOptional(this OptionalItem info)
+        {
+            return new OptionalItemInfo
+            {
+                OptionalId = info.OptionalId,
+                Option1 = info.Option1,
+                Option2 = info.Option2,
+                Option3 = info.Option3,
+                Option4 = info.Option4,
+            };
+        }
         public static FillInBlankQuestion MapToFillInBlank(this QuestionInfo info)
         {
             return new FillInBlankQuestion
@@ -100,14 +111,33 @@ namespace ExamBuilder.BLL
                 QuestionText = info.QuestionText,
             };
         }
-        public static FillInBlankItem MapToFillInBlank(this FillInBlankItemInfo info)
+        public static List<FillInBlankItem> MapToFillInBlank(this List<FillInBlankItemInfo> items)
         {
-            return new FillInBlankItem
+            var list = new List<FillInBlankItem>();
+            foreach (var item in items)
             {
-                Id = info.Id,
-                Text = info.Text,
-                FillInBlankQuestionId = info.QuestionId,
-            };
+                list.Add(new FillInBlankItem()
+                {
+                    Id = item.Id,
+                    Text = item.Text,
+                    FillInBlankQuestionId = item.QuestionId
+                });
+            }
+            return list;
+        }
+        public static List<FillInBlankItemInfo> MapToFillInBlank(this List<FillInBlankItem> items)
+        {
+            var list = new List<FillInBlankItemInfo>();
+            foreach (var item in items)
+            {
+                list.Add(new FillInBlankItemInfo()
+                {
+                    Id = item.Id,
+                    Text = item.Text,
+                    QuestionId = item.FillInBlankQuestionId
+                });
+            }
+            return list;
         }
         public static MatchingQuestion MapToMatching(this QuestionInfo info)
         {
@@ -120,15 +150,35 @@ namespace ExamBuilder.BLL
                 QuestionText = info.QuestionText,
             };
         }
-        public static MatchingItem MapToMatching(this MatchingItemInfo info)
+        public static List<MatchingItem> MapToMatching(this List<MatchingItemInfo> items)
         {
-            return new MatchingItem
+            var list = new List<MatchingItem>();
+            foreach (var item in items)
             {
-                Id = info.Id,
-                MatchingQuestionId = info.MatchingQuestionId,
-                RightText = info.RightText,
-                LeftText = info.LeftText,
-            };
+                list.Add(new MatchingItem()
+                {
+                    Id = item.Id,
+                    LeftText = item.LeftText,
+                    RightText = item.RightText,
+                    MatchingQuestionId = item.QuestionId
+                });
+            }
+            return list;
+        }
+        public static List<MatchingItemInfo> MapToMatching(this List<MatchingItem> items)
+        {
+            var list = new List<MatchingItemInfo>();
+            foreach (var item in items)
+            {
+                list.Add(new MatchingItemInfo()
+                {
+                    Id = item.Id,
+                    LeftText = item.LeftText,
+                    RightText = item.RightText,
+                    QuestionId = item.MatchingQuestionId
+                });
+            }
+            return list;
         }
         public static TrueFalseQuestion MapToTrueFalse(this QuestionInfo info)
         {
@@ -141,14 +191,33 @@ namespace ExamBuilder.BLL
                 QuestionText = info.QuestionText,
             };
         }
-        public static TrueFalseItem MapToTrueFalse(this TrueFalseItemInfo info)
+        public static List<TrueFalseItem> MapToTrueFalse(this List<TrueFalseItemInfo> items)
         {
-            return new TrueFalseItem
+            var list = new List<TrueFalseItem>();
+            foreach (var item in items)
             {
-                Id = info.Id,
-                Text = info.Text,
-                TrueFalseQuestionId = info.QuestionId
-            };
+                list.Add(new TrueFalseItem()
+                {
+                    Id = item.Id,
+                    Text = item.Text,
+                    TrueFalseQuestionId = item.QuestionId
+                });
+            }
+            return list;
+        }
+        public static List<TrueFalseItemInfo> MapToTrueFalse(this List<TrueFalseItem> items)
+        {
+            var list = new List<TrueFalseItemInfo>();
+            foreach (var item in items)
+            {
+                list.Add(new TrueFalseItemInfo()
+                {
+                    Id = item.Id,
+                    Text = item.Text,
+                    QuestionId = item.TrueFalseQuestionId
+                });
+            }
+            return list;
         }
     }
 }

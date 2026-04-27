@@ -14,6 +14,7 @@ using ExamBuilder.DAL;
 using ExamBuilder.DAL.Entities;
 using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
+using ExamBuilder.Shared.InformationClases;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static ExamBuilder.Shared.QuestionTypes;
 
@@ -55,7 +56,7 @@ namespace ExamBuilder.UI
             OprationResult<List<QuestionDTO>> opration;
             if (cbQuestionType.SelectedIndex != 0)
             {
-                opration = await SelectSelectedQuestionDTO(search,grade,book,lesson);
+                opration = await SelectSelectedQuestionDTO(search, grade, book, lesson);
             }
             else
             {
@@ -76,7 +77,7 @@ namespace ExamBuilder.UI
                 ShowError(opration.Message);
             }
         }
-        private async Task<OprationResult<List<QuestionDTO>>> SelectAllQuestionDTOs(string search,string grade,string book,string lesson)
+        private async Task<OprationResult<List<QuestionDTO>>> SelectAllQuestionDTOs(string search, string grade, string book, string lesson)
         {
             var services = new List<ISelectDTO>
             {
@@ -129,16 +130,86 @@ namespace ExamBuilder.UI
 
         }
 
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == dgvData.Columns["showItems"].Index)
+            {
+                int questionId = int.Parse(dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["Id"].Index].Value.ToString());
+                string questionType = dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["QuestionType"].Index].Value.ToString();
+                flpDisplayItem.Controls.Clear();
+                switch (questionType)
+                {
+                    case Messages.Descriptive:
+                    case Messages.ShortAnswer:
+                        ShowError(Messages.QuestionWithoutItemError);
+                        return;
 
+                    case Messages.TrueFalse:
+                        {
+                            var service = new TrueFalseService();
+                            var result = await service.SelectItemAsync(questionId);
+                            if (!result.IsSuccess)
+                            {
+                                ShowError(result.Message);
+                                return;
+                            }
+                            var uc = new UC_DGVTrueFalseItem(result.Data);
+                            flpDisplayItem.Controls.Add(uc);
+                            break;
+                        }
+
+                    case Messages.Optional:
+                        {
+                            var service = new OptionalService();
+                            var result = await service.SelectItemAsync(questionId);
+                            if (!result.IsSuccess)
+                            {
+                                ShowError(result.Message);
+                                return;
+                            }
+                            var uc = new UC_DGVOptionalItem(result.Data);
+                            flpDisplayItem.Controls.Add(uc);
+                            break;
+                        }
+
+                    case Messages.FillInBlank:
+                        {
+                            var service = new FillInBlankService();
+                            var result = await service.SelectItemAsync(questionId);
+                            if (!result.IsSuccess)
+                            {
+                                ShowError(result.Message);
+                                return;
+                            }
+                            var uc = new UC_DGVFillInBlankItem(result.Data);
+                            flpDisplayItem.Controls.Add(uc);
+                            break;
+                        }
+
+                    case Messages.Matching:
+                        {
+                            var service = new MatchingService();
+                            var result = await service.SelectItemAsync(questionId);
+                            if (!result.IsSuccess)
+                            {
+                                ShowError(result.Message);
+                                return;
+                            }
+                            var uc = new UC_DGVMatchingItem(result.Data);
+                            flpDisplayItem.Controls.Add(uc);
+                            break;
+                        }
+                }
+                panelDisplayItems.BringToFront();
+                panelDisplayItems.Visible = true;
+            }
         }
 
         private async void frmManagementQuestion_Load(object sender, EventArgs e)
         {
             var check = await bookService.SelectAvailableGrades();
             if (check.IsSuccess)
-            {
+            {  
                 cbGrade.Items.AddRange(check.Data.ToArray());
                 cbQuestionType.Items.AddRange(Messages.AllQuestionTypes.ToArray());
                 FillDGV();
@@ -229,6 +300,7 @@ namespace ExamBuilder.UI
         private void btnSearch_Click(object sender, EventArgs e)
         {
             FillDGV(txtSearch.Text);
+            btnDeleteFilter.Enabled = true;
         }
 
         private void cbQuestionType_SelectedIndexChanged(object sender, EventArgs e)
@@ -262,6 +334,32 @@ namespace ExamBuilder.UI
                         break;
                 }
             }
+        }
+
+        private void btnDeleteFilter_Click(object sender, EventArgs e)
+        {
+            btnDeleteFilter.Enabled = false;
+            cbLesson.SelectedIndex = 0;
+            cbBook.SelectedIndex = 0;
+            cbGrade.SelectedIndex = 0;
+            cbQuestionType.SelectedIndex = 0;
+            txtSearch.Text = string.Empty;
+            FillDGV();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            panelDisplayItems.Visible = false;
+        }
+
+        private void panelDisplayItems_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

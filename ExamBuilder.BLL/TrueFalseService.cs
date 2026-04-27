@@ -31,26 +31,22 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
-        //public async Task<OprationResult<List<ItemQuestionsDTO>>> SelectAsync(string search)
-        //{
-        //    var data = await repository.SelectAsync(search);
-        //    if (data != null)
-        //    {
-        //        return OprationResult<List<ItemQuestionsDTO>>.Success(data);
-        //    }
-        //    else
-        //    {
-        //        return OprationResult<List<ItemQuestionsDTO>>.RunTimeError();
-        //    }
-        //}
+        public async Task<OprationResult<List<TrueFalseItemInfo>>> SelectItemAsync(int questionId)
+        {
+            var data = await repository.SelectItemsAsync(questionId);
+            if (data != null)
+            {
+                return OprationResult<List<TrueFalseItemInfo>>.Success(data.MapToTrueFalse());
+            }
+            else
+            {
+                return OprationResult<List<TrueFalseItemInfo>>.RunTimeError();
+            }
+        }
         public async Task<OprationResult> InsertAsync(QuestionInfo question,List<TrueFalseItemInfo> items)
         { 
             var newQuestion = question.MapToTrueFalse();
-            var newItems = new List<TrueFalseItem>();
-            foreach (var item in items)
-            {
-                newItems.Add(item.MapToTrueFalse());
-            }
+            var newItems = items.MapToTrueFalse();
             var checkData = await CheckDuplicateAsync(question.QuestionText, question.LessonId, newItems);
             if (checkData.IsSuccess)
             {
@@ -72,11 +68,7 @@ namespace ExamBuilder.BLL
         public async Task<OprationResult> UpdateAsync(QuestionInfo question, List<TrueFalseItemInfo> items)
         {
             var newQuestion = question.MapToTrueFalse();
-            var newItems = new List<TrueFalseItem>();
-            foreach (var item in items)
-            {
-                newItems.Add(item.MapToTrueFalse());
-            }
+            var newItems = items.MapToTrueFalse();
             var checkData = await CheckDuplicateAsync(question.QuestionText, question.LessonId, newItems, question.ID);
             if (checkData.IsSuccess)
             {

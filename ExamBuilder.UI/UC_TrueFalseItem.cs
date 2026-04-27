@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.UI
 {
@@ -23,7 +24,11 @@ namespace ExamBuilder.UI
         {
 
         }
-
+        public void LoadItem(TrueFalseItemInfo item, bool readOnly)
+        {
+            txtItemName.Text = item.Text;
+            txtItemName.ReadOnly = readOnly;
+        }
         private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {
 

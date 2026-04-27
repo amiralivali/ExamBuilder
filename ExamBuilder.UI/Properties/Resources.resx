@@ -124,6 +124,9 @@
   <data name="list_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\list_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_pointing_left_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_pointing_left_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="outline_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\outline_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,14 +142,23 @@
   <data name="list_384px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\list_384px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="trash_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trash_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="list_144px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\list_144px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="about_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\about_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="orange-book-5000_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\orange-book-5000_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="check-5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check-5121.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="available_updates_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\available_updates_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendar-check-symbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar-check-symbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,13 +175,19 @@
   <data name="Magnifying Glass (رسانیکا)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Magnifying Glass (رسانیکا).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="check-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open-book" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open-book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="about_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\about_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="close_208px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close_208px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

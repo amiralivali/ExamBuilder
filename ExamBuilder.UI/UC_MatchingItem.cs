@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.UI
 {
@@ -19,7 +20,12 @@ namespace ExamBuilder.UI
             InitializeComponent();
             lblCount.Text = _count.ToString();
         }
-
+        public void LoadItem(MatchingItemInfo item, bool readOnly)
+        {
+            txtLeft.Text = item.LeftText;
+            txtRight.Text = item.RightText;
+            txtLeft.ReadOnly = txtRight.ReadOnly = readOnly;
+        }
         private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {
 

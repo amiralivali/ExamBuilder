@@ -11,7 +11,7 @@ namespace ExamBuilder.Shared.InformationClases
     public class MatchingItemInfo : BaseValidation
     {
         public int Id { get; set; }
-        public int MatchingQuestionId { get; set; }
+        public int QuestionId { get; set; }
         //the reason that I didn`t use ItemQuestionInfo = It has special field
         [RequiredStringValidation(PropertyName = Messages.LeftItem)]
         public string LeftText { get; set; }

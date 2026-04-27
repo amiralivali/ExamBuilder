@@ -40,36 +40,19 @@ namespace ExamBuilder.DAL.Repositorys
             return filter.Where(x => search == "" ||
             x.QuestionText.Contains(search)).ToList();
         }
-        //public async Task<List<ItemQuestionsDTO>> SelectAsync(string search)
-        //{
-        //    try
-        //    {
-        //        var blankQuestions = await db.FillInBlankQuestions.Include(x => x.Items)
-        //            .Include(x => x.DifficultyLevel)
-        //            .Include(x => x.Lesson)
-        //            .ThenInclude(x => x.Book)
-        //            .Select(x => new ItemQuestionsDTO()
-        //            {
-        //                Id = x.Id,
-        //                QuestionText = x.QuestionText,
-        //                BookName = x.Lesson.Book.Title,
-        //                LessonName = x.Lesson.Title,
-        //                DifficultyLevel = x.DifficultyLevel.Title,
-        //                Items = x.Items.Where(y => y.FillInBlankQuestionId == x.Id).Select(x => x.Text).ToList(),
-        //            }).ToListAsync();
-        //        return blankQuestions.Where(x => search == "" ||
-        //            x.QuestionText.Contains(search) ||
-        //            x.LessonName.Contains(search) ||
-        //            x.DifficultyLevel.Contains(search) ||
-        //            x.BookName.Contains(search) ||
-        //            x.Items.Contains(search)).ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await ex.AddLogAsync();
-        //        return null;
-        //    }
-        //}
+        public async Task<List<FillInBlankItem>> SelectItemsAsync(int questionId)
+        {
+            try
+            {
+                var items = await db.FillInBlankItems.Where(x=>x.FillInBlankQuestionId == questionId).ToListAsync();
+                return items;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
         public async Task<bool> InsertAsync(FillInBlankQuestion question, List<FillInBlankItem> items)
         {
             try

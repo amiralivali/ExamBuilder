@@ -40,38 +40,19 @@ namespace ExamBuilder.DAL.Repositorys
             return filter.Where(x => search == "" ||
             x.QuestionText.Contains(search)).ToList();
         }
-        //public async Task<List<QuestionDTO>> SelectAsync(string search)
-        //{
-        //    try
-        //    {
-        //        var matchingQuestions = await db.MatchingQuestions.Include(x => x.Items)
-        //            .Include(x => x.DifficultyLevel)
-        //            .Include(x => x.Lesson)
-        //            .ThenInclude(x => x.Book)
-        //            .Select(x => new MatchingDTO()
-        //            {
-        //                Id = x.Id,
-        //                QuestionText = x.QuestionText,
-        //                BookName = x.Lesson.Book.Title,
-        //                LessonName = x.Lesson.Title,
-        //                DifficultyLevel = x.DifficultyLevel.Title,
-        //                LeftTexts = x.Items.Where(y => y.MatchingQuestionId == x.Id).Select(x => x.LeftText).ToList(),
-        //                RightTexts = x.Items.Where(y => y.MatchingQuestionId == x.Id).Select(x => x.RightText).ToList()
-        //            }).ToListAsync();
-        //        return matchingQuestions.Where(x => search == "" ||
-        //            x.QuestionText.Contains(search) ||
-        //            x.LessonName.Contains(search) ||
-        //            x.DifficultyLevel.Contains(search) ||
-        //            x.BookName.Contains(search) ||
-        //            x.RightTexts.Contains(search) ||
-        //            x.LeftTexts.Contains(search)).ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await ex.AddLogAsync();    
-        //        return null;
-        //    }
-        //}
+        public async Task<List<MatchingItem>> SelectItemsAsync(int questionId)
+        {
+            try
+            {
+                var items = await db.MatchingItems.Where(x => x.MatchingQuestionId == questionId).ToListAsync();
+                return items;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
         public async Task<bool> InsertAsync(MatchingQuestion question, List<MatchingItem> items)
         {
             try

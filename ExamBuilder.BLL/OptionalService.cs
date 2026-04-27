@@ -31,7 +31,18 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
-
+        public async Task<OprationResult<OptionalItemInfo>> SelectItemAsync(int questionId)
+        {
+            var data = await repository.SelectItemsAsync(questionId);
+            if (data != null)
+            {
+                return OprationResult<OptionalItemInfo>.Success(data.MaptoOptional());
+            }
+            else
+            {
+                return OprationResult<OptionalItemInfo>.RunTimeError();
+            }
+        }
         public async Task<OprationResult> DeleteAsync(int id)
         {
             var check = await repository.DeleteAsync(id);
