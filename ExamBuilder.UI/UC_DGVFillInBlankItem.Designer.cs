@@ -35,6 +35,8 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dgvData = new Guna.UI2.WinForms.Guna2DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            IsValid = new DataGridViewTextBoxColumn();
+            ErrorMessage = new DataGridViewTextBoxColumn();
             QuestionId = new DataGridViewTextBoxColumn();
             dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
             dataGridViewButtonColumn2 = new DataGridViewButtonColumn();
@@ -65,14 +67,14 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.ColumnHeadersHeight = 45;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, QuestionId, dataGridViewButtonColumn1, dataGridViewButtonColumn2, ItemText });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, IsValid, ErrorMessage, QuestionId, dataGridViewButtonColumn1, dataGridViewButtonColumn2, ItemText });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(237, 233, 254);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvData.DefaultCellStyle = dataGridViewCellStyle3;
             dgvData.Dock = DockStyle.Fill;
             dgvData.GridColor = Color.MediumPurple;
@@ -130,8 +132,25 @@
             dataGridViewTextBoxColumn1.Resizable = DataGridViewTriState.False;
             dataGridViewTextBoxColumn1.Visible = false;
             // 
+            // IsValid
+            // 
+            IsValid.DataPropertyName = "IsValid";
+            IsValid.HeaderText = "معتبر";
+            IsValid.Name = "IsValid";
+            IsValid.ReadOnly = true;
+            IsValid.Visible = false;
+            // 
+            // ErrorMessage
+            // 
+            ErrorMessage.DataPropertyName = "ErrorMessage";
+            ErrorMessage.HeaderText = "متن خطا";
+            ErrorMessage.Name = "ErrorMessage";
+            ErrorMessage.ReadOnly = true;
+            ErrorMessage.Visible = false;
+            // 
             // QuestionId
             // 
+            QuestionId.DataPropertyName = "QuestionId";
             QuestionId.HeaderText = "شناسه سوال";
             QuestionId.Name = "QuestionId";
             QuestionId.ReadOnly = true;
@@ -155,6 +174,7 @@
             // 
             // ItemText
             // 
+            ItemText.DataPropertyName = "Text";
             ItemText.HeaderText = "متن آیتم";
             ItemText.Name = "ItemText";
             ItemText.ReadOnly = true;
@@ -174,6 +194,8 @@
 
         private Guna.UI2.WinForms.Guna2DataGridView dgvData;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn IsValid;
+        private DataGridViewTextBoxColumn ErrorMessage;
         private DataGridViewTextBoxColumn QuestionId;
         private DataGridViewButtonColumn dataGridViewButtonColumn1;
         private DataGridViewButtonColumn dataGridViewButtonColumn2;

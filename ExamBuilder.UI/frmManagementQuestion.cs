@@ -134,6 +134,7 @@ namespace ExamBuilder.UI
         {
             if (e.ColumnIndex == dgvData.Columns["showItems"].Index)
             {
+
                 int questionId = int.Parse(dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["Id"].Index].Value.ToString());
                 string questionType = dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["QuestionType"].Index].Value.ToString();
                 flpDisplayItem.Controls.Clear();
@@ -209,10 +210,11 @@ namespace ExamBuilder.UI
         {
             var check = await bookService.SelectAvailableGrades();
             if (check.IsSuccess)
-            {  
+            {
                 cbGrade.Items.AddRange(check.Data.ToArray());
                 cbQuestionType.Items.AddRange(Messages.AllQuestionTypes.ToArray());
                 FillDGV();
+
             }
             else
             {
@@ -358,6 +360,11 @@ namespace ExamBuilder.UI
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flpDisplayItem_Paint(object sender, PaintEventArgs e)
         {
 
         }

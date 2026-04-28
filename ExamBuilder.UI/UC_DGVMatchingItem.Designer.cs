@@ -40,6 +40,8 @@
             dataGridViewButtonColumn2 = new DataGridViewButtonColumn();
             RightText = new DataGridViewTextBoxColumn();
             LeftText = new DataGridViewTextBoxColumn();
+            IsValid = new DataGridViewTextBoxColumn();
+            ErrorMessage = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
             // 
@@ -66,7 +68,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.ColumnHeadersHeight = 45;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, QuestionId, dataGridViewButtonColumn1, dataGridViewButtonColumn2, RightText, LeftText });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, QuestionId, dataGridViewButtonColumn1, dataGridViewButtonColumn2, RightText, LeftText, IsValid, ErrorMessage });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -133,6 +135,7 @@
             // 
             // QuestionId
             // 
+            QuestionId.DataPropertyName = "QuestionId";
             QuestionId.HeaderText = "شناسه سوال";
             QuestionId.Name = "QuestionId";
             QuestionId.ReadOnly = true;
@@ -156,15 +159,33 @@
             // 
             // RightText
             // 
+            RightText.DataPropertyName = "RightText";
             RightText.HeaderText = "متن راست";
             RightText.Name = "RightText";
             RightText.ReadOnly = true;
             // 
             // LeftText
             // 
+            LeftText.DataPropertyName = "LeftText";
             LeftText.HeaderText = "متن چپ";
             LeftText.Name = "LeftText";
             LeftText.ReadOnly = true;
+            // 
+            // IsValid
+            // 
+            IsValid.DataPropertyName = "IsValid";
+            IsValid.HeaderText = "معتبر";
+            IsValid.Name = "IsValid";
+            IsValid.ReadOnly = true;
+            IsValid.Visible = false;
+            // 
+            // ErrorMessage
+            // 
+            ErrorMessage.DataPropertyName = "ErrorMessage";
+            ErrorMessage.HeaderText = "متن خطا";
+            ErrorMessage.Name = "ErrorMessage";
+            ErrorMessage.ReadOnly = true;
+            ErrorMessage.Visible = false;
             // 
             // UC_DGVMatchingItem
             // 
@@ -186,5 +207,7 @@
         private DataGridViewButtonColumn dataGridViewButtonColumn2;
         private DataGridViewTextBoxColumn RightText;
         private DataGridViewTextBoxColumn LeftText;
+        private DataGridViewTextBoxColumn IsValid;
+        private DataGridViewTextBoxColumn ErrorMessage;
     }
 }

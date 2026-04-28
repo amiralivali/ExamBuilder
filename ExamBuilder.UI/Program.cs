@@ -1,3 +1,5 @@
+using ExamBuilder.BLL;
+
 namespace ExamBuilder.UI
 {
     internal static class Program
@@ -11,6 +13,8 @@ namespace ExamBuilder.UI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            var db = new DatabaseInitializer();
+            db.Initialize();
             Application.Run(new frmStart());
         }
     }

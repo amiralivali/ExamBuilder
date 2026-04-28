@@ -173,6 +173,26 @@ namespace ExamBuilder.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_208px1 {
+            get {
+                object obj = ResourceManager.GetObject("close_208px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close_window_480px {
+            get {
+                object obj = ResourceManager.GetObject("close_window_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap help_512px {
             get {
                 object obj = ResourceManager.GetObject("help_512px", resourceCulture);
