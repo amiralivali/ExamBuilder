@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.DAL.Interface;
 using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +13,7 @@ using static ExamBuilder.Shared.QuestionTypes;
 
 namespace ExamBuilder.DAL.Repositorys
 {
-    public class DescriptiveRepository
+    public class DescriptiveRepository : ISelectQuestions
     {
         ExamBuilderDbContext db;
         public DescriptiveRepository()
@@ -19,23 +21,24 @@ namespace ExamBuilder.DAL.Repositorys
             db = new ExamBuilderDbContext();
         }
 
-        public async Task<List<QuestionDTO>> SelectAsync(string search, string grade, string book, string lesson)
+        public async Task<List<QuestionDTO>> SelectFilterQuestionsAsync(string search, string grade, string book, string lesson)
         {
             try
             {
-                var descriptives = await db.DescriptiveQuestions
+                var descriptives = await db.DescriptiveQuestions.Include(x=>x.DifficultyLevel)
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
                     .ThenInclude(x => x.Grade)
                     .Select(x => new QuestionDTO
                     {
                         Id = x.Id,
-                        LessonName = x.Lesson.Title,
+                        LessonName = Messages.Lesson + " " + x.Lesson.LessonCount + " " + x.Lesson.Title,
                         BookName = x.Lesson.Book.Title,
                         QuestionText = x.QuestionText,
                         QuestionType = Messages.Descriptive,
                         Grade = x.Lesson.Book.Grade.Title,
-
+                        DifficultyLevel = x.DifficultyLevel.Title,
+                        Picture = x.Picture,    
                     }).ToListAsync();
                 var filter = descriptives.Where(x => (grade == "" || x.Grade.Contains(grade)) &&
                 (book == "" || x.BookName.Contains(book)) &&
@@ -49,7 +52,34 @@ namespace ExamBuilder.DAL.Repositorys
                 return null;
             }
         }
-
+        public async Task<QuestionDTO> SelectQuestionAsync(int id)
+        {
+            try
+            {
+                var descriptive = await db.DescriptiveQuestions.Include(x => x.DifficultyLevel)
+                    .Include(x => x.Lesson)
+                    .ThenInclude(x => x.Book)
+                    .ThenInclude(x => x.Grade)
+                    .Where(x=>x.Id == id)
+                    .Select(x => new QuestionDTO
+                    {
+                        Id = x.Id,
+                        LessonName = Messages.Lesson + " " + x.Lesson.LessonCount + " " + x.Lesson.Title,
+                        BookName = x.Lesson.Book.Title,
+                        QuestionText = x.QuestionText,
+                        QuestionType = Messages.Descriptive,
+                        Grade = x.Lesson.Book.Grade.Title,
+                        DifficultyLevel = x.DifficultyLevel.Title,
+                        Picture = x.Picture,
+                    }).SingleOrDefaultAsync();
+                return descriptive;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
         public async Task<bool> InsertAsync(DescriptiveQuestion descriptive)
         {
             try

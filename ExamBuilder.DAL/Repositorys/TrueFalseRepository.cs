@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.DAL.Interface;
 using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExamBuilder.DAL.Repositorys
 {
-    public class TrueFalseRepository
+    public class TrueFalseRepository : ISelectQuestions
     {
         ExamBuilderDbContext db;
         public TrueFalseRepository()
@@ -18,21 +19,22 @@ namespace ExamBuilder.DAL.Repositorys
             db = new ExamBuilderDbContext();
         }
 
-        public async Task<List<QuestionDTO>> SelectAsync(string search, string grade, string book, string lesson)
+        public async Task<List<QuestionDTO>> SelectFilterQuestionsAsync(string search, string grade, string book, string lesson)
         {
-            var trueFalseQuestion = await db.TrueFalseQuestions
+            var trueFalseQuestion = await db.TrueFalseQuestions.Include(x=>x.DifficultyLevel)
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
                     .ThenInclude(x => x.Grade)
                     .Select(x => new QuestionDTO
                     {
                         Id = x.ID,
-                        LessonName = x.Lesson.Title,
+                        LessonName = Messages.Lesson + " " + x.Lesson.LessonCount + " " + x.Lesson.Title,
                         BookName = x.Lesson.Book.Title,
                         QuestionText = x.QuestionText,
                         QuestionType = Messages.TrueFalse,
                         Grade = x.Lesson.Book.Grade.Title,
-
+                        DifficultyLevel = x.DifficultyLevel.Title,
+                        Picture=x.Picture,
                     }).ToListAsync();
             var filter = trueFalseQuestion.Where(x => (grade == "" || x.Grade.Contains(grade)) &&
             (book == "" || x.BookName.Contains(book)) &&
@@ -40,7 +42,34 @@ namespace ExamBuilder.DAL.Repositorys
             return filter.Where(x => search == "" ||
             x.QuestionText.Contains(search)).ToList();
         }
-
+        public async Task<QuestionDTO> SelectQuestionAsync(int id)
+        {
+            try
+            {
+                var descriptive = await db.TrueFalseQuestions.Include(x => x.DifficultyLevel)
+                    .Include(x => x.Lesson)
+                    .ThenInclude(x => x.Book)
+                    .ThenInclude(x => x.Grade)
+                    .Where(x => x.ID == id)
+                    .Select(x => new QuestionDTO
+                    {
+                        Id = x.ID,
+                        LessonName = Messages.Lesson + " " + x.Lesson.LessonCount + " " + x.Lesson.Title,
+                        BookName = x.Lesson.Book.Title,
+                        QuestionText = x.QuestionText,
+                        QuestionType = Messages.TrueFalse,
+                        Grade = x.Lesson.Book.Grade.Title,
+                        DifficultyLevel = x.DifficultyLevel.Title,
+                        Picture = x.Picture,
+                    }).SingleOrDefaultAsync();
+                return descriptive;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
         public async Task<List<TrueFalseItem>> SelectItemsAsync(int questionId)
         {
             try

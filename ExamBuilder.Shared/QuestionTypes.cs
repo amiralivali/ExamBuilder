@@ -10,11 +10,7 @@ namespace ExamBuilder.Shared
     {
         public enum QuestionType
         {
-           DescriptiveQuestion,FillInBlankQuestion,MatchingQuestion,OptionalQuestion,ShortQuestion,TrueFalseQuestion
-        }
-        public enum PersianQuestionType
-        {
-            تشریحی, جاخالی, وصل‌کردنی, تستی, کوتاه‌پاسخ, صحیح‌غلط
+           DescriptiveQuestion,FillInBlankQuestion,MatchingQuestion,OptionalQuestion,ShortAnswerQuestion,TrueFalseQuestion
         }
     }
 }

@@ -139,14 +139,14 @@ namespace ExamBuilder.UI
         private void btnShort_Click(object sender, EventArgs e)
         {
             flpQuestions.Controls.Clear();
-            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_Descriptive_ShortQuestion(Messages.ShortAnswer)); })));
-            _questionType = QuestionType.ShortQuestion;
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_Descriptive_ShortQuestion(QuestionType.ShortAnswerQuestion)); })));
+            _questionType = QuestionType.ShortAnswerQuestion;
         }
 
         private void btnDescritive_Click(object sender, EventArgs e)
         {
             flpQuestions.Controls.Clear();
-            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_Descriptive_ShortQuestion(Messages.Descriptive)); })));
+            Task.Delay(220).ContinueWith(t => this.Invoke(new Action(() => { flpQuestions.Controls.Add(new UC_Descriptive_ShortQuestion(QuestionType.DescriptiveQuestion)); })));
             _questionType = QuestionType.DescriptiveQuestion;
         }
 
@@ -298,7 +298,6 @@ namespace ExamBuilder.UI
 
         private async void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            var lessonService = new LessonService();
             var lessonId = await lessonService.GetLessonIdAsync(cbLesson.SelectedIndex, cbBook.SelectedItem.ToString());
             if (lessonId.IsSuccess)
             {
@@ -325,7 +324,7 @@ namespace ExamBuilder.UI
                                 var descriptiveService = new DescriptiveService();
                                 oprationResult = await descriptiveService.InsertAsync(questionInfo);
                                 break;
-                            case QuestionType.ShortQuestion:
+                            case QuestionType.ShortAnswerQuestion:
                                 var shortAnswerService = new ShortAnswerService();
                                 oprationResult = await shortAnswerService.InsertAsync(questionInfo);
                                 break;
@@ -479,6 +478,11 @@ namespace ExamBuilder.UI
         }
 
         private void chipCheckPic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMatching_CheckedChanged(object sender, EventArgs e)
         {
 
         }

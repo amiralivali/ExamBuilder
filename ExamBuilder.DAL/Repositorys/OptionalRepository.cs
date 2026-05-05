@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.DAL.Interface;
 using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
 using ExamBuilder.Shared.InformationClases;
@@ -12,18 +13,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExamBuilder.DAL.Repositorys
 {
-    public class OptionalRepository
+    public class OptionalRepository : ISelectQuestions
     {
         ExamBuilderDbContext db;
         public OptionalRepository()
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<QuestionDTO>> SelectAsync(string search, string grade, string book, string lesson)
+        public async Task<List<QuestionDTO>> SelectFilterQuestionsAsync(string search, string grade, string book, string lesson)
         {
             try
             {
-                var optionals = await db.OptionalQuestions
+                var optionals = await db.OptionalQuestions.Include(x=>x.DifficultyLevel)
                     .Include(x => x.Lesson)
                     .ThenInclude(x => x.Book)
                     .ThenInclude(x => x.Grade)
@@ -31,10 +32,12 @@ namespace ExamBuilder.DAL.Repositorys
                     {
                         Id = x.Id,
                         BookName = x.Lesson.Book.Title,
-                        LessonName = x.Lesson.Title,
+                        LessonName = Messages.Lesson + " " + x.Lesson.LessonCount + " " + x.Lesson.Title,
                         QuestionText = x.QuestionText,
                         QuestionType = Messages.Optional,
                         Grade = x.Lesson.Book.Grade.Title,
+                        DifficultyLevel = x.DifficultyLevel.Title,
+                        Picture = x.Picture,
                     }).ToListAsync();
                 var filter = optionals.Where(x => (grade == "" || x.Grade.Contains(grade)) &&
                 (book == "" || x.BookName.Contains(book)) &&
@@ -42,6 +45,34 @@ namespace ExamBuilder.DAL.Repositorys
 
                 return filter.Where(x => search == "" ||
                 x.QuestionText.Contains(search)).ToList();
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
+        public async Task<QuestionDTO> SelectQuestionAsync(int id)
+        {
+            try
+            {
+                var descriptive = await db.OptionalQuestions.Include(x => x.DifficultyLevel)
+                    .Include(x => x.Lesson)
+                    .ThenInclude(x => x.Book)
+                    .ThenInclude(x => x.Grade)
+                    .Where(x => x.Id == id)
+                    .Select(x => new QuestionDTO
+                    {
+                        Id = x.Id,
+                        LessonName = x.Lesson.Title,
+                        BookName = x.Lesson.Book.Title,
+                        QuestionText = x.QuestionText,
+                        QuestionType = Messages.Optional,
+                        Grade = x.Lesson.Book.Grade.Title,
+                        DifficultyLevel = x.DifficultyLevel.Title,
+                        Picture = x.Picture,
+                    }).SingleOrDefaultAsync();
+                return descriptive;
             }
             catch (Exception ex)
             {

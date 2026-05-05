@@ -35,16 +35,14 @@ namespace ExamBuilder.UI
             txtItemName.ScrollToCaret();
             txtItemName.Focus();
         }
-
-        public void LoadItem(FillInBlankItemInfo item,bool readOnly)
+        public void LoadItem(FillInBlankItemInfo item, bool readOnly)
         {
             txtItemName.Text = item.Text;
             txtItemName.ReadOnly = readOnly;
         }
-
         private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+            btnAddBlank.FillColor = Color.FromArgb(123, 127, 133);
         }
     }
 }

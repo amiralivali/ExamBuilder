@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamBuilder.BLL;
+using ExamBuilder.BLL.Interface;
 using ExamBuilder.DAL;
 using ExamBuilder.DAL.Entities;
 using ExamBuilder.Shared;
@@ -23,7 +24,7 @@ namespace ExamBuilder.UI
     public partial class frmManagementQuestion : frmStyle
     {
         BookService bookService;
-        ISelectDTO selectDTO;
+        ISelectQuestions selectDTO;
         public frmManagementQuestion()
         {
             InitializeComponent();
@@ -79,7 +80,7 @@ namespace ExamBuilder.UI
         }
         private async Task<OprationResult<List<QuestionDTO>>> SelectAllQuestionDTOs(string search, string grade, string book, string lesson)
         {
-            var services = new List<ISelectDTO>
+            var services = new List<ISelectQuestions>
             {
                 new DescriptiveService(),
                 new ShortAnswerService(),
@@ -88,10 +89,10 @@ namespace ExamBuilder.UI
                 new TrueFalseService(),
                 new MatchingService()
             };
-            List<QuestionDTO> questionDTOs = new List<QuestionDTO>();
+            var questionDTOs = new List<QuestionDTO>();
             foreach (var service in services)
             {
-                var result = await service.SelectAsync(search, grade, book, lesson);
+                var result = await service.SelectFilterQuestionsAsync(search, grade, book, lesson);
                 if (!result.IsSuccess)
                 {
                     return result;
@@ -102,7 +103,7 @@ namespace ExamBuilder.UI
         }
         private async Task<OprationResult<List<QuestionDTO>>> SelectSelectedQuestionDTO(string search, string grade, string book, string lesson)
         {
-            var result = await selectDTO.SelectAsync(search, grade, book, lesson);
+            var result = await selectDTO.SelectFilterQuestionsAsync(search, grade, book, lesson);
             return result;
         }
         private void ChangeGridViewPage()
@@ -132,11 +133,10 @@ namespace ExamBuilder.UI
 
         private async void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int questionId = int.Parse(dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["Id"].Index].Value.ToString());
+            string questionType = dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["QuestionType"].Index].Value.ToString();
             if (e.ColumnIndex == dgvData.Columns["showItems"].Index)
             {
-
-                int questionId = int.Parse(dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["Id"].Index].Value.ToString());
-                string questionType = dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["QuestionType"].Index].Value.ToString();
                 flpDisplayItem.Controls.Clear();
                 switch (questionType)
                 {
@@ -148,7 +148,7 @@ namespace ExamBuilder.UI
                     case Messages.TrueFalse:
                         {
                             var service = new TrueFalseService();
-                            var result = await service.SelectItemAsync(questionId);
+                            var result = await service.SelectItemsAsync(questionId);
                             if (!result.IsSuccess)
                             {
                                 ShowError(result.Message);
@@ -162,13 +162,15 @@ namespace ExamBuilder.UI
                     case Messages.Optional:
                         {
                             var service = new OptionalService();
-                            var result = await service.SelectItemAsync(questionId);
+                            var result = await service.SelectItemsAsync(questionId);
                             if (!result.IsSuccess)
                             {
                                 ShowError(result.Message);
                                 return;
                             }
-                            var uc = new UC_DGVOptionalItem(result.Data);
+                            var uc = new UC_OptionalQuestion();
+                            uc.Margin = new Padding(100, 25, 0, 0);
+                            uc.LoadItem(result.Data, true);
                             flpDisplayItem.Controls.Add(uc);
                             break;
                         }
@@ -176,7 +178,7 @@ namespace ExamBuilder.UI
                     case Messages.FillInBlank:
                         {
                             var service = new FillInBlankService();
-                            var result = await service.SelectItemAsync(questionId);
+                            var result = await service.SelectItemsAsync(questionId);
                             if (!result.IsSuccess)
                             {
                                 ShowError(result.Message);
@@ -190,7 +192,7 @@ namespace ExamBuilder.UI
                     case Messages.Matching:
                         {
                             var service = new MatchingService();
-                            var result = await service.SelectItemAsync(questionId);
+                            var result = await service.SelectItemsAsync(questionId);
                             if (!result.IsSuccess)
                             {
                                 ShowError(result.Message);
@@ -204,8 +206,36 @@ namespace ExamBuilder.UI
                 panelDisplayItems.BringToFront();
                 panelDisplayItems.Visible = true;
             }
+            else if (e.ColumnIndex == dgvData.Columns["btnEdit"].Index)
+            {
+                var frmUpdate = new frmUpdateQuestion();
+                frmUpdate.questionId = questionId;
+                var type = QuestionTypes.QuestionType.FillInBlankQuestion;
+                switch (questionType)
+                {
+                    case Messages.Descriptive:
+                        type = QuestionTypes.QuestionType.DescriptiveQuestion;
+                        break;
+                    case Messages.ShortAnswer:
+                        type = QuestionTypes.QuestionType.ShortAnswerQuestion;
+                        break;
+                    case Messages.TrueFalse:
+                        type = QuestionTypes.QuestionType.TrueFalseQuestion;
+                        break;
+                    case Messages.Optional:
+                        type = QuestionTypes.QuestionType.OptionalQuestion;
+                        break;
+                    case Messages.FillInBlank:
+                        type = QuestionTypes.QuestionType.FillInBlankQuestion;
+                        break;
+                    case Messages.Matching:
+                        type = QuestionTypes.QuestionType.MatchingQuestion;
+                        break;
+                }
+                frmUpdate.questionType = type;
+                frmUpdate.ShowDialog();
+            }
         }
-
         private async void frmManagementQuestion_Load(object sender, EventArgs e)
         {
             var check = await bookService.SelectAvailableGrades();
@@ -354,17 +384,12 @@ namespace ExamBuilder.UI
             panelDisplayItems.Visible = false;
         }
 
-        private void panelDisplayItems_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void flpDisplayItem_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelDisplayItems_Paint(object sender, PaintEventArgs e)
         {
 
         }

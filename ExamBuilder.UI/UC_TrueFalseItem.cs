@@ -19,15 +19,14 @@ namespace ExamBuilder.UI
             InitializeComponent();
             lblCount.Text = _count.ToString();
         }
-
-        private void txtItemName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         public void LoadItem(TrueFalseItemInfo item, bool readOnly)
         {
             txtItemName.Text = item.Text;
-            txtItemName.ReadOnly = readOnly;
+            txtItemName.ReadOnly = readOnly; 
+        }
+        private void txtItemName_TextChanged(object sender, EventArgs e)
+        {
+
         }
         private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {

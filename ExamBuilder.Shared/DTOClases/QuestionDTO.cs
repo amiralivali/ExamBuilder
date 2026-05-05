@@ -14,5 +14,7 @@ namespace ExamBuilder.Shared.DTOClases
         public string BookName { get; set; }
         public string LessonName { get; set; }
         public string QuestionType { get; set; }
+        public string DifficultyLevel { get; set; }
+        public string Picture {  get; set; }
     }
 }

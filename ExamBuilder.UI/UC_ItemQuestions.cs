@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamBuilder.Shared;
+using ExamBuilder.Shared.InformationClases;
 using static ExamBuilder.Shared.QuestionTypes;
 
 namespace ExamBuilder.UI
@@ -41,7 +42,46 @@ namespace ExamBuilder.UI
             btnCreatItem.Enabled = false;
             btnDeleteItem.Visible = true;
         }
-
+        public void LoadItems<T>(List<T> items) where T : class
+        {
+            int i = 1;
+            foreach (var item in items)
+            {
+                switch (_questionType)
+                {
+                    case QuestionType.FillInBlankQuestion:
+                        {
+                            var uc = new UC_FillInBlankItem(i++);
+                            uc.LoadItem(item as FillInBlankItemInfo, false);
+                            flpItems.Controls.Add(uc);
+                        }
+                        break;
+                    case QuestionType.MatchingQuestion:
+                        {
+                            var uc = new UC_MatchingItem(i++);
+                            uc.LoadItem(item as MatchingItemInfo, false);
+                            flpItems.Controls.Add(uc);
+                        }
+                        break;
+                    case QuestionType.TrueFalseQuestion:
+                        {
+                            var uc = new UC_TrueFalseItem(i++);
+                            uc.LoadItem(item as TrueFalseItemInfo, false);
+                            flpItems.Controls.Add(uc);
+                        }
+                        break;
+                }
+            }
+            numberPick.Value = items.Count;
+            btnCreatItem.FillColor = Color.FromArgb(123, 127, 133);
+            btnDeleteItem.FillColor = Color.FromArgb(123, 127, 133);
+            numberPick.UpDownButtonFillColor = Color.FromArgb(123, 127, 133);
+            btnCreatItem.DisabledState.FillColor = Color.FromArgb(160, 164, 168);
+            btnDeleteItem.DisabledState.FillColor = Color.FromArgb(160, 164, 168);
+            numberPick.DisabledState.FillColor = Color.FromArgb(160, 164, 168);
+            btnCreatItem.Enabled = false;
+            btnDeleteItem.Visible = true;
+        }
         private void numberPick_ValueChanged(object sender, EventArgs e)
         {
             if (numberPick.Value > 0)
@@ -62,6 +102,16 @@ namespace ExamBuilder.UI
         }
 
         private void UC_ItemQuestions_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flpItems_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ShadowPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

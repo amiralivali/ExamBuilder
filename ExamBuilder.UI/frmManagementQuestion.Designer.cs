@@ -67,10 +67,12 @@
             btnPrevious = new Guna.UI2.WinForms.Guna2Button();
             dgvData = new Guna.UI2.WinForms.Guna2DataGridView();
             Id = new DataGridViewTextBoxColumn();
+            Picture = new DataGridViewTextBoxColumn();
             btnEdit = new DataGridViewButtonColumn();
             btnDelete = new DataGridViewButtonColumn();
             ShowItems = new DataGridViewButtonColumn();
             QuestionText = new DataGridViewTextBoxColumn();
+            DifficultyLevel = new DataGridViewTextBoxColumn();
             Grade = new DataGridViewTextBoxColumn();
             book = new DataGridViewTextBoxColumn();
             lesson = new DataGridViewTextBoxColumn();
@@ -104,11 +106,11 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(245, 243, 255);
+            panel1.Controls.Add(dgvData);
             panel1.Controls.Add(panelDisplayItems);
             panel1.Controls.Add(lblPage);
             panel1.Controls.Add(btnNext);
             panel1.Controls.Add(btnPrevious);
-            panel1.Controls.Add(dgvData);
             panel1.Controls.Add(bunifuShadowPanel2);
             panel1.Controls.Add(bunifuShadowPanel1);
             panel1.Controls.Add(guna2CustomGradientPanel1);
@@ -117,7 +119,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(883, 614);
             panel1.TabIndex = 3;
-            panel1.Paint += panel1_Paint;
             // 
             // panelDisplayItems
             // 
@@ -139,9 +140,10 @@
             // flpDisplayItem
             // 
             flpDisplayItem.Dock = DockStyle.Top;
+            flpDisplayItem.FlowDirection = FlowDirection.TopDown;
             flpDisplayItem.Location = new Point(0, 0);
             flpDisplayItem.Name = "flpDisplayItem";
-            flpDisplayItem.Size = new Size(859, 216);
+            flpDisplayItem.Size = new Size(859, 225);
             flpDisplayItem.TabIndex = 1;
             flpDisplayItem.Paint += flpDisplayItem_Paint;
             // 
@@ -159,7 +161,7 @@
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Image = Properties.Resources.close_208px1;
-            guna2Button1.Location = new Point(398, 231);
+            guna2Button1.Location = new Point(398, 234);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(70, 29);
@@ -248,7 +250,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.ColumnHeadersHeight = 45;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { Id, btnEdit, btnDelete, ShowItems, QuestionText, Grade, book, lesson, QuestionType });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { Id, Picture, btnEdit, btnDelete, ShowItems, QuestionText, DifficultyLevel, Grade, book, lesson, QuestionType });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -312,6 +314,14 @@
             Id.Resizable = DataGridViewTriState.False;
             Id.Visible = false;
             // 
+            // Picture
+            // 
+            Picture.DataPropertyName = "Picture";
+            Picture.HeaderText = "عکس";
+            Picture.Name = "Picture";
+            Picture.ReadOnly = true;
+            Picture.Visible = false;
+            // 
             // btnEdit
             // 
             btnEdit.FillWeight = 28.0659924F;
@@ -344,10 +354,18 @@
             QuestionText.ReadOnly = true;
             QuestionText.Resizable = DataGridViewTriState.False;
             // 
+            // DifficultyLevel
+            // 
+            DifficultyLevel.DataPropertyName = "DifficultyLevel";
+            DifficultyLevel.FillWeight = 30F;
+            DifficultyLevel.HeaderText = "سطح سوال";
+            DifficultyLevel.Name = "DifficultyLevel";
+            DifficultyLevel.ReadOnly = true;
+            // 
             // Grade
             // 
             Grade.DataPropertyName = "Grade";
-            Grade.FillWeight = 50F;
+            Grade.FillWeight = 60F;
             Grade.HeaderText = "مقطع تحصیلی";
             Grade.Name = "Grade";
             Grade.ReadOnly = true;
@@ -356,7 +374,7 @@
             // book
             // 
             book.DataPropertyName = "BookName";
-            book.FillWeight = 33.6791878F;
+            book.FillWeight = 40F;
             book.HeaderText = "کتاب";
             book.Name = "book";
             book.ReadOnly = true;
@@ -365,7 +383,7 @@
             // lesson
             // 
             lesson.DataPropertyName = "LessonName";
-            lesson.FillWeight = 33.6791878F;
+            lesson.FillWeight = 40F;
             lesson.HeaderText = "درس";
             lesson.Name = "lesson";
             lesson.ReadOnly = true;
@@ -407,11 +425,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(175, 26);
+            label1.Location = new Point(164, 25);
             label1.Name = "label1";
-            label1.Size = new Size(613, 17);
+            label1.Size = new Size(624, 17);
             label1.TabIndex = 21;
-            label1.Text = "برای مشاهده آیتم های سوالات تستی ، جاخالی ، وصل کردنی و درست و نادرست دکمه مشاهده آیتم ها کلیک کنید";
+            label1.Text = "برای مشاهده آیتم های سوالات تستی ، جاخالی ، وصل کردنی و درست و نادرست دکمه مشاهده آیتم ها را کلیک کنید";
             // 
             // pictureBox1
             // 
@@ -739,6 +757,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(883, 614);
             Controls.Add(panel1);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmManagementQuestion";
             Text = "آزمون یار";
@@ -784,10 +804,12 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private FlowLayoutPanel flpDisplayItem;
         private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Picture;
         private DataGridViewButtonColumn btnEdit;
         private DataGridViewButtonColumn btnDelete;
         private DataGridViewButtonColumn ShowItems;
         private DataGridViewTextBoxColumn QuestionText;
+        private DataGridViewTextBoxColumn DifficultyLevel;
         private DataGridViewTextBoxColumn Grade;
         private DataGridViewTextBoxColumn book;
         private DataGridViewTextBoxColumn lesson;

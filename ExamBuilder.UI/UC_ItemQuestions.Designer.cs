@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             btnDeleteItem = new Guna.UI2.WinForms.Guna2Button();
             flpItems = new FlowLayoutPanel();
@@ -62,6 +62,7 @@
             guna2ShadowPanel2.ShadowDepth = 20;
             guna2ShadowPanel2.Size = new Size(524, 195);
             guna2ShadowPanel2.TabIndex = 35;
+            guna2ShadowPanel2.Paint += guna2ShadowPanel2_Paint;
             // 
             // btnDeleteItem
             // 
@@ -69,7 +70,7 @@
             btnDeleteItem.AnimatedGIF = true;
             btnDeleteItem.AutoRoundedCorners = true;
             btnDeleteItem.BackColor = Color.Transparent;
-            btnDeleteItem.CustomizableEdges = customizableEdges7;
+            btnDeleteItem.CustomizableEdges = customizableEdges1;
             btnDeleteItem.DisabledState.BorderColor = Color.DarkGray;
             btnDeleteItem.DisabledState.CustomBorderColor = Color.DarkGray;
             btnDeleteItem.DisabledState.FillColor = Color.LightSteelBlue;
@@ -80,7 +81,7 @@
             btnDeleteItem.HoverState.FillColor = Color.FromArgb(0, 0, 192);
             btnDeleteItem.Location = new Point(14, 10);
             btnDeleteItem.Name = "btnDeleteItem";
-            btnDeleteItem.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnDeleteItem.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnDeleteItem.Size = new Size(155, 36);
             btnDeleteItem.TabIndex = 30;
             btnDeleteItem.Text = "حذف آیتم ها";
@@ -90,10 +91,11 @@
             // flpItems
             // 
             flpItems.AutoScroll = true;
-            flpItems.Location = new Point(7, 51);
+            flpItems.Location = new Point(8, 49);
             flpItems.Name = "flpItems";
-            flpItems.Size = new Size(510, 141);
+            flpItems.Size = new Size(505, 140);
             flpItems.TabIndex = 0;
+            flpItems.Paint += flpItems_Paint;
             // 
             // guna2Separator2
             // 
@@ -121,7 +123,7 @@
             btnCreatItem.AnimatedGIF = true;
             btnCreatItem.AutoRoundedCorners = true;
             btnCreatItem.BackColor = Color.Transparent;
-            btnCreatItem.CustomizableEdges = customizableEdges9;
+            btnCreatItem.CustomizableEdges = customizableEdges3;
             btnCreatItem.DisabledState.BorderColor = Color.DarkGray;
             btnCreatItem.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCreatItem.DisabledState.FillColor = Color.LightSteelBlue;
@@ -133,7 +135,7 @@
             btnCreatItem.HoverState.FillColor = Color.FromArgb(0, 0, 192);
             btnCreatItem.Location = new Point(530, 135);
             btnCreatItem.Name = "btnCreatItem";
-            btnCreatItem.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnCreatItem.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnCreatItem.Size = new Size(145, 40);
             btnCreatItem.TabIndex = 34;
             btnCreatItem.Text = "ایجاد آیتم";
@@ -142,11 +144,11 @@
             // numberPick
             // 
             numberPick.BackColor = Color.Transparent;
-            numberPick.CustomizableEdges = customizableEdges11;
+            numberPick.CustomizableEdges = customizableEdges5;
             numberPick.Font = new Font("Segoe UI", 9F);
             numberPick.Location = new Point(570, 78);
             numberPick.Name = "numberPick";
-            numberPick.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            numberPick.ShadowDecoration.CustomizableEdges = customizableEdges6;
             numberPick.Size = new Size(71, 32);
             numberPick.TabIndex = 32;
             numberPick.UpDownButtonFillColor = Color.FromArgb(37, 99, 235);

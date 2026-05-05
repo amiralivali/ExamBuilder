@@ -7,10 +7,11 @@ using ExamBuilder.DAL.Repositorys;
 using ExamBuilder.Shared.DTOClases;
 using ExamBuilder.Shared.InformationClases;
 using ExamBuilder.Shared;
+using ExamBuilder.BLL.Interface;
 
 namespace ExamBuilder.BLL
 {
-    public class ShortAnswerService : ISelectDTO
+    public class ShortAnswerService : ISelectQuestions
     {
         ShortAnswerRepository repository;
         public ShortAnswerService()
@@ -18,9 +19,9 @@ namespace ExamBuilder.BLL
             repository = new ShortAnswerRepository();
         }
 
-        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string book, string lesson)
+        public async Task<OprationResult<List<QuestionDTO>>> SelectFilterQuestionsAsync(string search, string grade, string book, string lesson)
         {
-            var data = await repository.SelectAsync(search,grade,book,lesson);
+            var data = await repository.SelectFilterQuestionsAsync(search,grade,book,lesson);
             if (data != null)
             {
                 return OprationResult<List<QuestionDTO>>.Success(data);
@@ -28,6 +29,18 @@ namespace ExamBuilder.BLL
             else
             {
                 return OprationResult<List<QuestionDTO>>.RunTimeError();
+            }
+        }
+        public async Task<OprationResult<QuestionDTO>> SelectQuestionAsync(int id)
+        {
+            var data = await repository.SelectQuestionAsync(id);
+            if (data != null)
+            {
+                return OprationResult<QuestionDTO>.Success(data);
+            }
+            else
+            {
+                return OprationResult<QuestionDTO>.RunTimeError();
             }
         }
 

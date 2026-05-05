@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExamBuilder.BLL.Interface;
 using ExamBuilder.DAL.Entities;
+using ExamBuilder.DAL.Interface;
 using ExamBuilder.DAL.Repositorys;
 using ExamBuilder.Shared;
 using ExamBuilder.Shared.DTOClases;
@@ -11,7 +14,7 @@ using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.BLL
 {
-    public class DescriptiveService : ISelectDTO
+    public class DescriptiveService : ISelectQuestions
     {
         DescriptiveRepository repository;
         public DescriptiveService()
@@ -19,9 +22,9 @@ namespace ExamBuilder.BLL
             repository = new DescriptiveRepository();
         }
 
-        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName)
+        public async Task<OprationResult<List<QuestionDTO>>> SelectFilterQuestionsAsync(string search, string grade, string bookName, string lessonName)
         {
-            var data = await repository.SelectAsync(search, grade, bookName, lessonName);
+            var data = await repository.SelectFilterQuestionsAsync(search, grade, bookName, lessonName);
             if (data != null)
             {
                 return OprationResult<List<QuestionDTO>>.Success(data);
@@ -31,7 +34,18 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
-
+        public async Task<OprationResult<QuestionDTO>> SelectQuestionAsync(int id)
+        {
+            var data = await repository.SelectQuestionAsync(id);
+            if (data != null)
+            {
+                return OprationResult<QuestionDTO>.Success(data);
+            }
+            else
+            {
+                return OprationResult<QuestionDTO>.RunTimeError();
+            }
+        }
         public async Task<OprationResult> DeleteAsync(int id)
         {
             var check=await repository.DeleteAsync(id);

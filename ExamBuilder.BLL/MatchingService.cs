@@ -8,10 +8,11 @@ using ExamBuilder.DAL.Repositorys;
 using ExamBuilder.Shared.DTOClases;
 using ExamBuilder.Shared.InformationClases;
 using ExamBuilder.Shared;
+using ExamBuilder.BLL.Interface;
 
 namespace ExamBuilder.BLL
 {
-    public class MatchingService : ISelectDTO
+    public class MatchingService : ISelectQuestions
     {
         MatchingRepository repository;
         public MatchingService()
@@ -19,9 +20,9 @@ namespace ExamBuilder.BLL
             repository = new MatchingRepository();
         }
 
-        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName)
+        public async Task<OprationResult<List<QuestionDTO>>> SelectFilterQuestionsAsync(string search, string grade, string bookName, string lessonName)
         {
-            var data = await repository.SelectAsync(search,grade,bookName,lessonName);
+            var data = await repository.SelectFilterQuestionsAsync(search,grade,bookName,lessonName);
             if (data != null)
             {
                 return OprationResult<List<QuestionDTO>>.Success(data);
@@ -31,7 +32,19 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
-        public async Task<OprationResult<List<MatchingItemInfo>>> SelectItemAsync(int questionId)
+        public async Task<OprationResult<QuestionDTO>> SelectQuestionAsync(int id)
+        {
+            var data = await repository.SelectQuestionAsync(id);
+            if (data != null)
+            {
+                return OprationResult<QuestionDTO>.Success(data);
+            }
+            else
+            {
+                return OprationResult<QuestionDTO>.RunTimeError();
+            }
+        }
+        public async Task<OprationResult<List<MatchingItemInfo>>> SelectItemsAsync(int questionId)
         {
             var data = await repository.SelectItemsAsync(questionId);
             if (data != null)

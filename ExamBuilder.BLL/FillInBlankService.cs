@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExamBuilder.BLL.Interface;
 using ExamBuilder.DAL.Entities;
 using ExamBuilder.DAL.Repositorys;
 using ExamBuilder.Shared;
@@ -11,16 +12,16 @@ using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.BLL
 {
-    public class FillInBlankService : ISelectDTO
+    public class FillInBlankService : ISelectQuestions
     {
         FillInBlankRepository repository;
         public FillInBlankService()
         {
             repository = new FillInBlankRepository();
         }
-        public async Task<OprationResult<List<QuestionDTO>>> SelectAsync(string search, string grade, string bookName, string lessonName)
+        public async Task<OprationResult<List<QuestionDTO>>> SelectFilterQuestionsAsync(string search, string grade, string bookName, string lessonName)
         {
-            var data = await repository.SelectAsync(search,grade,bookName,lessonName);
+            var data = await repository.SelectFilterQuestionsAsync(search,grade,bookName,lessonName);
             if (data != null)
             {
                 return OprationResult<List<QuestionDTO>>.Success(data);
@@ -30,7 +31,19 @@ namespace ExamBuilder.BLL
                 return OprationResult<List<QuestionDTO>>.RunTimeError();
             }
         }
-        public async Task<OprationResult<List<FillInBlankItemInfo>>> SelectItemAsync(int questionId)
+        public async Task<OprationResult<QuestionDTO>> SelectQuestionAsync(int id)
+        {
+            var data = await repository.SelectQuestionAsync(id);
+            if (data != null)
+            {
+                return OprationResult<QuestionDTO>.Success(data);
+            }
+            else
+            {
+                return OprationResult<QuestionDTO>.RunTimeError();
+            }
+        }
+        public async Task<OprationResult<List<FillInBlankItemInfo>>> SelectItemsAsync(int questionId)
         {
             var data = await repository.SelectItemsAsync(questionId);
             if (data != null)
