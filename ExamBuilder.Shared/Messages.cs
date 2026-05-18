@@ -32,6 +32,7 @@ namespace ExamBuilder.Shared
         public const string Descriptive = "تشریحی";
         public const string FillInBlank = "جاخالی";
         public const string TrueFalse = "درست نادرست";
+        public const string df = "درست نادرست";
         public const string Matching = "وصل کردنی";
         public const string Optional = "تستی";
         public const string ShortAnswer = "کوتاه پاسخ";
