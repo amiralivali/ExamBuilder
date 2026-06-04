@@ -32,7 +32,6 @@ namespace ExamBuilder.UI
                 var bookId = await bookService.GetLastIdAsync(bookInfo.Title, bookInfo.GradeId, bookInfo.GradeInfo);
                 if (bookOpration.IsSuccess)
                 {
-                    var lessonsInfo = new List<LessonInfo>();
                     int count = 1;
                     var lessonInfo = new List<LessonInfo>();
                     foreach (var uc in flpLessons.Controls.OfType<UC_Lessons>())
@@ -44,7 +43,7 @@ namespace ExamBuilder.UI
                             BookId = bookId.Data
                         });
                     }
-                    var lessonOpration = await lessonService.InsertAsync(lessonsInfo);
+                    var lessonOpration = await lessonService.InsertAsync(lessonInfo);
                     if (lessonOpration.IsSuccess)
                     {
                         ShowSuccess(lessonOpration.Message);
