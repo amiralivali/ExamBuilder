@@ -7,21 +7,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExamBuilder.BLL;
+using ExamBuilder.Shared;
 using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.UI
 {
     public partial class UC_DGVTrueFalseItem : UserControl
     {
-        public UC_DGVTrueFalseItem(List<TrueFalseItemInfo> itemInfos)
+        TrueFalseService service;
+        private int _questionId;
+        private frmStyle _style;
+        public UC_DGVTrueFalseItem(int questionId)
         {
             InitializeComponent();
-            dgvData.DataSource = itemInfos;
+            _questionId = questionId;
+            _style = new frmStyle();
+            service = new TrueFalseService();
+            FillDGV();
         }
 
-        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        async void FillDGV()
         {
+            var result = await service.SelectItemsAsync(_questionId);
+            if (!result.IsSuccess)
+            {
+                _style.ShowError(result.Message);
+            }
+            else
+            {
+                dgvData.DataSource = result.Data;
+            }
+        }
 
+        private async void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int questionId = int.Parse(dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["QuestionId"].Index].Value.ToString());
+            int itemId = int.Parse(dgvData.Rows[e.RowIndex].Cells[dgvData.Columns["Id"].Index].Value.ToString());
+            if (e.ColumnIndex == dgvData.Columns["btnEdit"].Index)
+            {
+                var frmUpdate = new frmUpdateQuestion();
+                frmUpdate.questionId = questionId;
+                var type = QuestionTypes.QuestionType.TrueFalseQuestion;
+                frmUpdate.questionType = type;
+                frmUpdate.ShowDialog();
+            }
+            else if (e.ColumnIndex == dgvData.Columns["btnDelete"].Index)
+            {
+                var res = MessageBox.Show(Messages.DeleteItemWarning, Messages.Warning, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (res == DialogResult.Yes)
+                {
+                    var deleteOpration = await service.DeleteItemAsync(itemId);
+                    if (deleteOpration.IsSuccess)
+                    {
+                        _style.ShowSuccess(deleteOpration.Message);
+                        FillDGV();
+                    }
+                    else
+                    {
+                        _style.ShowError(deleteOpration.Message);
+                    }
+                }
+            }
         }
     }
 }

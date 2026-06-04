@@ -193,9 +193,59 @@ namespace ExamBuilder.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Exam_512px {
+            get {
+                object obj = ResourceManager.GetObject("Exam_512px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap help_512px {
             get {
                 object obj = ResourceManager.GetObject("help_512px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_144px {
+            get {
+                object obj = ResourceManager.GetObject("image_144px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_512px {
+            get {
+                object obj = ResourceManager.GetObject("image_512px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Item_Blue {
+            get {
+                object obj = ResourceManager.GetObject("Item_Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Item_Gray {
+            get {
+                object obj = ResourceManager.GetObject("Item_Gray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +326,16 @@ namespace ExamBuilder.UI.Properties {
         internal static System.Drawing.Bitmap outline_512px {
             get {
                 object obj = ResourceManager.GetObject("outline_512px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pass_fail_480px {
+            get {
+                object obj = ResourceManager.GetObject("pass_fail_480px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

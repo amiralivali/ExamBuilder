@@ -6,6 +6,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using Bunifu.UI.WinForms;
+using ExamBuilder.Shared;
 using Guna.UI2.WinForms;
 
 namespace ExamBuilder.UI
@@ -41,14 +42,7 @@ namespace ExamBuilder.UI
         }
         public DialogResult ShowWarningQuestion(string message)
         {
-            SystemSounds.Exclamation.Play();
-            var guna2MessageDialog = new Guna2MessageDialog();
-            guna2MessageDialog.Text = message; 
-            guna2MessageDialog.Caption = "اخطار";
-            guna2MessageDialog.Icon=MessageDialogIcon.Warning;
-            guna2MessageDialog.Style = MessageDialogStyle.Light;
-            guna2MessageDialog.Buttons = MessageDialogButtons.YesNo; 
-            var result = guna2MessageDialog.Show();
+            var result = MessageBox.Show(message, Messages.Warning, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             return result;
         }
     }

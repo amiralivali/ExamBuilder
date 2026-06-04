@@ -14,7 +14,7 @@ using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.BLL
 {
-    public class DescriptiveService : ISelectQuestions
+    public class DescriptiveService : ISelectQuestions , IDeleteQuestion
     {
         DescriptiveRepository repository;
         public DescriptiveService()
@@ -46,7 +46,7 @@ namespace ExamBuilder.BLL
                 return OprationResult<QuestionDTO>.RunTimeError();
             }
         }
-        public async Task<OprationResult> DeleteAsync(int id)
+        public async Task<OprationResult> DeleteQuestionAsync(int id)
         {
             var check=await repository.DeleteAsync(id);
             if (check)

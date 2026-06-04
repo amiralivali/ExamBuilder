@@ -117,8 +117,6 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 var optionalQ = await db.OptionalQuestions.Where(x => x.Id == id).SingleAsync();
                 db.OptionalQuestions.Remove(optionalQ);
-                var optionalItem = await db.OptionalItems.Where(x => x.OptionalId == id).SingleAsync();
-                db.OptionalItems.Remove(optionalItem);
                 await db.SaveChangesAsync();
                 return true;
             }

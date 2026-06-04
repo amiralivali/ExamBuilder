@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_TrueFalseItem));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             txtItemName = new Bunifu.UI.WinForms.BunifuTextBox();
             lblCount = new Label();
             label1 = new Label();
@@ -75,26 +75,26 @@
             txtItemName.Modified = false;
             txtItemName.Multiline = false;
             txtItemName.Name = "txtItemName";
-            stateProperties1.BorderColor = Color.DodgerBlue;
-            stateProperties1.FillColor = Color.Empty;
-            stateProperties1.ForeColor = Color.Empty;
-            stateProperties1.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = Color.FromArgb(204, 204, 204);
-            stateProperties2.FillColor = Color.FromArgb(240, 240, 240);
-            stateProperties2.ForeColor = Color.FromArgb(109, 109, 109);
-            stateProperties2.PlaceholderForeColor = Color.DarkGray;
-            txtItemName.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = Color.FromArgb(105, 181, 255);
-            stateProperties3.FillColor = Color.Empty;
-            stateProperties3.ForeColor = Color.Empty;
-            stateProperties3.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = Color.Silver;
-            stateProperties4.FillColor = Color.White;
-            stateProperties4.ForeColor = Color.Empty;
-            stateProperties4.PlaceholderForeColor = Color.Empty;
-            txtItemName.OnIdleState = stateProperties4;
+            stateProperties5.BorderColor = Color.DodgerBlue;
+            stateProperties5.FillColor = Color.Empty;
+            stateProperties5.ForeColor = Color.Empty;
+            stateProperties5.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = Color.FromArgb(204, 204, 204);
+            stateProperties6.FillColor = Color.FromArgb(240, 240, 240);
+            stateProperties6.ForeColor = Color.FromArgb(109, 109, 109);
+            stateProperties6.PlaceholderForeColor = Color.DarkGray;
+            txtItemName.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = Color.FromArgb(105, 181, 255);
+            stateProperties7.FillColor = Color.Empty;
+            stateProperties7.ForeColor = Color.Empty;
+            stateProperties7.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = Color.Silver;
+            stateProperties8.FillColor = Color.White;
+            stateProperties8.ForeColor = Color.Empty;
+            stateProperties8.PlaceholderForeColor = Color.Empty;
+            txtItemName.OnIdleState = stateProperties8;
             txtItemName.Padding = new Padding(3);
             txtItemName.PasswordChar = '\0';
             txtItemName.PlaceholderForeColor = Color.Silver;
@@ -140,7 +140,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.blue_plus_11976_512;
+            pictureBox1.Image = Properties.Resources.Item_Blue;
             pictureBox1.Location = new Point(418, 11);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(56, 57);

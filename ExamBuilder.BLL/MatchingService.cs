@@ -12,7 +12,7 @@ using ExamBuilder.BLL.Interface;
 
 namespace ExamBuilder.BLL
 {
-    public class MatchingService : ISelectQuestions
+    public class MatchingService : ISelectQuestions, IDeleteQuestion
     {
         MatchingRepository repository;
         public MatchingService()
@@ -101,9 +101,21 @@ namespace ExamBuilder.BLL
                 return checkData;
             }
         }
-        public async Task<OprationResult> DeleteAsync(int id)
+        public async Task<OprationResult> DeleteItemAsync(int id)
         {
             var check = await repository.DeleteItemAsync(id);
+            if (check)
+            {
+                return OprationResult.Success(Messages.Delete);
+            }
+            else
+            {
+                return OprationResult.RunTimeError();
+            }
+        }
+        public async Task<OprationResult> DeleteQuestionAsync(int id)
+        {
+            var check = await repository.DeleteQuestionAsync(id);
             if (check)
             {
                 return OprationResult.Success(Messages.Delete);

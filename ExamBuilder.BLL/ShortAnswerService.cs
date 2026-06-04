@@ -11,7 +11,7 @@ using ExamBuilder.BLL.Interface;
 
 namespace ExamBuilder.BLL
 {
-    public class ShortAnswerService : ISelectQuestions
+    public class ShortAnswerService : ISelectQuestions, IDeleteQuestion
     {
         ShortAnswerRepository repository;
         public ShortAnswerService()
@@ -44,7 +44,7 @@ namespace ExamBuilder.BLL
             }
         }
 
-        public async Task<OprationResult> DeleteAsync(int id)
+        public async Task<OprationResult> DeleteQuestionAsync(int id)
         {
             var check = await repository.DeleteAsync(id);
             if (check)

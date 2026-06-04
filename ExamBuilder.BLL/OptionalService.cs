@@ -12,7 +12,7 @@ using ExamBuilder.BLL.Interface;
 
 namespace ExamBuilder.BLL
 {
-    public class OptionalService : ISelectQuestions
+    public class OptionalService : ISelectQuestions, IDeleteQuestion
     {
         OptionalRepository repository;
         public OptionalService()
@@ -56,7 +56,7 @@ namespace ExamBuilder.BLL
                 return OprationResult<OptionalItemInfo>.RunTimeError();
             }
         }
-        public async Task<OprationResult> DeleteAsync(int id)
+        public async Task<OprationResult> DeleteQuestionAsync(int id)
         {
             var check = await repository.DeleteAsync(id);
             if (check)
@@ -68,7 +68,6 @@ namespace ExamBuilder.BLL
                 return OprationResult.RunTimeError();
             }
         }
-
         public async Task<OprationResult> InsertAsync(QuestionInfo questionInfo,OptionalItemInfo itemInfo)
         {
             var question = questionInfo.MapToOptional();

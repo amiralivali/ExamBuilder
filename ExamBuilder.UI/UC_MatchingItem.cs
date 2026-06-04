@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamBuilder.Shared.InformationClases;
+using ExamBuilder.UI.Properties;
 
 namespace ExamBuilder.UI
 {
@@ -25,6 +26,7 @@ namespace ExamBuilder.UI
             txtLeft.Text = item.LeftText;
             txtRight.Text = item.RightText;
             txtLeft.ReadOnly = txtRight.ReadOnly = readOnly;
+            pictureBox1.Image = Resources.Item_Gray;
         }
         private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {

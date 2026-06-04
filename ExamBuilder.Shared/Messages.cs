@@ -19,8 +19,12 @@ namespace ExamBuilder.Shared
         public const string Required = "وارد کردن {0} اجباری است";
         public const string SelectItemError = "لطفا آیتم های سوال را ایجاد کنید";
         public const string SelectBlankError = "لطفا برای تمامی آیتم ها حداقل یک جاخالی انتخاب کنید";
+        public const string DeleteQuestionWarning = "آیا از حذف سوال اطمینان دارید؟";
+        public const string DeleteItemWarning = "آیا از حذف آیتم اطمینان دارید؟";
         public const string SelectQuestionError = "لطفا نوع سوال را انتخاب کنید";
         public const string QuestionWithoutItemError = "این نوع سوال آیتم ندارد";
+        public const string SelectExamTypeError = "لطفا نوع آزمون را انتخاب کنید";
+        public const string SelectLessonError = "لطفا حداقل یکی از دروس را انتخاب کنید";
         public const string Elementary = "ابتدایی";
         public const string MiddleSchool = "متوسطه اول";
         public const string HighSchool = "متوسطه دوم";
@@ -58,6 +62,7 @@ namespace ExamBuilder.Shared
         public const string Grade = "مقطع تحصیلی";
         public const string LessonName = "نام درس";
         public const string PageOf = "صفحه {0} از {1}";
+        public const string Warning = "اخطار";
         public static List<string> TrueFalseText_Suggestions = new List<string>()
         {
               "درستی یا نادرستی هر یک از گزاره‌های زیر را با علامت (ص) برای صحیح و (غ) برای غلط مشخص کنید.",

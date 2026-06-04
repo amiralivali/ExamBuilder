@@ -12,7 +12,7 @@ using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.BLL
 {
-    public class TrueFalseService : ISelectQuestions
+    public class TrueFalseService : ISelectQuestions, IDeleteQuestion
     {
         TrueFalseRepository repository;
         public TrueFalseService()
@@ -100,9 +100,21 @@ namespace ExamBuilder.BLL
                 return checkData;
             }
         }
-        public async Task<OprationResult> DeleteAsync(int id)
+        public async Task<OprationResult> DeleteItemAsync(int id)
         {
             var check = await repository.DeleteItemAsync(id);
+            if (check)
+            {
+                return OprationResult.Success(Messages.Delete);
+            }
+            else
+            {
+                return OprationResult.RunTimeError();
+            }
+        }
+        public async Task<OprationResult> DeleteQuestionAsync(int id)
+        {
+            var check = await repository.DeleteQuestionAsync(id);
             if (check)
             {
                 return OprationResult.Success(Messages.Delete);

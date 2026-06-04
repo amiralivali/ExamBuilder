@@ -154,7 +154,7 @@ namespace ExamBuilder.UI
                                 ShowError(result.Message);
                                 return;
                             }
-                            var uc = new UC_DGVTrueFalseItem(result.Data);
+                            var uc = new UC_DGVTrueFalseItem(questionId);
                             flpDisplayItem.Controls.Add(uc);
                             break;
                         }
@@ -184,7 +184,7 @@ namespace ExamBuilder.UI
                                 ShowError(result.Message);
                                 return;
                             }
-                            var uc = new UC_DGVFillInBlankItem(result.Data);
+                            var uc = new UC_DGVFillInBlankItem(questionId);
                             flpDisplayItem.Controls.Add(uc);
                             break;
                         }
@@ -198,7 +198,7 @@ namespace ExamBuilder.UI
                                 ShowError(result.Message);
                                 return;
                             }
-                            var uc = new UC_DGVMatchingItem(result.Data);
+                            var uc = new UC_DGVMatchingItem(questionId);
                             flpDisplayItem.Controls.Add(uc);
                             break;
                         }
@@ -234,6 +234,45 @@ namespace ExamBuilder.UI
                 }
                 frmUpdate.questionType = type;
                 frmUpdate.ShowDialog();
+            }
+            else if(e.ColumnIndex == dgvData.Columns["btnDelete"].Index)
+            {
+                var res = ShowWarningQuestion(Messages.DeleteQuestionWarning);
+                if (res == DialogResult.Yes)
+                {
+                    IDeleteQuestion deleteQuestion = new DescriptiveService();
+                    switch (questionType)
+                    {
+                        case Messages.Descriptive:
+                            deleteQuestion = new DescriptiveService();
+                            break;
+                        case Messages.ShortAnswer:
+                            deleteQuestion = new ShortAnswerService();
+                            break;
+                        case Messages.TrueFalse:
+                            deleteQuestion = new TrueFalseService();
+                            break;
+                        case Messages.Optional:
+                            deleteQuestion = new OptionalService();
+                            break;
+                        case Messages.FillInBlank:
+                            deleteQuestion = new FillInBlankService();
+                            break;
+                        case Messages.Matching:
+                            deleteQuestion = new MatchingService();
+                            break;
+                    }
+                    var deleteOpration = await deleteQuestion.DeleteQuestionAsync(questionId);
+                    if (deleteOpration.IsSuccess)
+                    {
+                        ShowSuccess(deleteOpration.Message);
+                        FillDGV();
+                    }
+                    else
+                    {
+                        ShowError(deleteOpration.Message);
+                    }
+                }
             }
         }
         private async void frmManagementQuestion_Load(object sender, EventArgs e)

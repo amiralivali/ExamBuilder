@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamBuilder.Shared.InformationClases;
+using ExamBuilder.UI.Properties;
 
 namespace ExamBuilder.UI
 {
@@ -22,7 +23,8 @@ namespace ExamBuilder.UI
         public void LoadItem(TrueFalseItemInfo item, bool readOnly)
         {
             txtItemName.Text = item.Text;
-            txtItemName.ReadOnly = readOnly; 
+            txtItemName.ReadOnly = readOnly;
+            pictureBox1.Image = Resources.Item_Gray;
         }
         private void txtItemName_TextChanged(object sender, EventArgs e)
         {

@@ -118,6 +118,7 @@
             txtItemName.TextPlaceholder = "متن آیتم را وارد کنید ";
             txtItemName.UseSystemPasswordChar = false;
             txtItemName.WordWrap = true;
+            txtItemName.TextChanged += txtItemName_TextChanged;
             // 
             // lblCount
             // 
@@ -141,7 +142,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.blue_plus_11976_512;
+            pictureBox1.Image = Properties.Resources.Item_Blue;
             pictureBox1.Location = new Point(418, 11);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(56, 57);

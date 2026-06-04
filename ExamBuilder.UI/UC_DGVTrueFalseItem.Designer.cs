@@ -34,12 +34,12 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dgvData = new Guna.UI2.WinForms.Guna2DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            Id = new DataGridViewTextBoxColumn();
             IsValid = new DataGridViewTextBoxColumn();
             ErrorMessage = new DataGridViewTextBoxColumn();
             QuestionId = new DataGridViewTextBoxColumn();
-            dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
-            dataGridViewButtonColumn2 = new DataGridViewButtonColumn();
+            btnEdit = new DataGridViewButtonColumn();
+            btnDelete = new DataGridViewButtonColumn();
             ItemText = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
@@ -67,7 +67,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.ColumnHeadersHeight = 45;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, IsValid, ErrorMessage, QuestionId, dataGridViewButtonColumn1, dataGridViewButtonColumn2, ItemText });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { Id, IsValid, ErrorMessage, QuestionId, btnEdit, btnDelete, ItemText });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -123,14 +123,14 @@
             dgvData.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvData.CellContentClick += dgvData_CellContentClick;
             // 
-            // dataGridViewTextBoxColumn1
+            // Id
             // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            dataGridViewTextBoxColumn1.HeaderText = "شناسه";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn1.Resizable = DataGridViewTriState.False;
-            dataGridViewTextBoxColumn1.Visible = false;
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "شناسه";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Resizable = DataGridViewTriState.False;
+            Id.Visible = false;
             // 
             // IsValid
             // 
@@ -156,21 +156,21 @@
             QuestionId.ReadOnly = true;
             QuestionId.Visible = false;
             // 
-            // dataGridViewButtonColumn1
+            // btnEdit
             // 
-            dataGridViewButtonColumn1.FillWeight = 30F;
-            dataGridViewButtonColumn1.HeaderText = "ویرایش";
-            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            dataGridViewButtonColumn1.ReadOnly = true;
-            dataGridViewButtonColumn1.Resizable = DataGridViewTriState.False;
+            btnEdit.FillWeight = 30F;
+            btnEdit.HeaderText = "ویرایش";
+            btnEdit.Name = "btnEdit";
+            btnEdit.ReadOnly = true;
+            btnEdit.Resizable = DataGridViewTriState.False;
             // 
-            // dataGridViewButtonColumn2
+            // btnDelete
             // 
-            dataGridViewButtonColumn2.FillWeight = 30F;
-            dataGridViewButtonColumn2.HeaderText = "حذف";
-            dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
-            dataGridViewButtonColumn2.ReadOnly = true;
-            dataGridViewButtonColumn2.Resizable = DataGridViewTriState.False;
+            btnDelete.FillWeight = 30F;
+            btnDelete.HeaderText = "حذف";
+            btnDelete.Name = "btnDelete";
+            btnDelete.ReadOnly = true;
+            btnDelete.Resizable = DataGridViewTriState.False;
             // 
             // ItemText
             // 
@@ -193,12 +193,12 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView dgvData;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn IsValid;
         private DataGridViewTextBoxColumn ErrorMessage;
         private DataGridViewTextBoxColumn QuestionId;
-        private DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private DataGridViewButtonColumn dataGridViewButtonColumn2;
+        private DataGridViewButtonColumn btnEdit;
+        private DataGridViewButtonColumn btnDelete;
         private DataGridViewTextBoxColumn ItemText;
     }
 }

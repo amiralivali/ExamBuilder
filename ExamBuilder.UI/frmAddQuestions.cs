@@ -190,7 +190,7 @@ namespace ExamBuilder.UI
             {
                 chipCheckPic.Visible = true;
                 chipCheckPic.BringToFront();
-                chipCheckPic.Parent = guna2ShadowPanel1;
+                chipCheckPic.Parent = panelQuestionInfo;
                 _pictureLocation = ofd.FileName;
             }
         }
@@ -483,6 +483,11 @@ namespace ExamBuilder.UI
         }
 
         private void btnMatching_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flpQuestions_Paint(object sender, PaintEventArgs e)
         {
 
         }

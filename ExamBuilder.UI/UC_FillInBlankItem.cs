@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamBuilder.Shared;
 using ExamBuilder.Shared.InformationClases;
+using ExamBuilder.UI.Properties;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ExamBuilder.UI
@@ -39,10 +40,16 @@ namespace ExamBuilder.UI
         {
             txtItemName.Text = item.Text;
             txtItemName.ReadOnly = readOnly;
+            btnAddBlank.FillColor = Color.FromArgb(123, 127, 133);
+            pictureBox1.Image = Resources.Item_Gray;
         }
         private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
         {
-            btnAddBlank.FillColor = Color.FromArgb(123, 127, 133);
+        }
+
+        private void txtItemName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
