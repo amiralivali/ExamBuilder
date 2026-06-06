@@ -72,7 +72,7 @@
             guna2Panel3.CustomizableEdges = customizableEdges1;
             guna2Transition1.SetDecoration(guna2Panel3, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2Panel3.FillColor = Color.FromArgb(108, 39, 179);
-            guna2Panel3.Location = new Point(337, 60);
+            guna2Panel3.Location = new Point(339, 61);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel3.Size = new Size(250, 11);
@@ -85,7 +85,7 @@
             guna2Panel5.CustomizableEdges = customizableEdges3;
             guna2Transition1.SetDecoration(guna2Panel5, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2Panel5.FillColor = Color.LimeGreen;
-            guna2Panel5.Location = new Point(56, 230);
+            guna2Panel5.Location = new Point(56, 232);
             guna2Panel5.Name = "guna2Panel5";
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel5.Size = new Size(250, 11);
@@ -98,7 +98,7 @@
             guna2Panel7.CustomizableEdges = customizableEdges5;
             guna2Transition1.SetDecoration(guna2Panel7, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2Panel7.FillColor = Color.FromArgb(255, 128, 0);
-            guna2Panel7.Location = new Point(337, 230);
+            guna2Panel7.Location = new Point(337, 232);
             guna2Panel7.Name = "guna2Panel7";
             guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel7.Size = new Size(250, 11);
@@ -286,8 +286,8 @@
             // 
             // frmStart
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(632, 402);
             Controls.Add(guna2Panel1);

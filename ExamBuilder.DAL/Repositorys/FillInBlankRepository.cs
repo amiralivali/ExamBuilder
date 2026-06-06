@@ -43,6 +43,34 @@ namespace ExamBuilder.DAL.Repositorys
             return filter.Where(x => search == "" ||
             x.QuestionText.Contains(search)).ToList();
         }
+        public async Task<List<QuestionDTO>> SelectQuestionsFromLessonAsync(List<int> lessonIds)
+        {
+            try
+            {
+                List<QuestionDTO> list = new List<QuestionDTO>();
+                foreach (int id in lessonIds)
+                {
+                    var fillInblanks = await db.FillInBlankQuestions.Include(x => x.DifficultyLevel).Where(x => x.LessonID == id)
+                        .Select(x => new QuestionDTO
+                        {
+                            Id = x.Id,
+                            QuestionText = x.QuestionText,
+                            QuestionType = Messages.FillInBlank,
+                            DifficultyLevel = x.DifficultyLevel.Title,
+                        }).ToListAsync();
+                    foreach (var fillInblank in fillInblanks)
+                    {
+                        list.Add(fillInblank);
+                    }
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
         public async Task<QuestionDTO> SelectQuestionAsync(int id)
         {
             try

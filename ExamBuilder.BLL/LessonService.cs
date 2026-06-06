@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Repositorys;
 using ExamBuilder.Shared;
+using ExamBuilder.Shared.DTOClases;
 using ExamBuilder.Shared.InformationClases;
 
 namespace ExamBuilder.BLL
@@ -67,7 +68,7 @@ namespace ExamBuilder.BLL
                 return OprationResult.RunTimeError();
             }
         }
-        public async Task<OprationResult<int>> GetLessonIdAsync(int lessonCount,string bookName)
+        public async Task<OprationResult<int>> GetLessonIdAsync(int lessonCount, string bookName)
         {
             int id = await repository.GetLessonIdAsync(lessonCount, bookName);
             if (id != -1)
@@ -79,5 +80,29 @@ namespace ExamBuilder.BLL
                 return OprationResult<int>.RunTimeError();
             }
         }
-    }
+        public async Task<OprationResult<int>> GetCountQuestionsInLessonsAsync(List<int> lessonIds)
+        {
+            int count = await repository.GetCountQuestionsInLessonsAsync(lessonIds);
+            if (count != -1)
+            {
+                return OprationResult<int>.Success(count);
+            }
+            else
+            {
+                return OprationResult<int>.RunTimeError();
+            }
+        }
+        public async Task<OprationResult<List<int>>> GetLessonsId(List<int> lessonCounts, string bookName)
+        {
+            var ids = await repository.GetLessonsId(lessonCounts,bookName);
+            if (ids != null)
+            {
+                return OprationResult<List<int>>.Success(ids);
+            }
+            else
+            {
+                return OprationResult<List<int>>.RunTimeError();
+            }
+        }
+    } 
 }

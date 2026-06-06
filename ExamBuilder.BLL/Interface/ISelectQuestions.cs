@@ -12,5 +12,6 @@ namespace ExamBuilder.BLL.Interface
     {
         Task<OprationResult<List<QuestionDTO>>> SelectFilterQuestionsAsync(string search, string grade, string book, string lesson);
         Task<OprationResult<QuestionDTO>> SelectQuestionAsync(int id);
+        Task<OprationResult<List<QuestionDTO>>> SelectQuestionsFromLessonAsync(List<int> lessonIds);
     }
 }

@@ -59,6 +59,21 @@ namespace ExamBuilder.UI
                 return OprationResult.Success();
             }
         }
+        public async Task<List<int>> GetLessonsId()
+        {
+            List<int> lessonsCounts = new List<int>();
+            int temp = 1;
+            foreach (var rb in flpCheckBoxes.Controls.OfType<Guna2CheckBox>())
+            {
+                if (rb.Checked)
+                {
+                    lessonsCounts.Add(temp);
+                }
+                temp++;
+            }
+            var ids = await lessonService.GetLessonsId(lessonsCounts, BookName);
+            return ids.Data;
+        }
         private async void UC_LessonSelection_Load(object sender, EventArgs e)
         {
             var oprationResult = await lessonService.SelectAsync(BookName);
@@ -81,6 +96,7 @@ namespace ExamBuilder.UI
                         CheckedState = chekced,
                         UncheckedState = uncheck,
                         Checked = false,
+                        Cursor = Cursors.Hand
                     };
                     flpCheckBoxes.Controls.Add(checkBox);
                 }

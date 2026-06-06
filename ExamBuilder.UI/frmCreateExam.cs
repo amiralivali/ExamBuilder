@@ -18,7 +18,7 @@ namespace ExamBuilder.UI
         private UC_ExamInfo _step1;
         private UC_LessonSelection _step2;
         private UC_HeaderSettings _step3;
-        private UC_ExamInfo _step4;
+        private UC_QuestionSelection _step4;
         private UC_Output _step5;
 
         public frmCreateExam()
@@ -27,7 +27,7 @@ namespace ExamBuilder.UI
             _step1 = new UC_ExamInfo();
             _step2 = new UC_LessonSelection();
             _step3 = new UC_HeaderSettings();
-            _step4 = new UC_ExamInfo();
+            _step4 = new UC_QuestionSelection();
             _step5 = new UC_Output();
         }
 
@@ -35,7 +35,7 @@ namespace ExamBuilder.UI
         {
             LoadControl(_step1);
         }
-        private void GoToStep(int step)
+        private async void GoToStep(int step)
         {
             _currentStep = step;
 
@@ -59,6 +59,8 @@ namespace ExamBuilder.UI
 
                 case 4:
                     step4.Checked = true;
+                    var ids = await _step2.GetLessonsId();
+                    _step4.lessonsId = ids;
                     LoadControl(_step4);
                     break;
 
@@ -89,7 +91,7 @@ namespace ExamBuilder.UI
                     return _step2.ValidateData();
 
                 //case 4:
-                //    return _step4.ValidateData();
+                //   return _step4.ValidateData();
 
                 default:
                     return OprationResult.Success();
@@ -142,6 +144,11 @@ namespace ExamBuilder.UI
         }
 
         private void pnlContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

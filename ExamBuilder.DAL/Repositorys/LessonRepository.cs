@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using ExamBuilder.DAL.Entities;
@@ -92,6 +93,46 @@ namespace ExamBuilder.DAL.Repositorys
             {
                 await ex.AddLogAsync();   
                 return -1;
+            }
+        }
+        public async Task<int> GetCountQuestionsInLessonsAsync(List<int> lessonIds)
+        {
+            try
+            {
+                int count = 0;
+                foreach (var lessonId in lessonIds)
+                {
+                    count += await db.DescriptiveQuestions.Where(x => x.LessonID == lessonId).CountAsync();
+                    count += await db.TrueFalseQuestions.Where(x => x.LessonId == lessonId).CountAsync();
+                    count += await db.ShortQuestions.Where(x => x.LessonID == lessonId).CountAsync();
+                    count += await db.OptionalQuestions.Where(x => x.LessonID == lessonId).CountAsync();
+                    count += await db.MatchingQuestions.Where(x => x.LessonID == lessonId).CountAsync();
+                    count += await db.FillInBlankQuestions.Where(x => x.LessonID == lessonId).CountAsync();
+                }
+                return count;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return -1;
+            }
+        }
+        public async Task<List<int>> GetLessonsId(List<int> lessonCounts, string bookName)
+        {
+            try
+            {
+                List<int> lessonsIds = new List<int>();
+                foreach (var lessonCount in lessonCounts)
+                {
+                    var lesson = await db.Lessons.Include(x => x.Book).Where(x => x.LessonCount == lessonCount && x.Book.Title == bookName).SingleAsync();
+                    lessonsIds.Add(lesson.Id);
+                }
+                return lessonsIds;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
             }
         }
     }

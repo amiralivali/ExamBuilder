@@ -95,11 +95,11 @@
             guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             label1 = new Label();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             label3 = new Label();
             pictureBox3 = new PictureBox();
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
-            guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             panel1.SuspendLayout();
             panelTypeQuestions.SuspendLayout();
             guna2ShadowPanel2.SuspendLayout();
@@ -696,36 +696,6 @@
             guna2CustomGradientPanel1.TabIndex = 0;
             guna2CustomGradientPanel1.Paint += guna2CustomGradientPanel1_Paint;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(361, 30);
-            label3.Name = "label3";
-            label3.Size = new Size(98, 21);
-            label3.TabIndex = 19;
-            label3.Text = "ویرایش سوال";
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = Properties.Resources.to_do_list_13181_512__1_;
-            pictureBox3.Location = new Point(51, 8);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(72, 70);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 18;
-            pictureBox3.TabStop = false;
-            // 
-            // guna2BorderlessForm1
-            // 
-            guna2BorderlessForm1.BorderRadius = 15;
-            guna2BorderlessForm1.ContainerControl = this;
-            guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
             // guna2ControlBox2
             // 
             guna2ControlBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -759,10 +729,39 @@
             guna2ControlBox1.Size = new Size(34, 29);
             guna2ControlBox1.TabIndex = 22;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(361, 30);
+            label3.Name = "label3";
+            label3.Size = new Size(98, 21);
+            label3.TabIndex = 19;
+            label3.Text = "ویرایش سوال";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = Properties.Resources.to_do_list_13181_512__1_;
+            pictureBox3.Location = new Point(51, 8);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(72, 70);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 18;
+            pictureBox3.TabStop = false;
+            // 
+            // guna2BorderlessForm1
+            // 
+            guna2BorderlessForm1.BorderRadius = 15;
+            guna2BorderlessForm1.ContainerControl = this;
+            guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
             // frmUpdateQuestion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(827, 828);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

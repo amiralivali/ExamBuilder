@@ -49,6 +49,34 @@ namespace ExamBuilder.DAL.Repositorys
                 return null;
             }
         }
+        public async Task<List<QuestionDTO>> SelectQuestionsFromLessonAsync(List<int> lessonIds)
+        {
+            try
+            {
+                List<QuestionDTO> list = new List<QuestionDTO>();
+                foreach (int id in lessonIds)
+                {
+                    var ShortAnswers = await db.ShortQuestions.Include(x => x.DifficultyLevel).Where(x => x.LessonID == id)
+                        .Select(x => new QuestionDTO
+                        {
+                            Id = x.Id,
+                            QuestionText = x.QuestionText,
+                            QuestionType = Messages.ShortAnswer,
+                            DifficultyLevel = x.DifficultyLevel.Title,
+                        }).ToListAsync();
+                    foreach (var ShortAnswer in ShortAnswers)
+                    {
+                        list.Add(ShortAnswer);
+                    }
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                await ex.AddLogAsync();
+                return null;
+            }
+        }
         public async Task<QuestionDTO> SelectQuestionAsync(int id)
         {
             try

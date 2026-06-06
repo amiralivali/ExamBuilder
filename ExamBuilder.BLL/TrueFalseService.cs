@@ -144,5 +144,18 @@ namespace ExamBuilder.BLL
                 return OprationResult.Success();
             }
         }
+
+        public async Task<OprationResult<List<QuestionDTO>>> SelectQuestionsFromLessonAsync(List<int> lessonIds)
+        {
+            var data = await repository.SelectQuestionsFromLessonAsync(lessonIds);
+            if (data != null)
+            {
+                return OprationResult<List<QuestionDTO>>.Success(data);
+            }
+            else
+            {
+                return OprationResult<List<QuestionDTO>>.RunTimeError();
+            }
+        }
     }
 }
