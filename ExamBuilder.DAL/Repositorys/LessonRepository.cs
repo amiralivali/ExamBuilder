@@ -19,11 +19,12 @@ namespace ExamBuilder.DAL.Repositorys
         {
             db = new ExamBuilderDbContext();
         }
-        public async Task<List<string>> SelectAsync(string bookName)
+        public async Task<List<string>> SelectAsync(string bookName,string gradeInfo)
         {
             try
             {
-                var lessons = await db.Lessons.Include(x => x.Book).Where(x => x.Book.Title == bookName)
+                var lessons = await db.Lessons.Include(x => x.Book).ThenInclude(x => x.Grade).Where(x => x.Book.Title == bookName
+                && x.Book.Grade.Title == gradeInfo)
                     .Select(x => Messages.Lesson + " " + x.LessonCount + " " + x.Title).ToListAsync();
                 return lessons;
             }
@@ -82,11 +83,11 @@ namespace ExamBuilder.DAL.Repositorys
                 return false;
             }
         }
-        public async Task<int> GetLessonIdAsync(int lessonCount, string bookName)
+        public async Task<int> GetLessonIdAsync(int lessonCount, string bookName,string gradeName)
         {
             try
             {
-                var lesson = await db.Lessons.Include(x => x.Book).Where(x => x.LessonCount == lessonCount && x.Book.Title == bookName).SingleAsync();
+                var lesson = await db.Lessons.Include(x => x.Book).ThenInclude(x=>x.Grade).Where(x => x.LessonCount == lessonCount && x.Book.Title == bookName && x.Book.Grade.Title == gradeName).SingleAsync();
                 return lesson.Id;
             }
             catch (Exception ex)
@@ -117,14 +118,14 @@ namespace ExamBuilder.DAL.Repositorys
                 return -1;
             }
         }
-        public async Task<List<int>> GetLessonsId(List<int> lessonCounts, string bookName)
+        public async Task<List<int>> GetLessonsId(List<int> lessonCounts, string bookName, string gradeName)
         {
             try
             {
                 List<int> lessonsIds = new List<int>();
                 foreach (var lessonCount in lessonCounts)
                 {
-                    var lesson = await db.Lessons.Include(x => x.Book).Where(x => x.LessonCount == lessonCount && x.Book.Title == bookName).SingleAsync();
+                    var lesson = await db.Lessons.Include(x => x.Book).ThenInclude(x=>x.Grade).Where(x => x.LessonCount == lessonCount && x.Book.Title == bookName && x.Book.Grade.Title == gradeName).SingleAsync();
                     lessonsIds.Add(lesson.Id);
                 }
                 return lessonsIds;

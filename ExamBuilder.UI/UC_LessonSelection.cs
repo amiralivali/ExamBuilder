@@ -19,6 +19,8 @@ namespace ExamBuilder.UI
     {
         [DefaultValue("")]
         public string BookName { get; set; }
+        [DefaultValue("")]
+        public string GradeName { get; set; }
         LessonService lessonService;
         frmStyle _style;
         public UC_LessonSelection()
@@ -71,12 +73,12 @@ namespace ExamBuilder.UI
                 }
                 temp++;
             }
-            var ids = await lessonService.GetLessonsId(lessonsCounts, BookName);
+            var ids = await lessonService.GetLessonsId(lessonsCounts, BookName,GradeName);
             return ids.Data;
         }
         private async void UC_LessonSelection_Load(object sender, EventArgs e)
         {
-            var oprationResult = await lessonService.SelectAsync(BookName);
+            var oprationResult = await lessonService.SelectAsync(BookName,GradeName);
             if (oprationResult.IsSuccess)
             {
                 flpCheckBoxes.Controls.Clear();

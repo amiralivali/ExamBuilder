@@ -16,6 +16,8 @@ namespace ExamBuilder.UI
     {
         [DefaultValue("")]
         public string BookName { private set; get; }
+        [DefaultValue("")]
+        public string GradeName { private set; get; }
         BookService bookService;
         frmStyle _style;
         public UC_ExamInfo()
@@ -60,6 +62,7 @@ namespace ExamBuilder.UI
 
         private async void cbGrade_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GradeName = cbGrade.SelectedItem.ToString();
             cbBook.Enabled = true;
             var check = await bookService.SelectAsync(cbGrade.SelectedItem.ToString());
             if (check.IsSuccess)

@@ -49,6 +49,7 @@ namespace ExamBuilder.UI
                 case 2:
                     step2.Checked = true;
                     _step2.BookName = _step1.BookName;
+                    _step2.GradeName = _step1.GradeName;
                     LoadControl(_step2);
                     break;
 

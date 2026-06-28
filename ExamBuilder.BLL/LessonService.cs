@@ -18,9 +18,9 @@ namespace ExamBuilder.BLL
         {
             repository = new LessonRepository();
         }
-        public async Task<OprationResult<List<string>>> SelectAsync(string bookName)
+        public async Task<OprationResult<List<string>>> SelectAsync(string bookName ,string gradeInfo)
         {
-            var data = await repository.SelectAsync(bookName);
+            var data = await repository.SelectAsync(bookName,gradeInfo);
             if (data != null)
             {
                 return OprationResult<List<string>>.Success(data);
@@ -68,9 +68,9 @@ namespace ExamBuilder.BLL
                 return OprationResult.RunTimeError();
             }
         }
-        public async Task<OprationResult<int>> GetLessonIdAsync(int lessonCount, string bookName)
+        public async Task<OprationResult<int>> GetLessonIdAsync(int lessonCount, string bookName,string gradeName)
         {
-            int id = await repository.GetLessonIdAsync(lessonCount, bookName);
+            int id = await repository.GetLessonIdAsync(lessonCount, bookName,gradeName);
             if (id != -1)
             {
                 return OprationResult<int>.Success(id);
@@ -92,9 +92,9 @@ namespace ExamBuilder.BLL
                 return OprationResult<int>.RunTimeError();
             }
         }
-        public async Task<OprationResult<List<int>>> GetLessonsId(List<int> lessonCounts, string bookName)
+        public async Task<OprationResult<List<int>>> GetLessonsId(List<int> lessonCounts, string bookName, string gradeName)
         {
-            var ids = await repository.GetLessonsId(lessonCounts,bookName);
+            var ids = await repository.GetLessonsId(lessonCounts,bookName,gradeName);
             if (ids != null)
             {
                 return OprationResult<List<int>>.Success(ids);

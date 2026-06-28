@@ -348,7 +348,7 @@ namespace ExamBuilder.UI
                 LessonService lessonService = new LessonService();
                 cbBook.ForeColor = Color.Black;
                 cbLesson.Enabled = true;
-                var list = await lessonService.SelectAsync(cbBook.SelectedItem.ToString());
+                var list = await lessonService.SelectAsync(cbBook.SelectedItem.ToString(),cbGrade.SelectedItem.ToString());
                 cbLesson.Items.Clear();
                 cbLesson.Items.Add("درس را انتخاب کنید");
                 cbLesson.Items.AddRange(list.Data.ToArray());

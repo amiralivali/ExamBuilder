@@ -41,7 +41,7 @@ namespace ExamBuilder.UI
             {
                 cbBook.ForeColor = Color.Black;
                 cbLesson.Enabled = true;
-                var list = await lessonService.SelectAsync(cbBook.SelectedItem.ToString());
+                var list = await lessonService.SelectAsync(cbBook.SelectedItem.ToString(), cbGrade.SelectedItem.ToString());
                 cbLesson.Items.Clear();
                 cbLesson.Items.Add("درس را انتخاب کنید");
                 cbLesson.Items.AddRange(list.Data.ToArray());
@@ -66,9 +66,9 @@ namespace ExamBuilder.UI
                     }
                     else
                     {
-                        ShowError("هیچ کتابی اضافه نشده است.لطفا ابتدا کتاب اضافه کنید");
                         this.Invoke(new Action(() =>
                         {
+                            ShowError("هیچ کتابی اضافه نشده است.لطفا ابتدا کتاب اضافه کنید");
                             this.Close();
                         }));
                     }
@@ -298,7 +298,7 @@ namespace ExamBuilder.UI
 
         private async void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            var lessonId = await lessonService.GetLessonIdAsync(cbLesson.SelectedIndex, cbBook.SelectedItem.ToString());
+            var lessonId = await lessonService.GetLessonIdAsync(cbLesson.SelectedIndex, cbBook.SelectedItem.ToString(), cbGrade.SelectedItem.ToString());
             if (lessonId.IsSuccess)
             {
                 var questionInfo = new QuestionInfo()
@@ -488,6 +488,16 @@ namespace ExamBuilder.UI
         }
 
         private void flpQuestions_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

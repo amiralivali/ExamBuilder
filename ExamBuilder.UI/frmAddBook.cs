@@ -59,7 +59,7 @@ namespace ExamBuilder.UI
                     ShowError(bookOpration.Message);
                 }
             }
-            else 
+            else
             {
                 ShowError(bookInfo.ErrorMessage);
             }
@@ -132,6 +132,11 @@ namespace ExamBuilder.UI
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

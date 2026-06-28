@@ -74,7 +74,7 @@ namespace ExamBuilder.UI
                 var questionInfo = questionOpration.Data;
                 var gradeOpration = await bookService.SelectAvailableGrades();
                 var bookOpration = await bookService.SelectAsync(questionInfo.Grade);
-                var lessonOpration = await lessonService.SelectAsync(questionInfo.BookName);
+                var lessonOpration = await lessonService.SelectAsync(questionInfo.BookName,questionInfo.Grade);
                 if (gradeOpration.IsSuccess && bookOpration.IsSuccess && lessonOpration.IsSuccess)
                 {
                     cbGrade.Items.AddRange(gradeOpration.Data.ToArray());
@@ -214,7 +214,7 @@ namespace ExamBuilder.UI
                 cbLesson.Enabled = true;
                 if (!_isPriviousData)
                 {
-                    var list = await lessonService.SelectAsync(cbBook.SelectedItem.ToString());
+                    var list = await lessonService.SelectAsync(cbBook.SelectedItem.ToString(),cbGrade.SelectedItem.ToString());
                     cbLesson.Items.Clear();
                     cbLesson.Items.Add("درس را انتخاب کنید");
                     cbLesson.Items.AddRange(list.Data.ToArray());

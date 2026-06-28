@@ -126,6 +126,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(827, 828);
             panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
             // 
             // panelTypeQuestions
             // 
@@ -683,7 +684,7 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(591, 17);
             label1.Name = "label1";
-            label1.Size = new Size(131, 20);
+            label1.Size = new Size(163, 25);
             label1.TabIndex = 21;
             label1.Text = "اطلاعات کلی سوال";
             // 
@@ -705,6 +706,7 @@
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges34;
             guna2CustomGradientPanel1.Size = new Size(827, 81);
             guna2CustomGradientPanel1.TabIndex = 0;
+            guna2CustomGradientPanel1.Paint += guna2CustomGradientPanel1_Paint;
             // 
             // guna2ControlBox2
             // 
@@ -747,7 +749,7 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(361, 30);
             label3.Name = "label3";
-            label3.Size = new Size(129, 21);
+            label3.Size = new Size(162, 28);
             label3.TabIndex = 19;
             label3.Text = "افزودن سوال جدید";
             // 

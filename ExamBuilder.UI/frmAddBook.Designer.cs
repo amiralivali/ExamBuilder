@@ -108,6 +108,7 @@
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2CustomGradientPanel1.Size = new Size(804, 81);
             guna2CustomGradientPanel1.TabIndex = 1;
+            guna2CustomGradientPanel1.Paint += guna2CustomGradientPanel1_Paint;
             // 
             // guna2ControlBox2
             // 
@@ -150,7 +151,7 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(331, 28);
             label3.Name = "label3";
-            label3.Size = new Size(158, 20);
+            label3.Size = new Size(196, 25);
             label3.TabIndex = 19;
             label3.Text = "افزودن کتاب/جزوه جدید";
             // 
@@ -267,7 +268,7 @@
             label6.ForeColor = Color.Black;
             label6.Location = new Point(200, 22);
             label6.Name = "label6";
-            label6.Size = new Size(126, 20);
+            label6.Size = new Size(158, 25);
             label6.TabIndex = 29;
             label6.Text = "اضافه کردن دروس";
             // 
@@ -493,6 +494,7 @@
             numberPick.CustomizableEdges = customizableEdges15;
             numberPick.Font = new Font("Segoe UI", 9F);
             numberPick.Location = new Point(263, 284);
+            numberPick.Margin = new Padding(3, 4, 3, 4);
             numberPick.Name = "numberPick";
             numberPick.RightToLeft = RightToLeft.No;
             numberPick.ShadowDecoration.CustomizableEdges = customizableEdges16;
@@ -509,7 +511,7 @@
             label5.ForeColor = Color.Black;
             label5.Location = new Point(341, 288);
             label5.Name = "label5";
-            label5.Size = new Size(79, 19);
+            label5.Size = new Size(97, 23);
             label5.TabIndex = 26;
             label5.Text = "تعداد دروس";
             // 
@@ -521,7 +523,7 @@
             label4.ForeColor = Color.Black;
             label4.Location = new Point(389, 136);
             label4.Name = "label4";
-            label4.Size = new Size(30, 19);
+            label4.Size = new Size(35, 23);
             label4.TabIndex = 24;
             label4.Text = "پایه";
             // 
@@ -533,7 +535,7 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(360, 66);
             label2.Name = "label2";
-            label2.Size = new Size(59, 19);
+            label2.Size = new Size(70, 23);
             label2.TabIndex = 22;
             label2.Text = "نام کتاب";
             // 
@@ -553,7 +555,7 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(322, 22);
             label1.Name = "label1";
-            label1.Size = new Size(97, 20);
+            label1.Size = new Size(120, 25);
             label1.TabIndex = 20;
             label1.Text = "اطلاعات کتاب";
             // 
