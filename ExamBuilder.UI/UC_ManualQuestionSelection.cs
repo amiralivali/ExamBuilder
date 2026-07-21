@@ -19,6 +19,7 @@ namespace ExamBuilder.UI
     {
         [DefaultValue("")]
         public List<int> LessonsIds {  get; set; }
+        private List<QuestionDTO> _questionDtos { get; set; }
         public UC_ManualQuestionSelection()
         {
             InitializeComponent();
@@ -29,6 +30,23 @@ namespace ExamBuilder.UI
 
         }
 
+        public List<QuestionDTO> GetSelectedQuestions()
+        {
+            List<QuestionDTO> questions = new List<QuestionDTO>();
+            if (dgvData.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgvData.Rows.Count; i++)
+                {
+                    bool check = (bool)dgvData.Rows[i].Cells[dgvData.Columns["Select"].Index].Value;
+                    if (check)
+                    {
+                        int id = int.Parse(dgvData.Rows[i].Cells[dgvData.Columns["Id"].Index].Value.ToString());
+                        questions.Add(_questionDtos.Where(x => x.Id == id).Single());
+                    }    
+                }
+            }
+            return questions;
+        }
         private async void UC_ManualQuestionSelection_Load(object sender, EventArgs e)
         {
             var services = new List<ISelectQuestions>
@@ -52,6 +70,7 @@ namespace ExamBuilder.UI
                 questionDTOs.AddRange(result.Data);
             }
             dgvData.DataSource = questionDTOs;
+            _questionDtos = questionDTOs;
         }
     }
 }
